@@ -7,6 +7,7 @@
     <a href="#">Joshua-Daniel Koch</a>
     <a href="#">Lebenslauf</a>
     <a href="#">Skills</a>
+    <a href="#">Kontakt</a>
   </div>
 </template>
 

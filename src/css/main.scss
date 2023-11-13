@@ -30,7 +30,6 @@
 //______________________________________
 
 .home_grid {
-  margin-top: 3rem;
   display: grid;
   gap: 2rem;
   grid-template-columns: 20% 60% 20%;
@@ -62,7 +61,6 @@
 
 .big_text {
   font-size: $font_large;
-  margin: 0 0 -2rem 0;
 }
 
 .mid_text {
@@ -91,30 +89,44 @@
 }
 
 .content_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex: 0 0 50%;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  transition: all ease-in-out .2s;
+  transition: all ease-in-out .4s;
 
   div {
-    border: 2px solid $secondary_trans;
+    font-weight: bold;
+    line-height: 1;
     border-radius: .5rem;
-    background-color: $secondary_trans;
     padding: 1rem;
     margin: 1rem;
     height: 15rem;
     width: 15rem;
     color: $primary_text;
-    box-shadow: 0 4px 16px 0 black;
   }
 }
+  #content_personal {
+    background-image: url('../media/placeholder_technik.png');
+    box-shadow: 2rem -0.5rem 6rem 3rem $contrast_color_left inset;
+    display: flex;
+    align-items: center;
+    font-size: $font_large;
+    overflow: hidden;
+
+    p {
+      transform: scaleY(1.5);
+    }
+
+  }
 
 .fixed_content {
   display: flex;
   position: fixed;
   left: 50%;
-  top: 200px !important;
-  transform: translate(-50%, 50%) !important;
+  top: 150px !important;
+  transform: translate(-45%, -50%) !important;
 
 }
 
@@ -132,7 +144,7 @@
 }
 
 .scale {
-  transform: scale(1.5);
+  transform: scale(1.3);
   margin-top: 12rem;
 }
 

@@ -8,6 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const cv = document.getElementById("cv") as HTMLElement
   const cv_header = document.getElementById("cv_header") as HTMLElement
 
+
+  const stretchIfOdd = (element: HTMLElement) => {
+    if (element.childNodes.length % 2 != 0) {
+      console.log(element.childNodes[element.childNodes.length - 1])
+
+      element.childNodes[element.childNodes.length - 1].style.width = "35rem"
+    }
+  }
+
+  stretchIfOdd(personalData)
+
   const isElementOnScreen = (scrollElement: HTMLElement) => {
     const rect = scrollElement.getBoundingClientRect();
     return rect.top < window.innerHeight / 2 + 40;
@@ -15,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isElementAbove = (scrollElement: HTMLElement) => {
     const rect = scrollElement.getBoundingClientRect();
-    console.log(rect.bottom)
     return rect.bottom < 70
   }
 
@@ -47,26 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
 <template>
   <div class="center">
     <div style="margin-bottom:65rem; display: none" id="top_joshua_separator"></div>
-    <div class="center content_border fixed_content" id="joshua">
-      <h1 class="big_text">Joshua-Daniel Koch</h1>
+    <div class="center fixed_content" id="joshua">
+      <h1 class="xl_text" style="margin: 0 0 -2rem 0;">Joshua-Daniel Koch</h1>
       <h3> Fachinformatiker in Fachrichtung Anwendungsentwicklung</h3>
     </div>
     <div style="margin-bottom:80rem" id="joshua_data_separator"></div>
     <div class="content_grid" id="personalData">
-      <div style="background-image: url('../media/placeholder_technik.png') !important;">
-        Technik
+      <div id="content_personal">
+       <p> Technik </p>
       </div>
-      <div>
-        Digitale Trends
+      <div id="content_personal">
+       <p> Digitale Trends </p>
       </div>
-      <div>
-        Erste Erfahrung mit 18
+      <div id="content_personal">
+       <p> Erste Erfahrung mit 18 </p>
       </div>
-      <div>
-        Entwicklung und Programmieren
+      <div id="content_personal">
+       <p> Gewissenhafte Arbeit </p>
       </div>
-      <div>
-        Gewissenhafte Arbeit
+      <div id="content_personal">
+       <p> Entwicklung und Programmieren </p>
       </div>
     </div>
     <!--    <p>Ich war schon von Kind aus interessiert an Technik und Digitale Trends.-->

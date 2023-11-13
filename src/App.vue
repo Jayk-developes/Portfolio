@@ -4,7 +4,20 @@ import Navbar from "./components/Navbar.vue";
 import Content from "./components/Content.vue";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const wallpaper = document.getElementById("wallpaper")
+  let wallpaper = document.getElementById("wallpaper")
+
+  onscroll = (event) => {
+    const opacity = 1 - (window.pageYOffset / 900)
+    const scale = 1 + (window.pageYOffset / 5000)
+    if (opacity <= 0) {
+      wallpaper.style.display = "none"
+    }
+    else {
+      wallpaper.style.display = "flex"
+      wallpaper.style.opacity = opacity.toString()
+      wallpaper.style.transform = "scale(" + scale.toString() + ")"
+    }
+  }
 
 
 })
@@ -15,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="home_grid">
     <div><Navbar /></div>
     <div><Content /></div>
-    <div><img src="./media/Joshua_Koch.jpg" class="square fixed_img"></div>
+   <!-- <div><img src="./media/Joshua_Koch.jdpg" class="square fixed_img"></div> -->
   </div>
 </template>
 
