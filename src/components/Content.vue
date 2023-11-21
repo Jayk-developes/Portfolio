@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   addEventListener("scroll", (event) => {
-    console.log(skills_header.getBoundingClientRect().bottom)
     if(!(isElementAbove(personalData, -100000, -270)))
     scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header)
     if (isElementAbove(personalData, -2100, -270)) {
