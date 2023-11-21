@@ -1,5 +1,9 @@
 @import "variables";
 
+:root, a {
+  cursor: none !important;
+}
+
 .square {
   height: 15rem;
   width: 15rem;
@@ -46,12 +50,16 @@
   padding: 3rem 1rem 1rem 1rem;
 
   a {
-    margin: .25rem 0;
+    margin: 0 0;
     padding: 0.5rem;
     font-size: $font_size_all;
     color: $primary_text;
     border-radius: .5em;
     transition: all ease-in-out .2s;
+  }
+
+  a:first-child {
+    margin-top: 6rem;
   }
 
   a:hover {
@@ -90,7 +98,7 @@
 
 .content_grid {
   display: flex;
-  flex: 0 0 50%;
+  flex: 1 1 auto;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
@@ -105,10 +113,7 @@
     height: 15rem;
     width: 15rem;
     color: $primary_text;
-  }
-}
-  #content_personal {
-    background-image: url('../media/placeholder_technik.png');
+    flex-basis: 30%;
     box-shadow: 2rem -0.5rem 6rem 3rem $contrast_color_left inset;
     display: flex;
     align-items: center;
@@ -118,6 +123,10 @@
     p {
       transform: scaleY(1.5);
     }
+  }
+}
+  #content_personal {
+    background-image: url('../media/placeholder_technik.png');
 
   }
 
@@ -144,7 +153,7 @@
 }
 
 .scale {
-  transform: scale(1.3);
+  transform: scale(1.4);
   margin-top: 12rem;
 }
 
@@ -154,4 +163,14 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.trail { /* className for the trail elements */
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-radius: 3px;
+  box-shadow: 0 0 1.25rem .5rem white;
+  background: transparent;
+  transition: box-shadow ease-in-out .5s;
 }
