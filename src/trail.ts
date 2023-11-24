@@ -23,13 +23,17 @@ var Dot = function() {
 Dot.prototype.draw = function() {
   this.node.style.left = this.x + "px";
   this.node.style.top = this.y + "px";
-  this.node.style.boxShadow = overAElement ? "0 0 1rem .33rem #ff44ff" : "0 0 .5rem .25rem white";
+  this.node.style.width = "1px"
+  this.node.style.height = "1px"
+  this.node.style.borderRadius = "5rem"
+  this.node.style.backgroundColor = "white"
+  this.node.style.boxShadow = overAElement ? "0 0 1rem .75rem #ff44ff" : "0 0 .5rem .5rem white";
 
 
 };
 
 // Creates the Dot objects, populates the dots array
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < 1; i++) {
   var d = new Dot();
   dots.push(d);
 }
@@ -56,10 +60,9 @@ function draw() {
 
 addEventListener("mousemove", function(event) {
   //event.preventDefault();
-  overAElement = event.target.tagName == "A"
+  overAElement = event.target.tagName == "INPUT"
   scroll_mouse_pos = event.pageY
   scroll_offset = pageYOffset
-  console.log(scroll_mouse_pos)
   mouse.x = event.pageX;
   mouse.y = event.pageY;
 });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import "../scrollIntoView.ts"
 document.addEventListener("DOMContentLoaded", () => {
   const joshua = document.getElementById("joshua") as HTMLElement
   const joshua_data_separator = document.getElementById("joshua_data_separator") as HTMLElement
@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const data_skills_separator = document.getElementById("data_skills_separator") as HTMLElement
   const skills = document.getElementById("skills") as HTMLElement
   const contact_header = document.getElementById("contact_header") as HTMLElement
+
+  const content_personal_sections = document.querySelectorAll("#content_personal_sections")
 
   if (joshua.getBoundingClientRect().bottom > 0) {
     joshua.classList.add("fixed_content")
@@ -33,10 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener("scroll", (event) => {
     if(!(isElementAbove(personalData, -100000, -270)))
-    scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header)
+    scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header, content_personal_sections)
     if (isElementAbove(personalData, -2100, -270)) {
       cv_header.style.marginTop = "0rem"
       scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header)
+      content_personal_sections.style.display = "none"
     }
     if (isElementAbove(cv, -2000, -270)) {
       skills_header.style.marginTop = "0rem"
@@ -46,11 +49,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  const scrollAnimation = (targetData: HTMLElement, targetHeader: HTMLElement, separatortop?: HTMLElement, separatorbtm: HTMLElement, lowerHeader?: HTMLElement) => {
+  const scrollAnimation = (targetData: HTMLElement, targetHeader: HTMLElement, separatortop?: HTMLElement, separatorbtm: HTMLElement, lowerHeader?: HTMLElement, targetDataContent?: HTMLElement) => {
     const isOnScreen = isElementOnScreen(targetData)
     const dataAbove = isElementAbove(targetData, -2100, -270)
     targetHeader.style.marginTop = "0rem"
     targetData.classList.toggle('scale', isOnScreen);
+    if (targetDataContent) {
+      for (let i = 0; i < targetDataContent.length; i++) {
+        targetDataContent[i].style.display = isOnScreen ? "block" : "none";
+      }
+    }
     targetHeader.classList.toggle('fixed_content', !isOnScreen);
     targetHeader.classList.toggle('scalePointSeven', isOnScreen);
     (isOnScreen) ? document.documentElement.style.setProperty("background-color", "#222266") : document.documentElement.style.setProperty("background-color", "#222222")
@@ -75,21 +83,48 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <div style="margin-bottom:100rem" id="joshua_data_separator"></div>
     <div class="content_grid" id="personalData">
-      <div id="content_personal">
+      <div id="content_personal" style="z-index: 10;">
         <p> Technik </p>
       </div>
-      <div id="content_personal">
+      <div id="content_personal" style="z-index: 8;">
         <p> Digitale Trends </p>
       </div>
-      <div id="content_personal">
+
+      <div id="content_personal" style="z-index: 6;">
         <p> Erste Erfahrung mit 18 </p>
       </div>
-      <div id="content_personal">
+      <div id="content_personal" style="z-index: 4;">
         <p> Gewissenhafte Arbeit </p>
       </div>
-      <div id="content_personal">
+      <div id="content_personal" style="z-index: 2;">
         <p> Entwicklung und Programmieren </p>
       </div>
+      <section style="z-index: 9;" id="content_personal_sections">
+        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
+        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 7;" id="content_personal_sections">
+        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
+        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 5;" id="content_personal_sections">
+        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
+        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 3;" id="content_personal_sections">
+        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
+        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 1;" id="content_personal_sections">
+        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
+        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+
     </div>
     <!--    <p>Ich war schon von Kind aus interessiert an Technik und Digitale Trends.-->
     <!--      Trotzdem habe ich erst im Alter von 18 meine ersten Erfahrungen mit Entwicklung und Programmieren gemacht.-->

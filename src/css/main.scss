@@ -1,7 +1,11 @@
 @import "variables";
 
-:root, a {
+:root, a, button, input {
   cursor: none !important;
+}
+
+:root, body {
+  background-color: #000011 !important;
 }
 
 .square {
@@ -49,20 +53,23 @@
   left: 0;
   padding: 3rem 1rem 1rem 1rem;
 
-  a {
+  input {
+    background-color: transparent;
+    border: transparent;
     margin: 0 0;
     padding: 0.5rem;
     font-size: $font_size_all;
+    text-align: left;
     color: $primary_text;
     border-radius: .5em;
     transition: all ease-in-out .2s;
   }
 
-  a:first-child {
+  input:first-child {
     margin-top: 6rem;
   }
 
-  a:hover {
+  input:hover {
     background-color: $secondary_trans;
   }
 }
@@ -102,15 +109,16 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  transition: all ease-in-out .4s;
+  transition: all ease-in-out 0.4s;
 
   div {
+    z-index: 0;
     font-weight: bold;
     line-height: 1;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1rem;
     margin: 1rem;
-    height: 15rem;
+    height: 10rem;
     width: 15rem;
     color: $primary_text;
     flex-basis: 30%;
@@ -124,7 +132,60 @@
       transform: scaleY(1.5);
     }
   }
+
+  section {
+    border-radius: .5rem;
+    background-color: $primary;
+    display: none;
+    opacity: 1;
+    position: absolute;
+    width: 30%;
+    height: 12.6rem;
+    padding: 0 .5rem 1rem;
+    margin-top: 0 !important;
+    transition: $primary_transition_fade;
+
+    p {
+      height: 11.6rem;
+      overflow: scroll;
+    };
+
+    @for $i from 6 to 13 {
+      &:nth-child(#{$i}) {
+        @if $i % 2 == 1 {
+           left: 52.75%;
+          top: calc(17% * ($i - 6) - 14.5%);
+      } @else {
+          right: 52.75%;
+          top: calc(17% * ($i - 5) - 14.5%)}
+
+      }
+    }
+
+    &:last-child {
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    &:hover {
+      padding-top: 12.5rem;
+      opacity: 1;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    top: 87.5%;
+    left: 90%;
+    font-size: $font_large;
+  }
 }
+
   #content_personal {
     background-image: url('../media/placeholder_technik.png');
 

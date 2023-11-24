@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar.vue";
 import Content from "./components/Content.vue";
 import "./trail.ts";
+import "./scrollIntoView.ts"
 
 document.addEventListener("DOMContentLoaded", () => {
   let wallpaper = document.getElementById("wallpaper")
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <template>
+  <span style="width: 1px; height: 1px; background-color: transparent" id="veryTop"></span>
   <img src="./media/mountain.gif" alt="wallpaper" class="wallpaper" id="wallpaper">
   <div class="home_grid">
     <div><Navbar /></div>
