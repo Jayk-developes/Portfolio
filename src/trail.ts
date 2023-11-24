@@ -21,12 +21,13 @@ var Dot = function() {
 // The Dot.prototype.draw() method sets the position of
   // the object's <div> node
 Dot.prototype.draw = function() {
+  this.node.style.zIndex = "1000"
   this.node.style.left = this.x + "px";
   this.node.style.top = this.y + "px";
   this.node.style.width = "1px"
   this.node.style.height = "1px"
   this.node.style.borderRadius = "5rem"
-  this.node.style.backgroundColor = "white"
+  this.node.style.backgroundColor = overAElement ? "#ff44ff": "white"
   this.node.style.boxShadow = overAElement ? "0 0 1rem .75rem #ff44ff" : "0 0 .5rem .5rem white";
 
 

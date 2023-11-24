@@ -30,18 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isElementAbove = (scrollElement: HTMLElement, maximal: number, minimal: number) => {
     const rect = scrollElement.getBoundingClientRect();
+    console.log(rect.bottom)
     return maximal < rect.bottom && rect.bottom < minimal
   }
 
   addEventListener("scroll", (event) => {
     if(!(isElementAbove(personalData, -100000, -270)))
     scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header, content_personal_sections)
-    if (isElementAbove(personalData, -2100, -270)) {
+    if (isElementAbove(personalData, -2480, -270)) {
       cv_header.style.marginTop = "0rem"
       scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header)
-      content_personal_sections.style.display = "none"
+      for(let i = 0; i < content_personal_sections.length; i++) {
+        content_personal_sections[i].style.display = "none"
+      }
     }
-    if (isElementAbove(cv, -2000, -270)) {
+    if (isElementAbove(cv, -2000, -320)) {
       skills_header.style.marginTop = "0rem"
       scrollAnimation(skills, skills_header, cv_skills_separator, data_skills_separator, contact_header)
     }
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
     targetHeader.classList.toggle('fixed_content', !isOnScreen);
+    targetHeader.style.marginLeft = !isOnScreen ? "0": "1rem"
     targetHeader.classList.toggle('scalePointSeven', isOnScreen);
     (isOnScreen) ? document.documentElement.style.setProperty("background-color", "#222266") : document.documentElement.style.setProperty("background-color", "#222222")
     if (separatortop) {
@@ -105,23 +109,24 @@ document.addEventListener("DOMContentLoaded", () => {
         <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
       </section>
       <section style="z-index: 7;" id="content_personal_sections">
-        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
-        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <p>Digitale Trends spielen im Leben von Joshua eine große Rolle. Er nutzt Soziale Medien und erkennt aktuelle Trends. Somit hat er ein gutes Verstädnis, welche
+        Designs und Darstellungen momentan modern sind und wie man diese Umsetzten kann. Da Joshua großes Interesse hat an der Umsetzung von Design, aber auch funktionalität,
+        hat er eine perfekte Balance zwischen Theorie und Praxis im Bereich Back- und Frontend.</p>
         <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
       </section>
       <section style="z-index: 5;" id="content_personal_sections">
-        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
-        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <p>Mit dem Programmieren hat Joshua mit 18 angefangen. Hier hat er zunächst mit der Programmiersprache "C#" begonnen. Mit dem Anfang der Ausbildung bei der comNET GmbH
+        hat sich der Fokus auf "Python" und "JavaScript" gelegt. Aber auch andere Sprachen wie Java oder C++ hat er sich privat angeeignet.</p>
         <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
       </section>
       <section style="z-index: 3;" id="content_personal_sections">
-        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
-        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <p>Joshua ist ehrgeizig und schafft es auch in stressigen Situationen seine Arbeit zu vervollständigen. Er möchte stets ein Produkt liefern,
+        welches die Anforderungen konkret umsetzt und ist sich nicht scheu Fehler einzustehen und diese zu beheben.</p>
         <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
       </section>
       <section style="z-index: 1;" id="content_personal_sections">
-        <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in der Branche machen könnte und entschied sich erstmal
-        andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch schon früh ein Grundwissen aneignen können.</p>
+        <p>Das Fachgebiet, für welches sich Joshua entschieden hat, ist die Webentwicklung. Er interessiert sich für den Aufbau und design der Anwendung
+        aber auch für die Struktur einer Datenbank und dessen Anbindung. Zusätzlich möchte er sich im Gebiet Appentwicklung und Spieleentwicklung ausdehnen.</p>
         <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
       </section>
 
