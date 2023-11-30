@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import "../scrollIntoView.ts"
+import URI from "urijs";
+
 document.addEventListener("DOMContentLoaded", () => {
   const joshua = document.getElementById("joshua") as HTMLElement
   const joshua_data_separator = document.getElementById("joshua_data_separator") as HTMLElement
@@ -14,8 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const data_skills_separator = document.getElementById("data_skills_separator") as HTMLElement
   const skills = document.getElementById("skills") as HTMLElement
   const contact_header = document.getElementById("contact_header") as HTMLElement
+  const contact_content = document.getElementById("contact_content") as HTMLElement
 
   const content_personal_sections = document.querySelectorAll("#content_personal_sections")
+  const cv_sections = document.querySelectorAll("#cv_sections")
+  const skills_sections = document.querySelectorAll("#skills_sections")
 
   if (joshua.getBoundingClientRect().bottom > 0) {
     joshua.classList.add("fixed_content")
@@ -30,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isElementAbove = (scrollElement: HTMLElement, maximal: number, minimal: number) => {
     const rect = scrollElement.getBoundingClientRect();
-    console.log(rect.bottom)
     return maximal < rect.bottom && rect.bottom < minimal
   }
 
@@ -39,15 +43,21 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header, content_personal_sections)
     if (isElementAbove(personalData, -2480, -270)) {
       cv_header.style.marginTop = "0rem"
-      scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header)
+      scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header, cv_sections)
       for(let i = 0; i < content_personal_sections.length; i++) {
         content_personal_sections[i].style.display = "none"
       }
     }
     if (isElementAbove(cv, -2000, -320)) {
       skills_header.style.marginTop = "0rem"
-      scrollAnimation(skills, skills_header, cv_skills_separator, data_skills_separator, contact_header)
+      scrollAnimation(skills, skills_header, cv_skills_separator, data_skills_separator, contact_header, skills_sections)
+            for(let i = 0; i < cv_sections.length; i++) {
+        cv_sections[i].style.display = "none"
+      }
     }
+
+    contact_content.classList.toggle('scale', isElementOnScreen(contact_header))
+    contact_content.style.marginTop = isElementOnScreen(contact_header) ? "4rem" : "0rem"
 
   });
 
@@ -58,7 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
     targetHeader.style.marginTop = "0rem"
     targetData.classList.toggle('scale', isOnScreen);
     if (targetDataContent) {
-      for (let i = 0; i < targetDataContent.length; i++) {
+      let lastChild = targetDataContent.length -1
+      for (let i = 0; i <= lastChild; i++) {
+        targetDataContent[i].addEventListener("mouseover", () => {
+          targetDataContent[i].style.paddingTop = "12.5rem"
+        })
+        targetDataContent[i].addEventListener("mouseout", () => {
+          targetDataContent[i].style.paddingTop = "0rem";
+        });
+        if (i % 2 == 1) {
+          targetDataContent[i].style.top = ((17 * (i)) - 14.5) + "%"
+          targetDataContent[i].style.left = "52.75%"
+        } else {
+          targetDataContent[i].style.top = ((17 * (i + 1)) - 14.5) + "%"
+          if (i == lastChild && lastChild % 2 == 0) {
+            targetDataContent[i].style.right = "none"
+          } else {
+            targetDataContent[i].style.right = "52.75%"
+          }
+        }
         targetDataContent[i].style.display = isOnScreen ? "block" : "none";
       }
     }
@@ -76,6 +104,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 })
+  const OpenMail = () => {
+    let body = document.getElementById("Email_body")
+    let subject = document.getElementById("Email_subject")
+
+    // "mailto:m.mustermann@domain.de?body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+    // "mailto:m.mustermann@domain.de?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+
+    body = URI.encode(body.value)
+    subject = URI.encode(subject.value)
+    let URIString = `mailto:joshua.daniel.koch@gmail.com?subject=${subject}&body=${body}`
+    console.log(URIString)
+    window.location.href = URIString
+
+  }
 </script>
 
 <template>
@@ -95,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <div id="content_personal" style="z-index: 6;">
-        <p> Erste Erfahrung mit 18 </p>
+        <p> Beginn in der Branche mit 18</p>
       </div>
       <div id="content_personal" style="z-index: 4;">
         <p> Gewissenhafte Arbeit </p>
@@ -143,18 +185,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div style="margin-bottom:100rem" id="data_cv_separator"></div>
     <div class="content_grid" id="cv">
-      <div>
+      <div id="content_cv" style="z-index: 12;">
+        <p>Persönliche Daten</p>
+      </div>
+      <div id="content_cv" style="z-index: 10;">
         <p>Fachhoch- schulreife</p>
       </div>
-      <div>
+      <div id="content_cv" style="z-index: 8;">
+        <p>Berufserfahrung</p>
+      </div>
+      <div id="content_cv" style="z-index: 6;">
+        <p>Schulische Laufbahn</p>
+      </div>
+      <div id="content_cv" style="z-index: 4;">
         <p>Engagement</p>
       </div>
-      <div>
+      <div id="content_cv" style="z-index: 2;">
         <p>Motivation</p>
       </div>
-      <div>
-        <p>Durchschnitt ⌀1.6</p>
-      </div>
+      <section style="z-index: 11;" id="cv_sections">
+        <p>Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand ledig. Er besitzt die deutsche
+        Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem regelmäßigen Zeichnen.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 9;" id="cv_sections">
+        <p>Joshua konnte mit Abschluss der 12. Klasse, sowie der Ausbildung bei der comNET GmbH seine Fachhochschulreife ergattern. Im schulischen Teil bestand er die Fachhochschulreife mit dem Notendurchschnitt von 2.7
+        Den erweiterten Sekundarabschluss I bestand Joshua sogar mit einem Notendurchschnitt von 1.6. Seine Interessen lagen hierbei im Fokus bei Kunst und Mathe.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 7;" id="cv_sections">
+        <p>Durch seine vielfältigen Praktika hat Joshua schon viele Bereiche abgedeckt und ist sich somit sicher, dass die IT das Richtige für ihn ist. Er hat beispielsweise ein
+        Zweiwöchiges Praktikum als Fahrzeuglackierer absolviert. Zusätzlich hat er auch erste Erfahrungen in der Floristik. Das Praktikum und die Ausbildung hat Joshua jedoch
+        gezeigt, dass Programmieren das Gebiet ist, in welchem er sich am meisten entfalten kann!</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 5;" id="cv_sections">
+        <p>Joshua besuchte die Grundschule Entenfang von 2008-2012. Von 2012 bis 2018 erreichte er seinen erweiterten Sekundarabschluss I und erlangte auch die Fachhochschulreife im Zeitraum 2018-2020.
+        2020-2024 hat er nun Seine Ausbildung absolvieren können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 3;" id="cv_sections">
+        <p>Joshua Koch zeigt viel Engagement und kann komplexe Probleme mit großer Kreativität lösen. Rückschritte stören ihn nicht und freut sich über konstruktive Kritik.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 1;" id="cv_sections">
+        <p>Motivation wird bei Joshua großgeschrieben. Er ist ambitioniert an seinen Aufgaben und erreicht äußerst gute Ergebnisse, vorallem wenn sein Interesse geweckt wurde. Er macht nicht
+        halt, bevor er ein Ergebnis erreich hat, welches ihn selbst zufriedenstellt.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
 
     </div>
     <!--    <h3>Lebenslauf</h3>-->
@@ -167,24 +245,54 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <div style="margin-bottom:100rem" id="data_skills_separator"></div>
     <div class="content_grid" id="skills">
-      <div>
+      <div id="content_skills" style="z-index: 12;">
         <p> HTML / CSS </p>
       </div>
-      <div>
+      <div id="content_skills" style="z-index: 10;">
         <p> Javascript / Typescript </p>
       </div>
-      <div>
+      <div id="content_skills" style="z-index: 8;">
         <p> Vue.js </p>
       </div>
-      <div>
+      <div id="content_skills" style="z-index: 6;">
         <p> Django </p>
       </div>
-      <div>
+      <div id="content_skills" style="z-index: 4;">
         <p> FastAPI </p>
       </div>
-      <div>
+      <div id="content_skills" style="z-index: 2;">
         <p> SQL </p>
       </div>
+      <section style="z-index: 11;" id="skills_sections">
+        <p>Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand ledig. Er besitzt die deutsche
+        Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem regelmäßigen Zeichnen.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 9;" id="skills_sections">
+        <p>Joshua konnte mit Abschluss der 12. Klasse, sowie der Ausbildung bei der comNET GmbH seine Fachhochschulreife ergattern. Im schulischen Teil bestand er die Fachhochschulreife mit dem Notendurchschnitt von 2.7
+        Den erweiterten Sekundarabschluss I bestand Joshua sogar mit einem Notendurchschnitt von 1.6. Seine Interessen lagen hierbei im Fokus bei Kunst und Mathe.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 7;" id="skills_sections">
+        <p>Durch seine vielfältigen Praktika hat Joshua schon viele Bereiche abgedeckt und ist sich somit sicher, dass die IT das Richtige für ihn ist. Er hat beispielsweise ein
+        Zweiwöchiges Praktikum als Fahrzeuglackierer absolviert. Zusätzlich hat er auch erste Erfahrungen in der Floristik. Das Praktikum und die Ausbildung hat Joshua jedoch
+        gezeigt, dass Programmieren das Gebiet ist, in welchem er sich am meisten entfalten kann!</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 5;" id="skills_sections">
+        <p>Joshua besuchte die Grundschule Entenfang von 2008-2012. Von 2012 bis 2018 erreichte er seinen erweiterten Sekundarabschluss I und erlangte auch die Fachhochschulreife im Zeitraum 2018-2020.
+        2020-2024 hat er nun Seine Ausbildung absolvieren können.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 3;" id="skills_sections">
+        <p>Joshua Koch zeigt viel Engagement und kann komplexe Probleme mit großer Kreativität lösen. Rückschritte stören ihn nicht und freut sich über konstruktive Kritik.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
+      <section style="z-index: 1;" id="skills_sections">
+        <p>Motivation wird bei Joshua großgeschrieben. Er ist ambitioniert an seinen Aufgaben und erreicht äußerst gute Ergebnisse, vorallem wenn sein Interesse geweckt wurde. Er macht nicht
+        halt, bevor er ein Ergebnis erreich hat, welches ihn selbst zufriedenstellt.</p>
+        <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
+      </section>
     </div>
     <!--    <h3>Skills</h3>-->
     <!--    <p>Ich habe mich Spezialisiert in der Entwicklung an Websites, sodass ich nicht nur umfangreiche Erfahrung in-->
@@ -193,6 +301,15 @@ document.addEventListener("DOMContentLoaded", () => {
     <!--      Daten in Websites angebunden habe.</p>-->
     <div class="center" id="contact_header">
       <h1 class="xl_text">Kontakt</h1>
+    </div>
+    <div class="contact_field" id="contact_content">
+      <p>Wenn Sie Fragen oder Interesse haben, können Sie mir hier gerne eine Email hinterlassen!</p>
+      <input type="text" placeholder="Betreff" id="Email_subject">
+      <textarea name="Email_body" id="Email_body" cols="30" rows="10" placeholder="Nachricht"></textarea>
+
+      <button type="button" @click="OpenMail()">E-Mail Vorlage Öffnen</button>
+      <p style="font-size: .7rem">Joshua-Daniel Koch - Joshua.Daniel.Koch@gmail.com - +49 176 345 18 116  </p>
+
     </div>
   </div>
 

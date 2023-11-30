@@ -6,17 +6,17 @@ $secondary: rgb(105, 112, 140) !default;
 $secondary_left: rgb(144, 141, 169) !default;
 $secondary_right: rgb(128, 148, 156) !default;
 
-$contrast_color: rgb(2, 10, 20) !default;
-$contrast_color_left: rgb(9, 1, 26) !default;
-$contrast_color_right: rgb(1, 25, 39) !default;
+$contrast_color: rgb(0, 10, 28) !default;
+$contrast_color_left: rgb(9, 0, 30) !default;
+$contrast_color_right: rgb(0, 23, 35) !default;
 $black_color: rgb(0, 0, 0) !default;
 
-$complimentary: rgb(208, 132, 67) !default;
-$complimentary_left: rgb(244, 190, 71) !default;
-$complimentary_right: rgb(244, 71, 71) !default;
+$complimentary: rgb(229, 94, 181) !default;
+$complimentary_left: rgb(151, 78, 209) !default;
+$complimentary_right: rgb(218, 74, 172) !default;
 
 // Transparent Colors
-$primary_opacity: 0.4 !default;
+$primary_opacity: 0.6 !default;
 
 $primary_trans: rgba(58, 65, 92, $primary_opacity) !default;
 $primary_left_trans: rgba(60, 58, 92, $primary_opacity) !default;
@@ -32,10 +32,10 @@ $primary_text: rgb(255, 255, 255) !default;
 $secondary_text_color: rgb(185, 185, 185) !default;
 $dark_text_color: rgb(70, 70, 70) !default;
 
-$font_small: 1rem !default;
-$font_size_all: 1.5rem !default;
-$font_mid: 2rem, !default;
-$font_large: 2.5rem !default;
+$font_small: .8rem !default;
+$font_size_all: 1.2rem !default;
+$font_mid: 1.8rem, !default;
+$font_large: 2.3rem !default;
 $font_xl: 3rem !default;
 
 // Other

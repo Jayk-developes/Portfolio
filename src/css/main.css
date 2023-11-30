@@ -1,3 +1,15 @@
+:root, a, button, input, button, textarea {
+  cursor: none !important;
+}
+
+textarea::placeholder, input::placeholder {
+  color: #333;
+}
+
+:root, body {
+  background-color: #000011 !important;
+}
+
 .square {
   height: 15rem;
   width: 15rem;
@@ -5,7 +17,7 @@
 }
 
 .primary {
-  background-color: rgb(73, 82, 114);
+  background-color: rgb(25, 29, 49);
 }
 
 .secondary {
@@ -13,19 +25,18 @@
 }
 
 .primary_less_opacity {
-  background-color: rgba(58, 65, 92, 0.4);
+  background-color: rgba(58, 65, 92, 0.6);
 }
 
 .secondary_less_opacity {
-  background-color: rgba(105, 112, 140, 0.4);
+  background-color: rgba(105, 112, 140, 0.6);
 }
 
 .primary_complimentary {
-  background-color: rgb(208, 132, 67);
+  background-color: rgb(229, 94, 181);
 }
 
 .home_grid {
-  margin-top: 3rem;
   display: grid;
   gap: 2rem;
   grid-template-columns: 20% 60% 20%;
@@ -33,7 +44,7 @@
 
 .navbar {
   display: flex;
-  background: linear-gradient(90deg, rgb(4, 13, 61) 0%, transparent 100%);
+  background: linear-gradient(90deg, rgb(0, 10, 28) 0%, transparent 100%);
   flex-direction: column;
   height: 100vh;
   position: fixed;
@@ -41,29 +52,34 @@
   left: 0;
   padding: 3rem 1rem 1rem 1rem;
 }
-.navbar a {
-  margin: 0.25rem 0;
-  padding: 0.5rem;
-  font-size: 1.5rem;
+.navbar input {
+  background-color: transparent;
+  border: transparent;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-align: left;
   color: rgb(255, 255, 255);
-  border-radius: 0.5em;
+  border-radius: 0.5rem;
   transition: all ease-in-out 0.2s;
 }
-.navbar a:hover {
-  background-color: rgba(105, 112, 140, 0.4);
+.navbar input:first-child {
+  margin-top: 6rem;
+}
+.navbar input:hover {
+  background-color: rgba(105, 112, 140, 0.6);
 }
 
 .big_text {
-  font-size: 2.5rem;
-  margin: 0 0 -2rem 0;
+  font-size: 2.3rem;
 }
 
 .mid_text {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .xl_text {
-  font-size: 2.8rem !important;
+  font-size: 3rem !important;
 }
 
 .center {
@@ -71,41 +87,96 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-right: 1rem;
 }
 
 .content_border {
-  border: 2px solid rgba(105, 112, 140, 0.4);
+  border: 2px solid rgba(105, 112, 140, 0.6);
   border-radius: 0.5rem;
-  background-color: rgba(105, 112, 140, 0.4);
+  background-color: rgba(105, 112, 140, 0.6);
   padding: 0.5rem 4rem;
   margin: 1rem;
   box-shadow: 0 4px 16px 0 black;
 }
 
 .content_grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.4s;
 }
 .content_grid div {
-  border: 2px solid rgba(105, 112, 140, 0.4);
+  z-index: 0;
+  font-weight: bold;
+  line-height: 1;
   border-radius: 0.5rem;
-  background-color: rgba(105, 112, 140, 0.4);
+  border: none;
   padding: 1rem;
   margin: 1rem;
-  height: 15rem;
+  height: 10rem;
   width: 15rem;
   color: rgb(255, 255, 255);
-  box-shadow: 0 4px 16px 0 black;
+  flex-basis: 30%;
+  box-shadow: 2rem -0.5rem 8rem 4rem rgb(9, 0, 30) inset;
+  display: flex;
+  align-items: center;
+  font-size: 2.3rem;
+  overflow: hidden;
+}
+.content_grid div p {
+  margin-top: 2rem;
+  margin-left: -0.5rem;
+  transform: scaleY(1.5);
+}
+.content_grid section {
+  border-radius: 0.5rem;
+  background-color: rgb(25, 29, 49);
+  display: none;
+  opacity: 1;
+  position: absolute;
+  width: 30%;
+  height: 12.6rem;
+  padding: 0 0.5rem 1rem;
+  margin-top: 0 !important;
+  transition: all ease-in-out 0.2s;
+}
+.content_grid section p {
+  height: 11.6rem;
+  overflow-y: scroll;
+  padding-right: 1rem;
+}
+.content_grid p {
+  margin-top: 0;
+}
+
+span {
+  display: block;
+  position: absolute;
+  bottom: -2%;
+  left: 90%;
+  font-size: 2.3rem;
+}
+
+#content_personal {
+  background-image: url("../media/placeholder_technik.png");
+}
+
+#content_cv {
+  background-image: url("../media/img.png");
+}
+
+#content_skills {
+  background-image: url("../media/img_1.png");
 }
 
 .fixed_content {
   display: flex;
   position: fixed;
   left: 50%;
-  top: 200px !important;
-  transform: translate(-50%, 50%) !important;
+  top: 150px !important;
+  transform: translate(-40%, -50%) !important;
 }
 
 .fixed_img {
@@ -122,7 +193,7 @@
 }
 
 .scale {
-  transform: scale(1.5);
+  transform: scale(1.4);
   margin-top: 12rem;
 }
 
@@ -132,6 +203,62 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.trail { /* className for the trail elements */
+  z-index: 100;
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0 1.25rem 0.5rem white;
+  background: transparent;
+  transition: box-shadow ease-in-out 0.5s, background-color ease-in-out 0.5s;
+}
+
+.contact_field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(58, 65, 92, 0.6);
+  width: 30rem;
+  max-width: 30rem;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  margin-bottom: 10rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.1rem 0.5rem 0 #000;
+  transition: all ease-in-out 0.2s;
+}
+.contact_field input, .contact_field textarea, .contact_field button {
+  width: 24rem;
+  max-width: 24rem;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 0.35rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0.1rem 0.5rem 0 rgb(0, 10, 28);
+  font-size: 0.8rem;
+  transition: all ease-in-out 0.3s;
+}
+.contact_field input:hover, .contact_field textarea:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.contact_field input:focus, .contact_field textarea:focus {
+  outline: none !important;
+  box-shadow: 0 0 0.5rem 0 rgb(229, 94, 181);
+}
+.contact_field button {
+  width: 16rem;
+  max-width: 16rem !important;
+}
+.contact_field button:hover {
+  background-color: rgb(229, 94, 181);
+}
+.contact_field p {
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

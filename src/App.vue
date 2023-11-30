@@ -25,8 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <template>
-  <span style="width: 1px; height: 1px; background-color: transparent" id="veryTop"></span>
-  <img src="./media/mountain.gif" alt="wallpaper" class="wallpaper" id="wallpaper">
+  <img src="./media/AnimatedStreet.gif" alt="wallpaper" class="wallpaper" id="wallpaper">
   <div class="home_grid">
     <div><Navbar /></div>
     <div><Content /></div>

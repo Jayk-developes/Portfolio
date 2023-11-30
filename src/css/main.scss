@@ -1,7 +1,11 @@
 @import "variables";
 
-:root, a, button, input {
+:root, a, button, input, button, textarea {
   cursor: none !important;
+}
+
+textarea::placeholder, input::placeholder {
+  color: #333;
 }
 
 :root, body {
@@ -56,12 +60,12 @@
   input {
     background-color: transparent;
     border: transparent;
-    margin: 0 0;
-    padding: 0.5rem;
+    margin: .5rem 0;
+    padding: 0.5rem 1rem;
     font-size: $font_size_all;
     text-align: left;
     color: $primary_text;
-    border-radius: .5em;
+    border-radius: .5rem;
     transition: all ease-in-out .2s;
   }
 
@@ -91,6 +95,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-right: 1rem;
 }
 
 .content_border {
@@ -116,19 +121,22 @@
     font-weight: bold;
     line-height: 1;
     border-radius: 0.5rem;
+    border: none;
     padding: 1rem;
     margin: 1rem;
     height: 10rem;
     width: 15rem;
     color: $primary_text;
     flex-basis: 30%;
-    box-shadow: 2rem -0.5rem 6rem 3rem $contrast_color_left inset;
+    box-shadow: 2rem -0.5rem 8rem 4rem $contrast_color_left inset;
     display: flex;
     align-items: center;
     font-size: $font_large;
     overflow: hidden;
 
     p {
+      margin-top: 2rem;
+      margin-left: -.5rem;
       transform: scaleY(1.5);
     }
   }
@@ -147,29 +155,9 @@
 
     p {
       height: 11.6rem;
-      overflow: scroll;
+      overflow-y: scroll;
+      padding-right: 1rem;
     };
-
-    @for $i from 6 to 13 {
-      &:nth-child(#{$i}) {
-        @if $i % 2 == 1 {
-           left: 52.75%;
-          top: calc(17% * ($i - 6) - 14.5%);
-      } @else {
-          right: 52.75%;
-          top: calc(17% * ($i - 5) - 14.5%)}
-
-      }
-    }
-
-    &:last-child {
-      left: 50%;
-      transform: translate(-50%);
-    }
-
-    &:hover {
-      padding-top: 12.5rem;
-      opacity: 1;
     }
 
     p {
@@ -180,15 +168,22 @@
   span {
     display: block;
     position: absolute;
-    top: 87.5%;
+    bottom: -2%;
     left: 90%;
     font-size: $font_large;
   }
-}
 
   #content_personal {
     background-image: url('../media/placeholder_technik.png');
 
+  }
+
+  #content_cv {
+    background-image: url('../media/img.png');
+  }
+
+  #content_skills {
+    background-image: url('../media/img_1.png');
   }
 
 .fixed_content {
@@ -196,7 +191,7 @@
   position: fixed;
   left: 50%;
   top: 150px !important;
-  transform: translate(-45%, -50%) !important;
+  transform: translate(-40%, -50%) !important;
 
 }
 
@@ -227,11 +222,63 @@
 }
 
 .trail { /* className for the trail elements */
+  z-index: 100;
   position: absolute;
   height: 0;
   width: 0;
-  border-radius: 3px;
+  border-radius: 1rem;
   box-shadow: 0 0 1.25rem .5rem white;
   background: transparent;
-  transition: box-shadow ease-in-out .5s;
+  transition: box-shadow ease-in-out .5s, background-color ease-in-out .5s;
+}
+
+.contact_field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary_trans;
+  width: 30rem;
+  max-width: 30rem;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  margin-bottom: 10rem;
+  border-radius: .5rem;
+  box-shadow: 0 .1rem .5rem 0 #000;
+  transition: $primary_transition_fade;
+
+  input, textarea, button {
+    width: 24rem;
+    max-width: 24rem;
+    border: none;
+    background-color: rgba(255, 255, 255, .4);
+    border-radius: .35rem;
+    padding: .5rem 1rem;
+    box-shadow: 0 .1rem .5rem 0 $contrast_color;
+    font-size: $font_small;
+    transition: all ease-in-out .3s;
+  }
+
+  input:hover, textarea:hover {
+    background-color: rgba(255, 255, 255, .6);
+  }
+
+  input:focus, textarea:focus {
+    outline: none !important;
+    box-shadow: 0 0 .5rem 0 $complimentary;
+  }
+
+  button {
+    width: 16rem;
+    max-width: 16rem !important;
+  }
+
+  button:hover {
+    background-color: $complimentary;
+  }
+
+  p {
+    text-align: center;
+    font-size: $font_size_all;
+  }
 }
