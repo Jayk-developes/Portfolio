@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <img src="./media/AnimatedStreet.gif" alt="wallpaper" class="wallpaper" id="wallpaper">
   <div class="home_grid">
     <div><Navbar /></div>
+
     <div><Content /></div>
    <!-- <div><img src="./media/Joshua_Koch.jdpg" class="square fixed_img"></div> -->
   </div>
