@@ -120,6 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = URIString
 
   }
+
+  const toGithub = () => {
+    window.open("https://github.com/jayk-developes", "_blank")
+  }
 </script>
 
 <template>
@@ -348,6 +352,9 @@ document.addEventListener("DOMContentLoaded", () => {
     <div style="margin-bottom:80rem; display: none" id="skills_project_separator"></div>
     <div class="center" id="project_header">
       <h1 class="xl_text" style="z-index: 2;">Projekte</h1>
+      <input type="button" value="Look at my GitHub" class="githubButton" @click="toGithub">
+    </div>
+    <div>
     </div>
     <div style="margin-bottom:100rem" id="project_data_separator"></div>
     <div class="flexContainer" id="projectData">
