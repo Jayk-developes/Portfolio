@@ -9,7 +9,7 @@ textarea::placeholder, input::placeholder {
 }
 
 :root, body {
-  background-color: $primary !important;
+  background-color: #001 !important;
 }
 
 ::-webkit-scrollbar {
@@ -80,10 +80,10 @@ textarea::placeholder, input::placeholder {
   padding: 3rem 1rem 1rem 1rem;
 
   input {
-    background: linear-gradient(270deg, transparent 0%, $primary 100%);
+    background: linear-gradient(270deg, transparent 0%, $primary_trans 100%);
     border: transparent;
-    margin: .5rem 0;
-    padding: 0.5rem 1rem;
+    margin: .75rem 0.25rem;
+    padding: .75rem 1rem .75rem 2rem;
     font-size: $font_size_all;
     text-align: left;
     color: $primary_text;
@@ -96,7 +96,7 @@ textarea::placeholder, input::placeholder {
   }
 
   input:hover {
-    background-color: $secondary_trans;
+    background-color: $primary_left_trans;
   }
 }
 
@@ -110,6 +110,10 @@ textarea::placeholder, input::placeholder {
 
 .xl_text {
   font-size: $font_xl !important;
+}
+
+.xxl_text {
+  font-size: $font_xxl !important;
 }
 
 .center {
@@ -150,7 +154,6 @@ textarea::placeholder, input::placeholder {
     width: 17rem;
     color: $primary_text;
     flex-basis: 30%;
-    box-shadow: 2rem -0.5rem 5rem 3rem $contrast_color inset;
     display: flex;
     align-items: center;
     font-size: $font_large;
@@ -184,7 +187,8 @@ textarea::placeholder, input::placeholder {
     top: 0;
     left: 0;
     height: 12rem;
-    width: 15.95rem;
+
+    width: 18rem !important;
 
     p {
       height: 7rem;
@@ -193,6 +197,8 @@ textarea::placeholder, input::placeholder {
       font-size: $font_size_all !important;
       overflow-y: scroll;
       padding-right: 1rem;
+      transform: scaleY(110%);
+      line-height: 1.5;
     }
   ;
   }
@@ -212,16 +218,17 @@ span {
 }
 
 #content_personal {
-  background-image: url('../media/placeholder_technik.png');
-
+  //background-image: url('../media/BookOpen.png');
+  background-color: $primary_trans;
 }
 
 #content_cv {
-  background-image: url('../media/placeholder_technik.png');
-}
+  //background-image: url('../media/tree.png');
+  //  background-size: 100%;
+  background-color: $primary;
+  box-shadow: 0 .125rem .5rem 0 $contrast_color;
 
-#content_skills {
-  background-image: url('../media/img_1.png');
+
 }
 
 .fixed_content {
@@ -257,6 +264,7 @@ span {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 0;
 }
 
 .trail { /* className for the trail elements */
@@ -275,8 +283,8 @@ span {
   justify-content: center;
   align-items: center;
   background-color: $primary_trans;
-  width: 30rem;
-  max-width: 30rem;
+  width: 40rem;
+  max-width: 40rem;
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
@@ -362,7 +370,12 @@ span {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 1rem 4rem 2rem $contrast_color inset;
+  box-shadow: 0 .25rem 1rem 0 $contrast_color;
+
+  p {
+    position: relative;
+    top: 25%;
+  }
 
 }
 
@@ -371,9 +384,10 @@ span {
 }
 
 .flip-card-front, .flip-card-back {
+  transition: transform 0.6s;
   position: absolute;
   border-radius: .5rem;
-  padding: .5rem;
+  padding: .25rem 1rem 0;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -381,10 +395,6 @@ span {
 }
 
 .flip-card-front {
-  #content_personal, #content_cv {
-    background-image: url('../media/placeholder_technik.png') !important;
-
-  }
 
   margin-top: 1rem;
   margin-left: -1rem;
@@ -401,6 +411,10 @@ span {
   transform: rotateY(180deg);
   overflow-y: scroll;
   text-align: justify;
+
+  p {
+    margin-top: -3rem;
+  }
 }
 
 .flexContainer {
@@ -414,14 +428,19 @@ span {
 }
 
 .ContentScrollLeft {
+  min-width: 20rem;
+  max-width: 20rem;
+  background-color: $primary_trans;
   display: flex;
   flex-direction: row;
+  transition: $primary_transition_fade;
 
   #skillHeader {
+    display: flex;
     opacity: 1;
-    min-width: 6rem;
-    max-width: 6rem;
-    margin-right: 12rem;
+    min-width: 20rem;
+    max-width: 20rem;
+    justify-content: center;
     text-wrap: nowrap;
     transition: $primary_transition_fade;
   }
@@ -442,12 +461,99 @@ span {
 
   &:hover {
 
+    background-color: $primary;
+
     #skillContent {
       opacity: 1;
     }
+
     #skillHeader {
       opacity: 0;
-      margin-right: -6rem;
+      margin-right: -20.5rem;
     }
   }
+}
+
+.arrowDown {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  z-index: 10;
+  filter: invert(80%) drop-shadow(0 0 1rem transparent);
+  width: 4rem;
+  transform: translate(-50%, 50%);
+  animation: upAndDown 2s infinite;
+  transition: filter ease-in-out .2s;
+
+  &:hover {
+    filter: invert(100%) drop-shadow(0 0 .25rem $complimentary);
+  }
+}
+
+@keyframes upAndDown {
+  0% {
+    top: 85%;
+  }
+  50% {
+    top: 87%;
+  }
+  100% {
+    top: 85%;
+  }
+}
+
+.dateShow {
+  display: flex;
+  position: fixed;
+  opacity: 1;
+  top: 10%;
+  right: 5%;
+  flex-direction: column;
+  font-family: "Merienda", serif;
+  font-weight: 900;
+  align-items: center;
+  transform: scaleX(150%);
+
+  p {
+    margin: -3rem;
+    font-size: 8rem;
+    letter-spacing: .125rem;
+  }
+
+  input {
+    margin-top: 3.25rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: $primary_text;
+    border-radius: .5rem;
+    padding: .75rem 1.5rem;
+    border: none;
+    transform: scaleX(75%);
+    letter-spacing: .125rem;
+    font-family: Arial, serif;
+    transition: $primary_transition_fade;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, .3);
+    }
+  }
+
+  #dateMonth {
+    transform: scaleX(80%) !important;
+  }
+
+  #dateText {
+    margin-top: 0.5rem;
+    transform: scaleX(67%) scaleY(110%) !important;
+    font-size: $font_large;
+    white-space: nowrap;
+    font-family: "Impact", serif;
+  }
+}
+
+#cv_sections {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 12.5rem;
+  width: 17rem !important
 }

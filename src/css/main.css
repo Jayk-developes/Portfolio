@@ -7,7 +7,7 @@ textarea::placeholder, input::placeholder {
 }
 
 :root, body {
-  background-color: rgb(25, 29, 49) !important;
+  background-color: #001 !important;
 }
 
 ::-webkit-scrollbar {
@@ -21,13 +21,13 @@ textarea::placeholder, input::placeholder {
 
 ::-webkit-scrollbar-thumb {
   padding: 0.25rem;
-  background: rgb(56, 54, 87);
+  background: rgb(81, 79, 98);
   border-radius: 1rem;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(25, 29, 49);
+  background: rgb(42, 45, 56);
   border-radius: 1rem;
 }
 
@@ -38,23 +38,23 @@ textarea::placeholder, input::placeholder {
 }
 
 .primary {
-  background-color: rgb(25, 29, 49);
+  background-color: rgb(42, 45, 56);
 }
 
 .secondary {
-  background-color: rgb(62, 70, 101);
+  background-color: rgb(85, 89, 105);
 }
 
 .primary_less_opacity {
-  background-color: rgba(58, 65, 92, 0.6);
+  background-color: rgba(42, 45, 56, 0.6);
 }
 
 .secondary_less_opacity {
-  background-color: rgba(105, 112, 140, 0.6);
+  background-color: rgba(85, 89, 105, 0.6);
 }
 
 .primary_complimentary {
-  background-color: rgb(229, 94, 181);
+  background-color: rgb(231, 153, 203);
 }
 
 .home_grid {
@@ -74,11 +74,11 @@ textarea::placeholder, input::placeholder {
   padding: 3rem 1rem 1rem 1rem;
 }
 .navbar input {
-  background: linear-gradient(270deg, transparent 0%, rgb(25, 29, 49) 100%);
+  background: linear-gradient(270deg, transparent 0%, rgba(42, 45, 56, 0.6) 100%);
   border: transparent;
-  margin: 0.5rem 0;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
+  margin: 0.75rem 0.25rem;
+  padding: 0.75rem 1rem 0.75rem 2rem;
+  font-size: 1rem;
   text-align: left;
   color: rgb(255, 255, 255);
   border-radius: 0.5rem;
@@ -88,7 +88,7 @@ textarea::placeholder, input::placeholder {
   margin-top: 6rem;
 }
 .navbar input:hover {
-  background-color: rgba(105, 112, 140, 0.6);
+  background-color: rgba(55, 54, 70, 0.6);
 }
 
 .big_text {
@@ -103,6 +103,10 @@ textarea::placeholder, input::placeholder {
   font-size: 2.2rem !important;
 }
 
+.xxl_text {
+  font-size: 3rem !important;
+}
+
 .center {
   display: flex;
   align-items: center;
@@ -112,9 +116,9 @@ textarea::placeholder, input::placeholder {
 }
 
 .content_border {
-  border: 2px solid rgba(105, 112, 140, 0.6);
+  border: 2px solid rgba(85, 89, 105, 0.6);
   border-radius: 0.5rem;
-  background-color: rgba(105, 112, 140, 0.6);
+  background-color: rgba(85, 89, 105, 0.6);
   padding: 0.5rem 4rem;
   margin: 1rem;
   box-shadow: 0 4px 16px 0 black;
@@ -137,10 +141,9 @@ textarea::placeholder, input::placeholder {
   padding: 1rem;
   margin: 1rem;
   height: 10rem;
-  width: 15rem;
+  width: 17rem;
   color: rgb(255, 255, 255);
   flex-basis: 30%;
-  box-shadow: 2rem -0.5rem 5rem 3rem rgb(0, 10, 28) inset;
   display: flex;
   align-items: center;
   font-size: 1.8rem;
@@ -155,29 +158,31 @@ textarea::placeholder, input::placeholder {
 }
 .content_grid section {
   font-family: "Gill Sans MT", monospace;
-  font-size: 0.6rem !important;
+  font-size: 0.8rem !important;
   border-radius: 0.5rem;
-  background: linear-gradient(180deg, rgb(0, 10, 28) 0%, rgb(25, 29, 49) 100%);
+  background: linear-gradient(180deg, rgb(0, 10, 28) 0%, rgb(42, 45, 56) 100%);
   display: none;
   opacity: 1;
   padding: 0 0.5rem 1rem;
   margin-top: 0 !important;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
   box-shadow: 0 0.15rem 0.55rem 0 rgb(0, 10, 28) !important;
   z-index: 11;
   position: relative;
   top: 0;
   left: 0;
   height: 12rem;
-  width: 15.95rem;
+  width: 18rem !important;
 }
 .content_grid section p {
   height: 7rem;
   font-family: "Gill Sans MT", monospace;
   font-weight: normal;
-  font-size: 0.8rem !important;
+  font-size: 1rem !important;
   overflow-y: scroll;
   padding-right: 1rem;
+  transform: scaleY(110%);
+  line-height: 1.5;
 }
 .content_grid p {
   margin-top: 0;
@@ -193,15 +198,12 @@ span {
 }
 
 #content_personal {
-  background-image: url("../media/placeholder_technik.png");
+  background-color: rgba(42, 45, 56, 0.6);
 }
 
 #content_cv {
-  background-image: url("../media/placeholder_technik.png");
-}
-
-#content_skills {
-  background-image: url("../media/img_1.png");
+  background-color: rgb(42, 45, 56);
+  box-shadow: 0 0.125rem 0.5rem 0 rgb(0, 10, 28);
 }
 
 .fixed_content {
@@ -236,6 +238,7 @@ span {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 0;
 }
 
 .trail { /* className for the trail elements */
@@ -253,16 +256,16 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(58, 65, 92, 0.6);
-  width: 30rem;
-  max-width: 30rem;
+  background-color: rgba(42, 45, 56, 0.6);
+  width: 40rem;
+  max-width: 40rem;
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
   margin-bottom: 4rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.5rem 0 #000;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 .contact_field input, .contact_field textarea, .contact_field button {
   width: 24rem;
@@ -272,7 +275,7 @@ span {
   border-radius: 0.35rem;
   padding: 0.5rem 1rem;
   box-shadow: 0 0.1rem 0.5rem 0 rgb(0, 10, 28);
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   transition: all ease-in-out 0.3s;
 }
 .contact_field input:hover, .contact_field textarea:hover {
@@ -280,18 +283,18 @@ span {
 }
 .contact_field input:focus, .contact_field textarea:focus {
   outline: none !important;
-  box-shadow: 0 0 0.5rem 0 rgb(229, 94, 181);
+  box-shadow: 0 0 0.5rem 0 rgb(231, 153, 203);
 }
 .contact_field button {
   width: 16rem;
   max-width: 16rem !important;
 }
 .contact_field button:hover {
-  background-color: rgb(229, 94, 181);
+  background-color: rgb(231, 153, 203);
 }
 .contact_field p {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .contact_grid {
@@ -306,7 +309,7 @@ span {
   align-items: center;
   width: 6rem;
   border-radius: 100rem;
-  background-color: rgb(25, 29, 49);
+  background-color: rgb(42, 45, 56);
   box-shadow: 2rem -0.5rem 5rem 3rem rgb(0, 10, 28) inset;
 }
 
@@ -333,7 +336,11 @@ span {
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 1rem 4rem 2rem rgb(0, 10, 28) inset;
+  box-shadow: 0 0.25rem 1rem 0 rgb(0, 10, 28);
+}
+.flip-card-inner p {
+  position: relative;
+  top: 25%;
 }
 
 .flip-card:hover .flip-card-inner {
@@ -341,9 +348,10 @@ span {
 }
 
 .flip-card-front, .flip-card-back {
+  transition: transform 0.6s;
   position: absolute;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.25rem 1rem 0;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -358,17 +366,17 @@ span {
   font-size: 1.3rem;
   color: white;
 }
-.flip-card-front #content_personal, .flip-card-front #content_cv {
-  background-image: url("../media/placeholder_technik.png") !important;
-}
 
 .flip-card-back {
-  background-color: rgb(62, 70, 101);
+  background-color: rgb(85, 89, 105);
   font-family: "Gill Sans MT", monospace;
   color: white;
   transform: rotateY(180deg);
   overflow-y: scroll;
   text-align: justify;
+}
+.flip-card-back p {
+  margin-top: -3rem;
 }
 
 .flexContainer {
@@ -378,41 +386,125 @@ span {
   gap: 3rem;
   justify-content: center;
   align-items: center;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 
 .ContentScrollLeft {
+  min-width: 20rem;
+  max-width: 20rem;
+  background-color: rgba(42, 45, 56, 0.6);
   display: flex;
   flex-direction: row;
+  transition: all ease-in-out 0.2s;
 }
 .ContentScrollLeft #skillHeader {
+  display: flex;
   opacity: 1;
-  min-width: 6rem;
-  max-width: 6rem;
-  margin-right: 12rem;
+  min-width: 20rem;
+  max-width: 20rem;
+  justify-content: center;
   text-wrap: nowrap;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
 }
 .ContentScrollLeft #skillContent {
   margin-top: 1rem;
-  min-width: 13rem;
-  position: relative;
+  min-width: 20rem;
   padding: 0.5rem;
   font-family: "Gill Sans MT", monospace;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: normal;
   overflow-y: scroll;
   opacity: 0;
   text-align: justify;
   text-wrap: normal;
-  transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.2s;
+}
+.ContentScrollLeft:hover {
+  background-color: rgb(42, 45, 56);
 }
 .ContentScrollLeft:hover #skillContent {
   opacity: 1;
 }
 .ContentScrollLeft:hover #skillHeader {
   opacity: 0;
-  margin-right: -6rem;
+  margin-right: -20.5rem;
+}
+
+.arrowDown {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  z-index: 10;
+  filter: invert(80%) drop-shadow(0 0 1rem transparent);
+  width: 4rem;
+  transform: translate(-50%, 50%);
+  animation: upAndDown 2s infinite;
+  transition: filter ease-in-out 0.2s;
+}
+.arrowDown:hover {
+  filter: invert(100%) drop-shadow(0 0 0.25rem rgb(231, 153, 203));
+}
+
+@keyframes upAndDown {
+  0% {
+    top: 85%;
+  }
+  50% {
+    top: 87%;
+  }
+  100% {
+    top: 85%;
+  }
+}
+.dateShow {
+  display: flex;
+  position: fixed;
+  opacity: 1;
+  top: 10%;
+  right: 5%;
+  flex-direction: column;
+  font-family: "Merienda", serif;
+  font-weight: 900;
+  align-items: center;
+  transform: scaleX(150%);
+}
+.dateShow p {
+  margin: -3rem;
+  font-size: 8rem;
+  letter-spacing: 0.125rem;
+}
+.dateShow input {
+  margin-top: 3.25rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  transform: scaleX(75%);
+  letter-spacing: 0.125rem;
+  font-family: Arial, serif;
+  transition: all ease-in-out 0.2s;
+}
+.dateShow input:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.dateShow #dateMonth {
+  transform: scaleX(80%) !important;
+}
+.dateShow #dateText {
+  margin-top: 0.5rem;
+  transform: scaleX(67%) scaleY(110%) !important;
+  font-size: 1.8rem;
+  white-space: nowrap;
+  font-family: "Impact", serif;
+}
+
+#cv_sections {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 12.5rem;
+  width: 17rem !important;
 }
 
 /*# sourceMappingURL=main.css.map */

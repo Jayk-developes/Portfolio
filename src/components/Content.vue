@@ -2,6 +2,10 @@
 import "../scrollIntoView.ts"
 import URI from "urijs";
 
+const emit = defineEmits([
+    "image_show"
+])
+
 document.addEventListener("DOMContentLoaded", () => {
   const joshua = document.getElementById("joshua") as HTMLElement
   const joshua_data_separator = document.getElementById("joshua_data_separator") as HTMLElement
@@ -17,6 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const skills = document.getElementById("skills") as HTMLElement
   const contact_header = document.getElementById("contact_header") as HTMLElement
   const contact_content = document.getElementById("contact_content") as HTMLElement
+  const project_header = document.getElementById("project_header") as HTMLElement
+  const skills_project_separator = document.getElementById("skills_project_separator") as HTMLElement
+  const project = document.getElementById("projectData") as HTMLElement
+  const project_content = document.getElementById("content_project") as HTMLElement
+  const project_data_separator = document.getElementById("project_data_separator") as HTMLElement
 
   const content_personal_sections = document.querySelectorAll("#content_personal_sections")
   const cv_sections = document.querySelectorAll("#cv_sections")
@@ -40,96 +49,98 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addEventListener("scroll", (event) => {
     if (!(isElementAbove(personalData, -100000, -270)))
-      scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header, content_personal_sections, "30rem")
-    if (isElementAbove(personalData, -2480, -270)) {
+      scrollAnimation(personalData, joshua, top_joshua_separator, joshua_data_separator, cv_header, content_personal_sections, "30rem",1 )
+    if (isElementAbove(personalData, -100000, -270)) {
       cv_header.style.marginTop = "0rem"
-      scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header, cv_sections, "30rem")
+      scrollAnimation(cv, cv_header, joshua_cv_separator, data_cv_separator, skills_header, cv_sections, "30rem", 2)
       for (let i = 0; i < content_personal_sections.length; i++) {
         content_personal_sections[i].style.display = "none"
       }
     }
-    if (isElementAbove(cv, -2000, -270)) {
+    if (isElementAbove(cv, -100000, -270)) {
       skills_header.style.marginTop = "0rem"
-      scrollAnimation(skills, skills_header, cv_skills_separator, data_skills_separator, contact_header, skills_sections, "20rem")
-      for (let i = 0; i < cv_sections.length; i++) {
-        cv_sections[i].style.display = "none"
+      scrollAnimation(skills, skills_header, cv_skills_separator, data_skills_separator, project_header, skills_sections, "20rem", 3)
       }
-    }
 
-    //contact_content.classList.toggle('scaleOne', isElementOnScreen(contact_header))
-    contact_content.classList.add(isElementOnScreen(contact_header) ? 'scaleOne' : 'scalePointSeven')
-    contact_content.classList.remove(isElementOnScreen(contact_header) ? 'scalePointSeven' : 'scaleOne')
-    contact_content.style.marginTop = isElementOnScreen(contact_header) ? "4rem" : "0rem"
+        if (isElementAbove(skills, -100000, -270)) {
+          skills_header.style.marginTop = "0rem"
+          scrollAnimation(project, project_header, skills_project_separator, project_data_separator, contact_header, project_content, "20rem", 4)
+        }
+
+      //contact_content.classList.toggle('scaleOne', isElementOnScreen(contact_header))
+      contact_content.classList.add(isElementOnScreen(contact_header) ? 'scaleOne' : 'scalePointSeven')
+      contact_content.classList.remove(isElementOnScreen(contact_header) ? 'scalePointSeven' : 'scale')
+      contact_content.style.marginTop = isElementOnScreen(contact_header) ? "4rem" : "0rem"
 
   });
 
 
-  const scrollAnimation = (targetData: HTMLElement, targetHeader: HTMLElement, separatortop?: HTMLElement, separatorbtm: HTMLElement, lowerHeader?: HTMLElement, targetDataContent?: HTMLElement, by: string) => {
-    const isOnScreen = isElementOnScreen(targetData)
-    const dataAbove = isElementAbove(targetData, -2100, -270)
-    targetHeader.style.marginTop = "0rem"
-    targetData.classList.toggle('scale', isOnScreen);
-    if (targetDataContent) {
-      let lastChild = targetDataContent.length - 1
-      for (let i = 0; i <= lastChild; i++) {
-        targetDataContent[i].addEventListener("mouseover", () => {
-          targetDataContent[i].style.paddingTop = "12rem"
-        })
-        targetDataContent[i].addEventListener("mouseout", () => {
-          targetDataContent[i].style.paddingTop = "0rem";
-        });
-        targetDataContent[i].style.display = isOnScreen ? "block" : "none";
+    const scrollAnimation = (targetData: HTMLElement, targetHeader: HTMLElement, separatortop?: HTMLElement, separatorbtm: HTMLElement, lowerHeader?: HTMLElement, targetDataContent?: HTMLElement, by: string, imageShow: number) => {
+      const isOnScreen = isElementOnScreen(targetData)
+      const dataAbove = isElementAbove(targetData, -2100, -270)
+      targetHeader.style.marginTop = "0rem"
+      targetData.classList.toggle('scale', isOnScreen);
+      if (targetDataContent) {
+        let lastChild = targetDataContent.length - 1
+        for (let i = 0; i <= lastChild; i++) {
+          targetDataContent[i].addEventListener("mouseover", () => {
+            targetDataContent[i].style.paddingTop = "11rem"
+          })
+          targetDataContent[i].addEventListener("mouseout", () => {
+            targetDataContent[i].style.paddingTop = "0rem";
+          });
+          targetDataContent[i].style.display = isOnScreen ? "block" : "none";
+        }
       }
+      targetHeader.classList.toggle('fixed_content', !isOnScreen);
+      targetHeader.style.marginLeft = !isOnScreen ? "0" : "1rem"
+      targetHeader.classList.toggle('scalePointSeven', isOnScreen);
+      (isOnScreen) ? document.documentElement.style.setProperty("background-color", "#222266") : document.documentElement.style.setProperty("background-color", "#222222")
+      if (separatortop) {
+        separatortop.style.display = isOnScreen ? "block" : "none";
+      }
+      separatorbtm.style.display = isOnScreen ? "none" : "block";
+      if (lowerHeader) {
+        lowerHeader.style.marginTop = dataAbove ? "0rem" : "30rem"
+        lowerHeader.classList.toggle('fixed_content', dataAbove)
+      }
+      isOnScreen ? emit("image_show", imageShow) : emit("image_show", 0)
     }
-    targetHeader.classList.toggle('fixed_content', !isOnScreen);
-    targetHeader.style.marginLeft = !isOnScreen ? "0" : "1rem"
-    targetHeader.classList.toggle('scalePointSeven', isOnScreen);
-    (isOnScreen) ? document.documentElement.style.setProperty("background-color", "#222266") : document.documentElement.style.setProperty("background-color", "#222222")
-    if (separatortop) {
-      separatortop.style.display = isOnScreen ? "block" : "none";
-    }
-    separatorbtm.style.display = isOnScreen ? "none" : "block";
-    if (lowerHeader) {
-      lowerHeader.style.marginTop = dataAbove ? "0rem" : "30rem"
-      lowerHeader.classList.toggle('fixed_content', dataAbove)
-    }
+  })
+  const OpenMail = () => {
+    let body = document.getElementById("Email_body")
+    let subject = document.getElementById("Email_subject")
+
+    // "mailto:m.mustermann@domain.de?body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+    // "mailto:m.mustermann@domain.de?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+
+    body = URI.encode(body.value)
+    subject = URI.encode(subject.value)
+    let URIString = `mailto:joshua.daniel.koch@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = URIString
+
   }
-})
-const OpenMail = () => {
-  let body = document.getElementById("Email_body")
-  let subject = document.getElementById("Email_subject")
-
-  // "mailto:m.mustermann@domain.de?body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
-  // "mailto:m.mustermann@domain.de?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
-
-  body = URI.encode(body.value)
-  subject = URI.encode(subject.value)
-  let URIString = `mailto:joshua.daniel.koch@gmail.com?subject=${subject}&body=${body}`
-  console.log(URIString)
-  window.location.href = URIString
-
-}
 </script>
 
 <template>
   <div class="center">
     <div style="margin-bottom:85rem; display: none" id="top_joshua_separator"></div>
     <div class="center" id="joshua">
-      <h1 class="xl_text" style="margin: 0 0 -2rem 0;">Joshua-Daniel Koch</h1>
+      <h1 class="xxl_text" style="margin: 0 0 -2rem 0;">Joshua-Daniel Koch</h1>
       <h3> Fachinformatiker in Fachrichtung Anwendungsentwicklung</h3>
     </div>
     <div style="margin-bottom:100rem" id="joshua_data_separator"></div>
+    <div><p>Kleiner Tipp: Hover Me! ; )</p></div>
     <div class="flexContainer" id="personalData">
       <div class="flip-card">
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Technik </p></div>
           <div class="flip-card-back">
-            <p>Joshua hat seine Interesse an Technik schon früh gefunden. Allerdings wusste er nicht genau, was er in
-              der
-              Branche machen könnte und entschied sich erstmal
-              andere Wege einzugehen. Trotzdem hat er sich immer wieder mit dem Thema beschäftigt und hat somit auch
-              schon
-              früh ein Grundwissen aneignen können.</p>
+            <p>Ich Hatte schon im frühen Alter das Interesse an Technik.
+              Allerdings wusste ich leider nicht, was ich genau in der Branche suche.
+              Demnach habe ich zunächst andere Themengebiete priorisiert.
+              Trotzdem kononte ich mir eigenständig viel wissen aneignen,
+              sodass ich dennoch ein gewisses Grudwissen mir aneignen konnte.</p>
           </div>
         </div>
       </div>
@@ -137,25 +148,23 @@ const OpenMail = () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Digitale Trends </p></div>
           <div class="flip-card-back">
-            <p>Digitale Trends spielen im Leben von Joshua eine große Rolle. Er nutzt Soziale Medien und erkennt
-              aktuelle
-              Trends. Somit hat er ein gutes Verstädnis, welche
-              Designs und Darstellungen momentan modern sind und wie man diese Umsetzten kann. Da Joshua großes
-              Interesse
-              hat an der Umsetzung von Design, aber auch funktionalität,
-              hat er eine perfekte Balance zwischen Theorie und Praxis im Bereich Back- und Frontend.</p>
+            <p>Ich habe Zusätzlich großes interesse an aktuellen digitalen Trends gefunden.
+              Dies zeigte sich vorallem bei der Nutzung und Analyse moderner sozialen Medien.
+              Zu erkennen, in wiefern ein Design nutzerfreundlich und effizient ist, macht mir großen Spaß.
+              Nicht nur das erkennen macht mir Freude, sondern auch das Umsetzen dieser.
+              So bin ich bereit noch viel mehr über die Einbindung von Design, Funktionalität und dessen Balance zu lernen.
+              Auch die Einbindung ins Backend finde ich äußerst interessant und zeige auch dort hohe Lernbereitschaft.
+              </p>
           </div>
         </div>
       </div>
       <div class="flip-card">
         <div class="flip-card-inner" id="content_personal">
-          <div class="flip-card-front"><p> Beginn in der Branche mit 18 </p></div>
+          <div class="flip-card-front"><p> Beginn in der Branche <br> mit 18 </p></div>
           <div class="flip-card-back">
-            <p>Mit dem Programmieren hat Joshua mit 18 angefangen. Hier hat er zunächst mit der Programmiersprache "C#"
-              begonnen. Mit dem Anfang der Ausbildung bei der comNET GmbH
-              hat sich der Fokus auf "Python" und "JavaScript" gelegt. Aber auch andere Sprachen wie Java oder C++ hat
-              er
-              sich privat angeeignet.</p>
+            <p> Ich habe mit dem Programmieren im Alter von 18 Jahren begonnen. Meine einstiegssprache war "C#".
+              Jedoch hat sich mein Fokus, aufgrund meiner Ausbildung bei der comNET GmbH , auf den Sprachen "Python" und "JavaScript" gesetzt.
+              Zusätzlich lernten wir in der Schule Java und C++.</p>
           </div>
         </div>
       </div>
@@ -163,11 +172,10 @@ const OpenMail = () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Gewissenhafte Arbeit </p></div>
           <div class="flip-card-back">
-            <p>Das Fachgebiet, für welches sich Joshua entschieden hat, ist die Webentwicklung. Er interessiert sich für
-              den
-              Aufbau und design der Anwendung
-              aber auch für die Struktur einer Datenbank und dessen Anbindung. Zusätzlich möchte er sich im Gebiet
-              Appentwicklung und Spieleentwicklung ausdehnen.</p>
+            <p>Mein Fachgebiet fächert sich im Bereich "Webentwicklung" und "Webdesign" aus. So arbeite ich mit 100%iger Gewissenheit an diesen Aufgaben.
+              Auch andere Gebiete wie im Bereich Backend, API oder Deployment kann man mir vollstes Vertrauen geben, dass ich diese Aufgaben mit Gewissenheit erledige.
+              Auch in gebieten, in welchen ich noch lernen muss, wie Datenbankanbindungen, zeige ich Extraordinäre Arbeitsmoral und Spaß.
+              Später möchte ich mich auch in Gebieten wie "Appentwicklung" und "Spieleentwicklung" ausdehnen.</p>
           </div>
         </div>
       </div>
@@ -175,11 +183,9 @@ const OpenMail = () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Entwicklung und Programmieren </p></div>
           <div class="flip-card-back">
-            <p>Das Fachgebiet, für welches sich Joshua entschieden hat, ist die Webentwicklung. Er interessiert sich für
-              den
-              Aufbau und design der Anwendung
-              aber auch für die Struktur einer Datenbank und dessen Anbindung. Zusätzlich möchte er sich im Gebiet
-              Appentwicklung und Spieleentwicklung ausdehnen.</p>
+            <p>Seit meiner Ausbildung bei der comNET GmbH, konnte ich mich exponentiell weiterentwicklen, sodass ich in der Zeit, in welcher ich hier war,
+              weitaus mehr lernen konnte als davor. So kann ich stolz von mir behaupten, dass ich perfekt als Junior-Developer geeignet bin.
+              Beispielsweise, konnte ich an zahlreichen Projekten mitwirken und habe auch einige eigene Projekte auf die Beine stellen können. .</p>
           </div>
         </div>
       </div>
@@ -191,7 +197,7 @@ const OpenMail = () => {
 
     <div style="margin-bottom:85rem; display: none" id="joshua_cv_separator"></div>
     <div class="center" id="cv_header">
-      <h1 class="xl_text">Lebenslauf</h1>
+      <h1 class="xl_text" style="z-index: 2;" >Lebenslauf</h1>
     </div>
 
     <div style="margin-bottom:100rem" id="data_cv_separator"></div>
@@ -211,9 +217,9 @@ const OpenMail = () => {
       </div>
       <div style="z-index: 10;position: relative; height: 20.5rem; background-color: transparent; box-shadow: none">
         <div id="content_cv" style="z-index: 10; position: absolute; top: -1rem; left: -1rem">
-          <p>Fachhoch- schulreife</p>
+          <p>Fachhochschulreife</p>
         </div>
-        <section style="z-index: 9;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
+        <section style="z-index: 9;position: absolute; "
                  id="cv_sections">
           <p>Joshua konnte mit Abschluss der 12. Klasse, sowie der Ausbildung bei der comNET GmbH seine
             Fachhochschulreife
@@ -286,7 +292,7 @@ const OpenMail = () => {
 
     <div style="margin-bottom:100rem; display: none" id="cv_skills_separator"></div>
     <div class="center" id="skills_header">
-      <h1 class="xl_text">Skills</h1>
+      <h1 class="xl_text" style="z-index: 2;">Skills</h1>
     </div>
     <div style="margin-bottom:115rem" id="data_skills_separator"></div>
     <div class="content_grid" id="skills">
@@ -339,13 +345,47 @@ const OpenMail = () => {
           regelmäßigen Zeichnen.</p>
       </div>
     </div>
+    <div style="margin-bottom:80rem; display: none" id="skills_project_separator"></div>
+    <div class="center" id="project_header">
+      <h1 class="xl_text" style="z-index: 2;">Projekte</h1>
+    </div>
+    <div style="margin-bottom:100rem" id="project_data_separator"></div>
+    <div class="flexContainer" id="projectData">
+      <div class="flip-card">
+        <div class="flip-card-inner" id="content_personal">
+          <div class="flip-card-front"><p> INTERN <br> Website für Sensorik </p></div>
+          <div class="flip-card-back">
+            <p>Ich habe intern starken Einfluss auf das Frontend einer Website gehabt, welche zur funktion hatte, sensorik auszulesen und auszuwerten.
+            Zusätzlich konnte ich im Backend einige API-Anbindungen schaffen und habe diesen Code getestet und angepasst.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner" id="content_personal">
+          <div class="flip-card-front"><p> INTERN <br> Company Redesign </p></div>
+          <div class="flip-card-back">
+            <p>Ich war verantwortlich für das allgemeine Redesign unserer Internen Anwendungen. mithilfe eines Professionellen Webdesigners habe ich viel über UI und UX lernen können und dies auch einsetzen können.
+            Für das Redesign habe ich intern großen Lob erhalten und durfte dies sogar in der halbjährigen Mitarbeiterversammlung vorstellen.</p>
+          </div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner" id="content_personal">
+          <div class="flip-card-front"><p> EXTERN <br> Übungsprojekte </p></div>
+          <div class="flip-card-back">
+            <p>Auch außerhalb meiner Arbeitszeit habe ich mich hingesetzt und einige kleine Projekte aufgesetzt. In diesen Projekten habe ich mein allgemeines Verständnis gegenüber
+            Front- und Backend erweitern können und habe dort einige kleine Spiele und Prototypen von Sozialen Medien erstellt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--    <h3>Skills</h3>-->
     <!--    <p>Ich habe mich Spezialisiert in der Entwicklung an Websites, sodass ich nicht nur umfangreiche Erfahrung in-->
     <!--      HTML, CSS und Javascript/Typescript besitze, sondern auch mit Frameworks wie Vue.js und Django arbeite.</p>-->
     <!--    <p>Für Backendaufgaben bin ich zusätzlich offen, da ich auch in diesem Bereich mit FastAPI, Django und SQL-->
     <!--      Daten in Websites angebunden habe.</p>-->
     <div class="center" id="contact_header">
-      <h1 class="xl_text">Kontakt</h1>
+      <h1 class="xl_text" style="z-index: 2;">Kontakt</h1>
     </div>
     <div class="contact_field scalePointSeven" id="contact_content">
       <div class="contact_grid">
