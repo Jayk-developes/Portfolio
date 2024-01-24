@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isElementOnScreen = (scrollElement: HTMLElement) => {
     const rect = scrollElement.getBoundingClientRect();
-    return rect.top < window.innerHeight / 2;
+    return rect.top < window.innerHeight / 2 - 200;
   }
 
   const isElementAbove = (scrollElement: HTMLElement, maximal: number, minimal: number) => {
@@ -64,13 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isElementAbove(skills, -100000, -270)) {
           skills_header.style.marginTop = "0rem"
-          scrollAnimation(project, project_header, skills_project_separator, project_data_separator, contact_header, project_content, "20rem", 4)
+          scrollAnimation(project, project_header, skills_project_separator, project_data_separator, "", project_content, "20rem", 4)
         }
 
       //contact_content.classList.toggle('scaleOne', isElementOnScreen(contact_header))
       contact_content.classList.add(isElementOnScreen(contact_header) ? 'scaleOne' : 'scalePointSeven')
-      contact_content.classList.remove(isElementOnScreen(contact_header) ? 'scalePointSeven' : 'scale')
-      contact_content.style.marginTop = isElementOnScreen(contact_header) ? "4rem" : "0rem"
+      contact_content.classList.remove(isElementOnScreen(contact_header) ? 'scalePointSeven' : 'scaleOne')
+      // contact_content.style.marginTop = isElementOnScreen(contact_header) ? "4rem" : "0rem"
 
   });
 
@@ -140,11 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Technik </p></div>
           <div class="flip-card-back">
-            <p>Ich Hatte schon im frühen Alter das Interesse an Technik.
-              Allerdings wusste ich leider nicht, was ich genau in der Branche suche.
-              Demnach habe ich zunächst andere Themengebiete priorisiert.
-              Trotzdem kononte ich mir eigenständig viel wissen aneignen,
-              sodass ich dennoch ein gewisses Grudwissen mir aneignen konnte.</p>
+            <p>Ich hatte schon im frühen Alter das Interesse an Technik.
+Allerdings wusste ich leider nicht, was ich genau in der Branche suche.
+Demnach habe ich zunächst andere Themengebiete priorisiert.
+Trotzdem konnte ich mir eigenständig viel Wissen aneignen,
+sodass ich dennoch ein gewisses Grundwissen mir aneignen konnte.</p>
           </div>
         </div>
       </div>
@@ -152,13 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Digitale Trends </p></div>
           <div class="flip-card-back">
-            <p>Ich habe Zusätzlich großes interesse an aktuellen digitalen Trends gefunden.
-              Dies zeigte sich vorallem bei der Nutzung und Analyse moderner sozialen Medien.
-              Zu erkennen, in wiefern ein Design nutzerfreundlich und effizient ist, macht mir großen Spaß.
-              Nicht nur das erkennen macht mir Freude, sondern auch das Umsetzen dieser.
-              So bin ich bereit noch viel mehr über die Einbindung von Design, Funktionalität und dessen Balance zu lernen.
-              Auch die Einbindung ins Backend finde ich äußerst interessant und zeige auch dort hohe Lernbereitschaft.
-              </p>
+            <p>Ich habe zusätzlich großes Interesse an aktuellen digitalen Trends gefunden.
+Dies zeigte sich vor allem bei der Nutzung und Analyse moderner sozialen Medien.
+Zu erkennen, inwiefern ein Design nutzerfreundlich und effizient ist, macht mir großen Spaß.
+Nicht nur das Erkennen macht mir Freude, sondern auch das Umsetzen dieser.
+So bin ich bereit noch viel mehr über die Einbindung von Design, Funktionalität und dessen Balance zu lernen.
+Auch die Einbindung ins Backend finde ich äußerst interessant und zeige auch dort hohe Lernbereitschaft.</p>
           </div>
         </div>
       </div>
@@ -166,9 +165,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Beginn in der Branche <br> mit 18 </p></div>
           <div class="flip-card-back">
-            <p> Ich habe mit dem Programmieren im Alter von 18 Jahren begonnen. Meine einstiegssprache war "C#".
-              Jedoch hat sich mein Fokus, aufgrund meiner Ausbildung bei der comNET GmbH , auf den Sprachen "Python" und "JavaScript" gesetzt.
-              Zusätzlich lernten wir in der Schule Java und C++.</p>
+            <p> Ich habe mit dem Programmieren im Alter von 18 Jahren begonnen. Meine Einstiegssprache war "C#".
+Jedoch hat sich mein Fokus, aufgrund meiner Ausbildung bei der comNET GmbH, auf den Sprachen "Python" und "JavaScript" gesetzt.
+Zusätzlich lernten wir in der Schule Java und C++.</p>
           </div>
         </div>
       </div>
@@ -176,10 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Gewissenhafte Arbeit </p></div>
           <div class="flip-card-back">
-            <p>Mein Fachgebiet fächert sich im Bereich "Webentwicklung" und "Webdesign" aus. So arbeite ich mit 100%iger Gewissenheit an diesen Aufgaben.
-              Auch andere Gebiete wie im Bereich Backend, API oder Deployment kann man mir vollstes Vertrauen geben, dass ich diese Aufgaben mit Gewissenheit erledige.
-              Auch in gebieten, in welchen ich noch lernen muss, wie Datenbankanbindungen, zeige ich Extraordinäre Arbeitsmoral und Spaß.
-              Später möchte ich mich auch in Gebieten wie "Appentwicklung" und "Spieleentwicklung" ausdehnen.</p>
+            <p>Mein Fachgebiet erstreckt sich auf die Bereiche 'Webentwicklung' und 'Webdesign', wobei ich mit absoluter Gewissenhaftigkeit an diesen Aufgaben arbeite.
+Auch andere Gebiete wie im Bereich Backend, API oder Deployment kann man mir vollstes Vertrauen geben, dass ich diese Aufgaben mit gewissenhaft erledige.
+Auch in Gebieten, in welchen ich noch lernen muss, wie Datenbankanbindungen, zeige ich extraordinäre Arbeitsmoral und Spaß.
+Später möchte ich mich auch in Gebieten wie "Appentwicklung" und "Spieleentwicklung" ausdehnen.</p>
           </div>
         </div>
       </div>
@@ -187,9 +186,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> Entwicklung und Programmieren </p></div>
           <div class="flip-card-back">
-            <p>Seit meiner Ausbildung bei der comNET GmbH, konnte ich mich exponentiell weiterentwicklen, sodass ich in der Zeit, in welcher ich hier war,
-              weitaus mehr lernen konnte als davor. So kann ich stolz von mir behaupten, dass ich perfekt als Junior-Developer geeignet bin.
-              Beispielsweise, konnte ich an zahlreichen Projekten mitwirken und habe auch einige eigene Projekte auf die Beine stellen können. .</p>
+            <p>Seit meiner Ausbildung bei der comNET GmbH, konnte ich mich exponentiell weiterentwickeln, sodass ich in der Zeit, in welcher ich hier war,
+weitaus mehr lernen konnte als davor. So kann ich stolz von mir behaupten, dass ich perfekt als Junior-Developer geeignet bin.
+Beispielsweise, konnte ich an zahlreichen Projekten mitwirken und habe auch einige eigene Projekte auf die Beine stellen können.</p>
           </div>
         </div>
       </div>
@@ -212,9 +211,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style="z-index: 11;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
                  id="cv_sections">
-          <p>Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand ledig. Er
-            besitzt die deutsche
-            Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
+          <p>Ich bin am 15. September 2001 in Hannover geboren und bin zum heutigen Stand ledig. Ich besitze
+            die deutsche Staatsangehörigkeit und interessiere mich für Programmieren und Designen. Das sieht man auch an meinem
             regelmäßigen Zeichnen.</p>
           <span style="font-size: 2rem; margin-top: -2rem">&#8964;</span>
         </section>
@@ -225,12 +223,11 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style="z-index: 9;position: absolute; "
                  id="cv_sections">
-          <p>Joshua konnte mit Abschluss der 12. Klasse, sowie der Ausbildung bei der comNET GmbH seine
-            Fachhochschulreife
-            ergattern. Im schulischen Teil bestand er die Fachhochschulreife mit dem Notendurchschnitt von 2.7
-            Den erweiterten Sekundarabschluss I bestand Joshua sogar mit einem Notendurchschnitt von 1.6. Seine
-            Interessen
-            lagen hierbei im Fokus bei Kunst und Mathe.</p>
+          <p>Ich konnte mit Abschluss der 12. Klasse, sowie der Ausbildung bei der comNET GmbH meine
+            Fachhochschulreife ergattern. Im schulischen Teil bestand ich die Fachhochschulreife
+            mit dem Notendurchschnitt von 2.7 Den erweiterten Sekundarabschluss I bestand ich sogar
+            mit einem Notendurchschnitt von 1.6. Meine Interessen
+            lagen hierbei im Fokus bei Kunst und Mathematik.</p>
           <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
         </section>
       </div>
@@ -241,11 +238,11 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style=" z-index: 7;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
                  id="cv_sections">
-          <p>Durch seine vielfältigen Praktika hat Joshua schon viele Bereiche abgedeckt und ist sich somit sicher, dass
-            die IT das Richtige für ihn ist. Er hat beispielsweise ein
-            Zweiwöchiges Praktikum als Fahrzeuglackierer absolviert. Zusätzlich hat er auch erste Erfahrungen in der
-            Floristik. Das Praktikum und die Ausbildung hat Joshua jedoch
-            gezeigt, dass Programmieren das Gebiet ist, in welchem er sich am meisten entfalten kann!</p>
+          <p>Durch meine vielfältigen Praktika habe ich schon viele Bereiche abgedeckt und bin mir somit sicher, dass
+die IT das Richtige für mich ist. Ich habe beispielsweise ein
+zweiwöchiges Praktikum als Fahrzeuglackierer absolviert. Zusätzlich habe ich auch erste Erfahrungen in der
+Floristik. Das Praktikum und die Ausbildung hat mir aber
+gezeigt, dass Programmieren das Gebiet ist, in welchem ich mich am meisten entfalten kann!</p>
           <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
         </section>
       </div>
@@ -256,9 +253,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style="z-index: 5;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
                  id="cv_sections">
-          <p>Joshua besuchte die Grundschule Entenfang von 2008-2012. Von 2012 bis 2018 erreichte er seinen erweiterten
-            Sekundarabschluss I und erlangte auch die Fachhochschulreife im Zeitraum 2018-2020.
-            2020-2024 hat er nun Seine Ausbildung absolvieren können.</p>
+          <p>Mein Bildungsweg führte mich von 2008 bis 2012 zur Grundschule Entenfang. Anschließend erlangte ich
+            zwischen den Jahren 2012 und 2018 meinen erweiterten Sekundarabschluss I sowie die Fachhochschulreife,
+            welche ich im Zeitraum von 2018 bis 2020 erreichte. Zwischen den Jahren 2021 und 2024 absolvierte ich
+            erfolgreich meine Ausbildung.</p>
           <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
         </section>
       </div>
@@ -269,8 +267,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style="z-index: 3;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
                  id="cv_sections">
-          <p>Joshua Koch zeigt viel Engagement und kann komplexe Probleme mit großer Kreativität lösen. Rückschritte
-            stören ihn nicht und freut sich über konstruktive Kritik.</p>
+          <p>Ich demonstriere ein hohes Maß an Engagement und bin in der Lage, komplexe Probleme mit großer Kreativität
+            zu bewältigen. Rückschritte sind für mich keine Hindernisse, sondern dienen als Motivation, weiterzumachen.
+            Zudem schätze ich konstruktive Kritik.</p>
           <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
         </section>
       </div>
@@ -281,10 +280,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <section style="z-index: 1;position: absolute; top: 0; left: 0; height: 12.5rem; width: inherit"
                  id="cv_sections">
-          <p>Motivation wird bei Joshua großgeschrieben. Er ist ambitioniert an seinen Aufgaben und erreicht äußerst
-            gute
-            Ergebnisse, vorallem wenn sein Interesse geweckt wurde. Er macht nicht
-            halt, bevor er ein Ergebnis erreich hat, welches ihn selbst zufriedenstellt.</p>
+          <p>Bei mir steht Motivation an erster Stelle. Ich bin ambitioniert in meinen Aufgaben und erziele
+            herausragende Ergebnisse, insbesondere wenn mein Interesse geweckt wurde. Ich verharre nicht,
+            bis ich ein für mich zufriedenstellendes Resultat erreicht habe.</p>
           <span style="font-size: 2rem; margin-top: -1rem">&#8964;</span>
         </section>
       </div>
@@ -302,51 +300,45 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="content_grid" id="skills">
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
         <p id="skillHeader"> Vue.js </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillContent">Mit der Entwicklung in Vue.js habe ich 2022 begonnen. Da habe ich auf das Kompositionsschema
+        der Vue3 Version gearbeitet. Aufgrund meiner betrieblichen und privaten Projekte konnte ich dort schnell ein gutes
+        Verständnis für die Erstellung einer Single-Page-Website ergattern. Dafür nutze ich beispielsweise die Library "Vue-Router",
+        welche die Erstellung ermöglicht.</p>
       </div>
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
         <p id="skillHeader"> Django </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillContent">Meine Einführung in Frameworks begann mit Django im Jahr 2021. Diese Erfahrung bildete die
+          Grundlage für mein Verständnis von Webentwicklung durch das Erlernen der Erstellung von Views (Ansichten),
+          Models (Modellen) und Forms (Formularen). Besonders hilfreich waren meine eigenen Projekte wie die Entwicklung
+          einer Website inklusive eines Schere-Stein-Papier-Spiels zur Vertiefung meines Verständnisses für die
+          Zusammenhänge zwischen Frontend-, Backend-Entwicklung sowie HTML-, CSS-, and JavaScript-Kenntnissen.</p>
       </div>
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
         <p id="skillHeader"> HTML / CSS </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillContent">Mit HTML und CSS habe ich sehr viel Spaß gehabt. So bin ich sehr sicher in der Anwendung vieler Tags, die Erstellung von Klassen
+und das Erstellen von Animationen via Transition und Keyframes. Mittels SCSS und File Watcher habe ich ein komplexes Wissen von der Erstellung von
+CSS-Klassen erhalten und kann dieses einwandfrei einsetzten.</p>
       </div>
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
-        <p id="skillHeader"> Javascript / Typescript </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillHeader"> JavaScript / TypeScript </p>
+        <p id="skillContent">Anfänglich stellte sich JavaScript als Herausforderung dar aufgrund meiner Unvertrautheit
+          mit der Syntax. Doch bald fand ich meinen Weg. Besonders mithilfe von Vue.js und dem parallelen Erlernen von
+          TypeScript konnte ich meine Lernkurve steil nach oben treiben und beherrsche nun das Schreiben komplexer
+          Funktionen sowie deren effiziente Optimierung. </p>
       </div>
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
         <p id="skillHeader"> FastAPI </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillContent">FastAPI war nach Django meine erste Erfahrung mit der Erstellung eines Backends. Hier lernte ich die Erstellung
+von Models, Schemas und Views. Auch die Grundlagen von SQL habe ich hier gelernt, um einfache Abfragen an die Datenbank zu tätigen.
+Bei der Einbindung des Frontends habe ich Axios verwendet, welches meine Arbeit erleichtert hat und beim Verständnis der zu verarbeitenden
+Daten beitrug.</p>
       </div>
       <div id="content_skills" class="ContentScrollLeft" style="z-index: 12;">
         <p id="skillHeader"> SQL </p>
-        <p id="skillContent">Joshua-Daniel Koch ist am 15. September 2001 in Hannover geboren und ist zum heutigen Stand
-          ledig. Er besitzt
-          die deutsche
-          Staatsangehörigkeit. Joshua Interessiert sich für Programmieren und Designen. Das sieht man auch an seinem
-          regelmäßigen Zeichnen.</p>
+        <p id="skillContent">Durch meine Kenntnisse in SQL bin ich befähigt, Abfragen für Datenbanken zu erstellen.
+          Dabei bin ich sowohl in der Lage, einfache Selects zu erstellen als auch komplexe Join-Abfragen durchzuführen.
+          Darüber hinaus beherrsche ich die Initialisierung einer Datenbank in der dritten Normalform.
+        </p>
       </div>
     </div>
     <div style="margin-bottom:80rem; display: none" id="skills_project_separator"></div>
@@ -362,8 +354,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> INTERN <br> Website für Sensorik </p></div>
           <div class="flip-card-back">
-            <p>Ich habe intern starken Einfluss auf das Frontend einer Website gehabt, welche zur funktion hatte, sensorik auszulesen und auszuwerten.
-            Zusätzlich konnte ich im Backend einige API-Anbindungen schaffen und habe diesen Code getestet und angepasst.</p>
+            <p>Ich habe intern starken Einfluss auf das Frontend einer Website gehabt, welche zur Funktion hatte, Sensorik auszulesen und auszuwerten.
+Zusätzlich konnte ich im Backend einige API-Anbindungen schaffen und habe diesen Code getestet und angepasst.</p>
           </div>
         </div>
       </div>
@@ -371,8 +363,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> INTERN <br> Company Redesign </p></div>
           <div class="flip-card-back">
-            <p>Ich war verantwortlich für das allgemeine Redesign unserer Internen Anwendungen. mithilfe eines Professionellen Webdesigners habe ich viel über UI und UX lernen können und dies auch einsetzen können.
-            Für das Redesign habe ich intern großen Lob erhalten und durfte dies sogar in der halbjährigen Mitarbeiterversammlung vorstellen.</p>
+            <p>Ich war verantwortlich für das allgemeine Redesign unserer internen Anwendungen. Mithilfe eines
+professionellen Webdesigners habe ich viel über UI und UX lernen können und dies auch einsetzen können.
+Für das Redesign habe ich intern großen Lob erhalten und durfte dies sogar in der halbjährigen Mitarbeiterversammlung vorstellen.</p>
           </div>
         </div>
       </div>
@@ -380,8 +373,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="flip-card-inner" id="content_personal">
           <div class="flip-card-front"><p> EXTERN <br> Übungsprojekte </p></div>
           <div class="flip-card-back">
-            <p>Auch außerhalb meiner Arbeitszeit habe ich mich hingesetzt und einige kleine Projekte aufgesetzt. In diesen Projekten habe ich mein allgemeines Verständnis gegenüber
-            Front- und Backend erweitern können und habe dort einige kleine Spiele und Prototypen von Sozialen Medien erstellt.</p>
+            <p>Selbst außerhalb meiner regulären Arbeitszeiten habe ich mich engagiert, um einige kleine Projekte zu
+              realisieren. Dabei konnte ich meine Kenntnisse im Bereich Front- und Backend vertiefen,
+              indem ich dort kleinere Spiele sowie Prototypen für soziale Medien entwickelt habe.</p>
           </div>
         </div>
       </div>
@@ -391,10 +385,10 @@ document.addEventListener("DOMContentLoaded", () => {
     <!--      HTML, CSS und Javascript/Typescript besitze, sondern auch mit Frameworks wie Vue.js und Django arbeite.</p>-->
     <!--    <p>Für Backendaufgaben bin ich zusätzlich offen, da ich auch in diesem Bereich mit FastAPI, Django und SQL-->
     <!--      Daten in Websites angebunden habe.</p>-->
-    <div class="center" id="contact_header">
+    <div class="center" id="contact_header" style="margin-top: 15rem !important;">
       <h1 class="xl_text" style="z-index: 2;">Kontakt</h1>
     </div>
-    <div class="contact_field scalePointSeven" id="contact_content">
+    <div class="contact_field scalePointSeven" id="contact_content" style="margin-bottom: 28rem;">
       <div class="contact_grid">
         <div>
           <p>Wenn Sie Fragen oder Interesse haben, können Sie mir hier gerne eine Email hinterlassen!</p>
@@ -407,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <textarea name="Email_body" id="Email_body" cols="30" rows="10" placeholder="Nachricht"></textarea>
 
       <button type="button" @click="OpenMail()">E-Mail Vorlage Öffnen</button>
-      <p style="font-size: .7rem">Joshua-Daniel Koch - Joshua.Daniel.Koch@gmail.com - +49 176 345 18 116 </p>
+      <p style="font-size: .7rem">Joshua-Daniel Koch - Joshua.Daniel.Koch@gmail.com - +49 176 345 18 116 - <a href="https://github.com/jayk-developes" style="color: White">Jayk-Developes</a> </p>
 
     </div>
   </div>

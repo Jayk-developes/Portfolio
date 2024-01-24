@@ -73,7 +73,7 @@ let currentDay = new Date()
 const month = [
     "JAN", "FEB", "MAR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 ]
-console.log(currentDay)
+console.log(currentDay.getDate())
 </script>
 
 <template>
@@ -96,7 +96,7 @@ console.log(currentDay)
       <Content @image_show="imageShow"/>
     </div>
     <div class="dateShow" id="dateShow">
-        <p v-if="currentDay.getDay() < 10">0{{currentDay.getDay()}}</p><p v-else>{{currentDay.getDay()}}</p>
+        <p v-if="currentDay.getDate()< 10">0{{currentDay.getDate()}}</p><p v-else>{{currentDay.getDate()}}</p>
         <p id="dateMonth">{{month[currentDay.getMonth()]}}</p>
       <p id="dateText">Offen Für Stellenangebote</p>
       <input type="button" value="Contact Me!" id="contactButton">
