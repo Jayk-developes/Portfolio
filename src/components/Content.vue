@@ -127,6 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <template>
+  <input type="button" value="Disable Custom Cursor" id="disableCursor">
   <div class="center">
     <div style="margin-bottom:85rem; display: none" id="top_joshua_separator"></div>
     <div class="center" id="joshua">
