@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <input type="button" value="Disable Custom Cursor" id="disableCursor">
   <div class="center">
     <div style="margin-bottom:85rem; display: none" id="top_joshua_separator"></div>
-    <div class="center" id="joshua">
+    <div class="center" id="joshua" style="padding-right: 8rem">
       <h1 class="xxl_text" style="margin: 0 0 -2rem 0;">Joshua-Daniel Koch</h1>
       <h3> Fachinformatiker in Fachrichtung Anwendungsentwicklung</h3>
     </div>
@@ -200,7 +200,7 @@ Beispielsweise, konnte ich an zahlreichen Projekten mitwirken und habe auch eini
     <!--      überzeugen.</p>-->
 
     <div style="margin-bottom:85rem; display: none" id="joshua_cv_separator"></div>
-    <div class="center" id="cv_header">
+    <div class="center" id="cv_header" style="padding-right: 3rem">
       <h1 class="xl_text" style="z-index: 2;" >Lebenslauf</h1>
     </div>
 
