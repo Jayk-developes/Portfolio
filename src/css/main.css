@@ -502,7 +502,7 @@ span {
   transform: scaleX(80%) !important;
 }
 .dateShow #dateText {
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
   transform: scaleX(67%) scaleY(110%) !important;
   font-size: 1.8rem;
   white-space: nowrap;

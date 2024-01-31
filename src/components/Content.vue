@@ -395,7 +395,7 @@ Für das Redesign habe ich intern großen Lob erhalten und durfte dies sogar in 
           <p>Wenn Sie Fragen oder Interesse haben, können Sie mir hier gerne eine Email hinterlassen!</p>
         </div>
         <div>
-          <img src="../media/output-onlinepngtools%20(1).png" alt="" class="img_round ">
+          <img src="../media/Joshua_Koch.jpg" alt="" class="img_round ">
         </div>
       </div>
       <input type="text" placeholder="Betreff" id="Email_subject">

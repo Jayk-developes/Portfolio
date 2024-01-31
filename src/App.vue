@@ -81,9 +81,9 @@ console.log(currentDay.getDate())
   <img src="./media/smoke.gif" alt="wallpaper" class="wallpaper" id="wallpaper">
   <img src="./media/ColorSmoke.gif" alt="wallpaper2" id="wallpaper2" class="wallpaper"
        style="filter: brightness(30%); transition: all ease-in-out .3s;">
-  <img src="./media/cigarSmoke.gif" alt="wallpaper3" id="wallpaper3" class="wallpaper"
+  <img src="./media/blue_girl_smoke.gif" alt="wallpaper3" id="wallpaper3" class="wallpaper"
        style="filter: brightness(50%); transition: all ease-in-out .3s;">
-  <img src="./media/doubleSmoke.gif" alt="wallpaper4" id="wallpaper4" class="wallpaper"
+  <img src="./media/cigarSmoke.gif" alt="wallpaper4" id="wallpaper4" class="wallpaper"
        style="filter: brightness(60%); transition: all ease-in-out .3s;">
   <img src="./media/greenSmoke.gif" alt="wallpaper5" id="wallpaper5" class="wallpaper"
        style="filter: brightness(60%); transition: all ease-in-out .3s;">
