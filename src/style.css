@@ -1,7 +1,7 @@
 :root {
-  font-family: 'Impact', sans-serif;
+  font-family: 'Courier New', monospace;
   line-height: 1.5;
-  font-weight: 200;
+  font-weight: 600;
 
   color: rgba(255, 255, 255, 0.87);
   background-color: #000;

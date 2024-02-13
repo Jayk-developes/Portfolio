@@ -16,7 +16,7 @@ $complimentary_left: rgb(188, 150, 218) !default;
 $complimentary_right: rgb(224, 151, 200) !default;
 
 // Transparent Colors
-$primary_opacity: 0.6 !default;
+$primary_opacity: 0.2 !default;
 
 $primary_trans: rgba(42, 45, 56, $primary_opacity) !default;
 $primary_left_trans: rgba(55, 54, 70, $primary_opacity) !default;
@@ -33,8 +33,8 @@ $secondary_text_color: rgb(185, 185, 185) !default;
 $dark_text_color: rgb(70, 70, 70) !default;
 
 $font_small: .8rem !default;
-$font_size_all: 1rem !default;
-$font_mid: 1.3rem, !default;
+$font_size_all: 1.2rem !default;
+$font_mid: 1.5rem, !default;
 $font_large: 1.8rem !default;
 $font_xl: 2.2rem !default;
 $font_xxl: 3rem;
