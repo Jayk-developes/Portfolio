@@ -11,19 +11,22 @@ const postItColors = [
 ]
 
 const CV = [
-  {header: "Allgemein", content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Gebiren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- joshua.daniel.koch@gmail.com<br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"}
-]
+  {header: "Allgemein", content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Gebiren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- joshua.daniel.koch@gmail.com<br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"},
+  {header: "Schulische Laufbahn", content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br> Multimedia BBS, Hannover<br><span style='font-weight: bold'> 08.2018 -07.2020</span><br> IGS Linden, Hannover<br> <span style='font-weight: bold'>08.2012 - 06.2018</span> <br>IGS Stöcken, Hannover<br><span style='font-weight: bold'> 08.2008 - 07.2012 </span><br>Grundschule Entenfang, Hannover</span>"},
+    ]
 
 document.addEventListener("DOMContentLoaded", () => {
 
   let postits = document.querySelectorAll(".content_postit")
   let prevColor: int;
+  let prevColor2: int;
 
   postits.forEach((postit) => {
-    let newColor = RandomArrayIndex(prevColor, postItColors.length)
+    let newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
     postit.style.rotate = ((Math.random() * 8) - 4) + "deg"
     postit.style.height = postit.clientWidth + "px"
     postit.style.backgroundColor = postItColors[newColor]
+    prevColor2 = prevColor
     prevColor = newColor
   })
 })

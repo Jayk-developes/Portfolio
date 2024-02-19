@@ -75,7 +75,7 @@ body {
 
 /* Background image from http://thepatternlibrary.com/ and http://lorempixel.com */
 .clip-text_one {
-  background-image: url("../media/Abstract-Paint.png");
+  background-image: url("../media/Abstract Background-01.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -277,6 +277,7 @@ body {
   font-size: $font-size_all;
   -webkit-text-fill-color: #000;
   color: #000 !important;
+  overflow: hidden;
 
   #content {
     padding: .55rem 1.5rem 0;
