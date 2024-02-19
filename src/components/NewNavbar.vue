@@ -9,7 +9,7 @@ const openNavbar = () => {
   if (window.screen.width <= 600) {
     let opener = document.getElementById("navbar_opener") as HTMLElement
     let navbar_container = document.getElementById("navbar_container") as HTMLElement
-    navbar_container.style.marginLeft = navbar_open_status.value ? "-18rem" : "-6.5rem"
+    navbar_container.style.marginLeft = navbar_open_status.value ? "-18.5rem" : "-6.5rem"
     navbar_container.classList.toggle("closing_color", navbar_open_status.value)
 
     opener.classList.toggle("rotate90", !navbar_open_status.value)
@@ -41,7 +41,7 @@ document.addEventListener("click", () => {
 <style scoped>
 
 .closing_color {
-  background-color: rgba(255, 255, 255, 0.04) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 </style>

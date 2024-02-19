@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
-import Content from "./components/Content.vue";
+import Content from "./components/Content_old.vue";
 import "./trail.ts";
 import "./scrollIntoView.ts"
 import {ref, watch} from "vue";
