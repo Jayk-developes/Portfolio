@@ -3,6 +3,7 @@
 import Home from "./Home.vue";
 import PersonalFacts from "./PersonalFacts.vue";
 import CV from "./CV.vue";
+import Skills from "./Skills.vue";
 
 const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => {
   const topRect = topElement
@@ -12,8 +13,10 @@ const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => 
 document.addEventListener("DOMContentLoaded", () => {
   let personal = document.getElementById("content_personal") as HTMLElement
   let cv = document.getElementById("content_cv") as HTMLElement
+  let skills = document.getElementById("content_skills") as HTMLElement
 
   isElementAbove(personal, cv)
+  isElementAbove(cv, skills)
 })
 
 </script>
@@ -28,6 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="personal_container bg_seperator" id="content_cv">
     <CV />
+  </div>
+
+    <div class="personal_container bg_seperator" id="content_skills">
+    <Skills />
   </div>
 </template>
 

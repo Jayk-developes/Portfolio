@@ -69,7 +69,7 @@ body {
 
 /* Background image from http://thepatternlibrary.com/ and http://lorempixel.com */
 .clip-text_one {
-  background-image: url("../media/Abstract-Paint.png");
+  background-image: url("../media/Abstract Background-01.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -237,6 +237,7 @@ body {
 }
 
 .content_paper {
+  box-shadow: 0 4px 8px 0 black;
   width: -webkit-fill-available;
   border-radius: 0.125rem;
   height: 23rem;
@@ -247,14 +248,15 @@ body {
   font-size: 1.2rem;
   -webkit-text-fill-color: #000;
   color: #000 !important;
+  overflow: hidden;
 }
 .content_paper #content {
   padding: 0.55rem 1.5rem 0;
   text-align: left;
   font-size: small;
   position: relative;
-  top: -93.5%;
-  line-height: 1.3rem;
+  top: -98%;
+  line-height: 1.36rem;
   overflow: hidden;
 }
 .content_paper #content p, .content_paper #content span:first-child {
@@ -285,6 +287,36 @@ body {
   padding: 1rem 0 0;
 }
 
+.content_polaroid {
+  width: webkit-fill-available;
+  padding: 0.75rem;
+  height: 20rem;
+  border-radius: 0.125rem;
+  background-color: #fff;
+  box-shadow: 0 0.5rem 0.5rem 0.125rem rgba(0, 0, 0, 0.4);
+  border: solid 1px rgba(0, 0, 0, 0.5333333333);
+}
+.content_polaroid .content_polaroid_inside {
+  width: webkit-fill-available;
+  height: 15rem;
+  margin-top: -2.5rem;
+  background-color: #fbb;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1333333333);
+}
+.content_polaroid .content_polaroid_inside p {
+  color: black;
+  font-size: 0.7rem;
+  text-align: justify;
+  padding: 0 1rem;
+}
+.content_polaroid .content_polaroid_inside p:first-child {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 1.5rem 0 0;
+  margin-bottom: -0.25rem;
+}
+
 .paper_pin {
   position: relative;
   left: 50%;
@@ -293,6 +325,7 @@ body {
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 1000rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5333333333);
   background: rgb(30, 27, 78);
   background: radial-gradient(circle, rgb(30, 27, 78) 0%, rgb(60, 57, 107) 40%, rgb(2, 0, 36) 40%, rgb(40, 38, 90) 56%, rgb(66, 64, 127) 72%, rgb(32, 30, 78) 88%, rgb(2, 0, 36) 100%);
 }

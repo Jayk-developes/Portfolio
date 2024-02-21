@@ -264,6 +264,7 @@ body {
 }
 
 .content_paper {
+  box-shadow: 0 4px 8px 0 #000000ff;
   width: -webkit-fill-available;
   border-radius: .125rem;
   //HEIGHT IN JAVASCRIPT
@@ -284,8 +285,8 @@ body {
     text-align: left;
     font-size: small;
     position: relative;
-    top: -93.5%;
-    line-height: 1.3rem;
+    top: -98%;
+    line-height: 1.36rem;
     overflow: hidden;
 
     p, span:first-child {
@@ -321,6 +322,42 @@ body {
   }
 }
 
+.content_polaroid{
+  width: webkit-fill-available;
+  padding: .75rem;
+  //FALLBACK HEIGHT
+  height: 20rem;
+  border-radius: .125rem;
+  background-color: #fff;
+  box-shadow: 0 .5rem .5rem .125rem rgba(0, 0, 0, 0.4);
+  border: solid 1px #00000088;
+
+  .content_polaroid_inside {
+    width: webkit-fill-available;
+    //FALLBACK HEIGHT
+    height: 15rem;
+    margin-top: -2.5rem;
+    background-color: #fbb;
+    box-shadow: 0 0 4px 0 #00000022;
+
+    p {
+      color: black;
+      font-size: $font-small;
+      text-align: justify;
+      padding: 0 1rem;
+
+      &:first-child {
+        text-align: center;
+        font-size: $font_size_all;
+        font-weight: bold;
+        padding: 1.5rem 0 0;
+        margin-bottom: -.25rem;
+      }
+
+    }
+  }
+}
+
 .paper_pin {
   position: relative;
   left: 50%;
@@ -329,6 +366,7 @@ body {
   width: 1.4rem;
   height: 1.4rem;
   border-radius: 1000rem;
+  box-shadow: 0 2px 4px 0 #00000088;
   background: rgb(30, 27, 78);
   background: radial-gradient(circle, rgba(30, 27, 78, 1) 0%, rgba(60, 57, 107, 1) 40%, rgba(2, 0, 36, 1) 40%, rgba(40, 38, 90, 1) 56%, rgba(66, 64, 127, 1) 72%, rgba(32, 30, 78, 1) 88%, rgba(2, 0, 36, 1) 100%);
 }
