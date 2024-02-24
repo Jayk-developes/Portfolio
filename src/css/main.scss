@@ -337,14 +337,16 @@ body {
     //FALLBACK HEIGHT
     height: 15rem;
     margin-top: -2.5rem;
-    background-color: #fbb;
+    background-color: #070707;
     box-shadow: 0 0 4px 0 #00000022;
+    transition: $primary_transition_fade;
 
     p {
       color: black;
       font-size: $font-small;
       text-align: justify;
       padding: 0 1rem;
+      transition: $primary_transition_fade;
 
       &:first-child {
         text-align: center;
@@ -353,8 +355,17 @@ body {
         padding: 1.5rem 0 0;
         margin-bottom: -.25rem;
       }
-
     }
+    #project_polaroid {
+      background-color: #aaa;
+      background-image: none;
+    }
+  }
+}
+
+.transparent_text {
+  p {
+    color: transparent !important;
   }
 }
 
@@ -367,11 +378,11 @@ body {
   height: 1.4rem;
   border-radius: 1000rem;
   box-shadow: 0 2px 4px 0 #00000088;
-  background: rgb(30, 27, 78);
-  background: radial-gradient(circle, rgba(30, 27, 78, 1) 0%, rgba(60, 57, 107, 1) 40%, rgba(2, 0, 36, 1) 40%, rgba(40, 38, 90, 1) 56%, rgba(66, 64, 127, 1) 72%, rgba(32, 30, 78, 1) 88%, rgba(2, 0, 36, 1) 100%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.6530987394957983) 0%, rgba(0, 0, 0, 0.700717787114846) 40%, rgba(0, 0, 0, 1) 41%, rgba(0, 0, 0, 0.6026785714285714) 56%, rgba(0, 0, 0, 0.4458158263305322) 64%, rgba(0, 0, 0, 0.711922268907563) 75%, rgba(0, 0, 0, 1) 100%);
 }
 
-.stripe {
+
+  .stripe {
   font-size: $font-small;
   margin:4px 1.5rem ;
   color: #aaa !important;

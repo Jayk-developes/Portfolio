@@ -300,14 +300,16 @@ body {
   width: webkit-fill-available;
   height: 15rem;
   margin-top: -2.5rem;
-  background-color: #fbb;
+  background-color: #070707;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1333333333);
+  transition: all ease-in-out 0.2s;
 }
 .content_polaroid .content_polaroid_inside p {
   color: black;
   font-size: 0.7rem;
   text-align: justify;
   padding: 0 1rem;
+  transition: all ease-in-out 0.2s;
 }
 .content_polaroid .content_polaroid_inside p:first-child {
   text-align: center;
@@ -315,6 +317,14 @@ body {
   font-weight: bold;
   padding: 1.5rem 0 0;
   margin-bottom: -0.25rem;
+}
+.content_polaroid .content_polaroid_inside #project_polaroid {
+  background-color: #aaa;
+  background-image: none;
+}
+
+.transparent_text p {
+  color: transparent !important;
 }
 
 .paper_pin {
@@ -326,8 +336,7 @@ body {
   height: 1.4rem;
   border-radius: 1000rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5333333333);
-  background: rgb(30, 27, 78);
-  background: radial-gradient(circle, rgb(30, 27, 78) 0%, rgb(60, 57, 107) 40%, rgb(2, 0, 36) 40%, rgb(40, 38, 90) 56%, rgb(66, 64, 127) 72%, rgb(32, 30, 78) 88%, rgb(2, 0, 36) 100%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.6530987395) 0%, rgba(0, 0, 0, 0.7007177871) 40%, rgb(0, 0, 0) 41%, rgba(0, 0, 0, 0.6026785714) 56%, rgba(0, 0, 0, 0.4458158263) 64%, rgba(0, 0, 0, 0.7119222689) 75%, rgb(0, 0, 0) 100%);
 }
 
 .stripe {
