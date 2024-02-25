@@ -6,6 +6,8 @@ import CV from "./CV.vue";
 import Skills from "./Skills.vue";
 import RandomArrayIndex from "../assets.ts";
 import Projects from "./Projects.vue";
+import OpenFor from "./OpenFor.vue";
+import Contact from "./Contact.vue";
 
 const pinColors = [
   "#e65d5d",
@@ -18,7 +20,7 @@ const pinColors = [
 
 const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => {
   const topRect = topElement
-  bottomElement.style.top = (topRect.offsetTop + topRect.offsetHeight + 400) + "px"
+  bottomElement.style.top = (topRect.offsetTop + topRect.offsetHeight + 500) + "px"
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -26,10 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let cv = document.getElementById("content_cv") as HTMLElement
   let skills = document.getElementById("content_skills") as HTMLElement
   let projects = document.getElementById("content_projects") as HTMLElement
+  let openFor = document.getElementById("content_open_for") as HTMLElement
+  let contact = document.getElementById("content_contact") as HTMLElement
 
-  isElementAbove(personal, cv)
-  isElementAbove(cv, skills)
-  isElementAbove(skills,  projects)
+  setTimeout(() => {
+    isElementAbove(personal, cv)
+    isElementAbove(cv, skills)
+    isElementAbove(skills, projects)
+    isElementAbove(projects, openFor)
+    isElementAbove(openFor, contact)
+  }, 200)
 
   let pins = document.querySelectorAll(".paper_pin")
   let prevColor: int;
@@ -62,6 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="personal_container bg_seperator" id="content_projects">
     <Projects/>
+  </div>
+
+  <div class="personal_container bg_seperator" id="content_open_for">
+    <OpenFor/>
+  </div>
+
+  <div class="personal_container bg_seperator" id="content_contact">
+    <Contact/>
   </div>
 
 </template>

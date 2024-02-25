@@ -9,6 +9,7 @@
 html,
 body {
   min-height: 100%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 .wrapper {
@@ -30,7 +31,7 @@ body {
   font-family: "Impact", sans-serif !important;
   font-size: 3.7rem;
   font-weight: bold;
-  line-height: 2rem;
+  line-height: 3rem;
   position: relative;
   display: inline-block;
   margin: 0.25em;
@@ -232,7 +233,7 @@ body {
 .content {
   display: inline-block;
   font-size: 1.8rem;
-  font-weight: 100;
+  font-weight: 400;
   width: 80%;
 }
 
@@ -256,7 +257,7 @@ body {
   font-size: small;
   position: relative;
   top: -98%;
-  line-height: 1.36rem;
+  line-height: 1.3rem;
   overflow: hidden;
 }
 .content_paper #content p, .content_paper #content span:first-child {
@@ -264,7 +265,30 @@ body {
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
+  margin-top: 1rem;
   margin-bottom: 0.2rem;
+}
+.content_paper input {
+  width: 80%;
+  margin: 0 10% 1.5rem;
+  border: none;
+  padding: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.3333333333);
+}
+.content_paper textarea {
+  border: none;
+  width: 80%;
+  min-width: 80%;
+  max-width: 80%;
+  height: 50%;
+  overflow: scroll;
+  margin: 0 10%;
+  padding: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.6666666667);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.1rem 0.25rem 0 rgba(0, 0, 0, 0.3333333333);
 }
 
 .content_postit {
@@ -337,6 +361,46 @@ body {
   border-radius: 1000rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5333333333);
   background: radial-gradient(circle, rgba(0, 0, 0, 0.6530987395) 0%, rgba(0, 0, 0, 0.7007177871) 40%, rgb(0, 0, 0) 41%, rgba(0, 0, 0, 0.6026785714) 56%, rgba(0, 0, 0, 0.4458158263) 64%, rgba(0, 0, 0, 0.7119222689) 75%, rgb(0, 0, 0) 100%);
+}
+
+.stick_note {
+  position: relative;
+}
+.stick_note div span {
+  color: transparent;
+}
+
+.rectangle {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 4rem;
+  background-color: lightblue;
+  float: left;
+  border-radius: 0.32rem;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  float: left;
+}
+
+.triangle_left {
+  z-index: 10;
+  margin: 1rem 0 1rem -0.15rem;
+  border-left: 2.25rem solid lightblue;
+}
+
+.triangle_right {
+  margin: 1rem -0.15rem 1rem 0;
+  border-right: 2.25rem solid lightblue;
 }
 
 .stripe {

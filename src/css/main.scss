@@ -13,6 +13,7 @@
 html,
 body {
   min-height: 100%;
+  font-family: "Lucida Console", Monaco, monospace;
 }
 
 .wrapper {
@@ -32,7 +33,7 @@ body {
   font-family: 'Impact', sans-serif !important;
   font-size: $font_xxl;
   font-weight: bold;
-  line-height: 2rem;
+  line-height: 3rem;
   position: relative;
   display: inline-block;
   margin: .25em;
@@ -259,7 +260,7 @@ body {
 .content {
   display: inline-block;
   font-size: $font-mid;
-  font-weight: 100;
+  font-weight: 400;
   width: 80%;
 }
 
@@ -286,7 +287,7 @@ body {
     font-size: small;
     position: relative;
     top: -98%;
-    line-height: 1.36rem;
+    line-height: 1.3rem;
     overflow: hidden;
 
     p, span:first-child {
@@ -294,8 +295,33 @@ body {
       text-align: center;
       font-size: $font-size_all;
       font-weight: bold;
+      margin-top: 1rem;
       margin-bottom: .2rem;
     }
+  }
+
+  input {
+    width: 80%;
+    margin: 0 10% 1.5rem;
+    border: none;
+    padding: .25rem;
+    background-color: #fffa;
+    border-radius: .25rem;
+    box-shadow: 0 .1rem .25rem 0 #0005;
+  }
+
+  textarea {
+    border: none;
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+    height: 50%;
+    overflow: scroll;
+    margin: 0 10%;
+    padding: .25rem;
+    background-color: #fffa;
+    border-radius: .25rem;
+    box-shadow: 0 .1rem .25rem 0 #0005;
   }
 }
 
@@ -322,7 +348,7 @@ body {
   }
 }
 
-.content_polaroid{
+.content_polaroid {
   width: webkit-fill-available;
   padding: .75rem;
   //FALLBACK HEIGHT
@@ -356,6 +382,7 @@ body {
         margin-bottom: -.25rem;
       }
     }
+
     #project_polaroid {
       background-color: #aaa;
       background-image: none;
@@ -381,14 +408,54 @@ body {
   background: radial-gradient(circle, rgba(0, 0, 0, 0.6530987394957983) 0%, rgba(0, 0, 0, 0.700717787114846) 40%, rgba(0, 0, 0, 1) 41%, rgba(0, 0, 0, 0.6026785714285714) 56%, rgba(0, 0, 0, 0.4458158263305322) 64%, rgba(0, 0, 0, 0.711922268907563) 75%, rgba(0, 0, 0, 1) 100%);
 }
 
+.stick_note {
+  position: relative;
 
-  .stripe {
+  div span {
+    color: transparent;
+  }
+}
+
+.rectangle {
+  margin: 1rem 0;
+  font-size: $font_size_all;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 4rem;
+  background-color: lightblue;
+  float: left;
+  border-radius: .32rem;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  float: left;
+}
+
+.triangle_left {
+  z-index: 10;
+  margin: 1rem 0 1rem -.15rem;
+  border-left: 2.25rem solid lightblue;
+}
+
+.triangle_right {
+  margin: 1rem -.15rem 1rem 0;
+  border-right: 2.25rem solid lightblue;
+}
+
+
+.stripe {
   font-size: $font-small;
-  margin:4px 1.5rem ;
+  margin: 4px 1.5rem;
   color: #aaa !important;
   -webkit-text-fill-color: #aaa;
   position: relative;
   overflow: hidden;
   transform: scaleY(.5);
-
 }
