@@ -12,11 +12,11 @@ const noteColors = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  let notes = document.querySelectorAll(".stick_note")
+  let notes = document.querySelectorAll(".note")
   let i = 0
   let index = 0
-  let prevColor: int;
-  let prevColor2: int;
+  let prevColor_: int;
+  let prevColor2_: int;
   notes.forEach((note) => {
     note.style.rotate = ((Math.random() * 8) - 4) + "deg"
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let rectangle = document.getElementById(interests[index] + "_1") as HTMLElement
     let triangle = document.getElementById(interests[index] + "_2") as HTMLElement
 
-    let newColor = RandomArrayIndex(prevColor, prevColor2, noteColors.length)
+    let newColor = RandomArrayIndex(prevColor_, prevColor2_, noteColors.length)
 
     if (i == 0) {
       rectangle.classList.add("rectangle")
@@ -47,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
       triangle.innerText = interests[index]
     }
 
-    prevColor2 = prevColor
-    prevColor = newColor
+    prevColor2_ = prevColor_
+    prevColor_ = newColor
     index = index + 1
   })
 })
@@ -67,7 +67,7 @@ const interests = [
   <div class="clip-text clip-text_one" id="personal"><span id="connect">Let's Connect!</span><br>Offen für</div>
   <div style="margin-top: 3rem;" class="flex_container">
     <div class="content">
-      <div class="stick_note" v-for="item in interests">
+      <div class="stick_note note" v-for="item in interests">
         <div :id="item + '_1'"><span>_</span></div>
         <div :id="item + '_2'"><span>_</span></div>
       </div>

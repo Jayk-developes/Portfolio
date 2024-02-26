@@ -1,40 +1,84 @@
 <script setup lang="ts">
 import {ref} from "vue";
+import RandomArrayIndex from "../assets.ts";
 
 const Categories = ["Home", "Persönliches", "Lebenslauf", "Skills", "Projekte", "Kontakt"]
 
+const noteColors = [
+  "#FFBBBB",
+  "#BBFFBB",
+  "#BBBBFF",
+  "#FFFFBB",
+  "#FFBBFF",
+  "#BBFFFF"
+]
+
 const navbar_open_status = ref(false)
 
-const openNavbar = () => {
-  if (window.screen.width <= 600) {
-    let opener = document.getElementById("navbar_opener") as HTMLElement
-    let navbar_container = document.getElementById("navbar_container") as HTMLElement
-    navbar_container.style.marginLeft = navbar_open_status.value ? "-18.5rem" : "-6.5rem"
-    navbar_container.classList.toggle("closing_color", navbar_open_status.value)
+document.addEventListener("DOMContentLoaded", () => {
+  let notes = document.querySelectorAll(".note_2")
+  let i = 0
+  let index = 0
+  let prevColor_: int;
+  let prevColor2_: int;
+  notes.forEach((note) => {
+    note.style.rotate = ((Math.random() * 8) - 4) + "deg"
 
-    opener.classList.toggle("rotate90", !navbar_open_status.value)
 
-    navbar_open_status.value = !navbar_open_status.value
-  }
-}
+    i = (Math.floor(Math.random() * 2))
 
-document.addEventListener("click", () => {
-  if (navbar_open_status.value) {
-    openNavbar()
-  }
+    let rectangle = document.getElementById(Categories[index] + "_1") as HTMLElement
+    let triangle = document.getElementById(Categories[index] + "_2") as HTMLElement
+
+    let newColor = RandomArrayIndex(prevColor_, prevColor2_, noteColors.length)
+
+    if (i == 0) {
+      rectangle.classList.add("rectangle")
+      rectangle.style.boxShadow = " -.4rem .5rem .5rem 0 #00000088"
+      rectangle.style.backgroundColor = noteColors[newColor]
+      rectangle.innerText = Categories[index]
+      triangle.classList.add("triangle")
+      triangle.classList.add("triangle_left")
+      triangle.style.borderLeft = "2.25rem solid" + noteColors[newColor]
+    } else {
+      rectangle.classList.add("triangle")
+      rectangle.classList.add("triangle_right")
+      rectangle.style.borderRight = "2.25rem solid" + noteColors[newColor]
+
+      triangle.classList.add("rectangle")
+      triangle.style.boxShadow = " .45rem .5rem .5rem 0 #00000088"
+      triangle.style.backgroundColor = noteColors[newColor]
+      triangle.innerText = Categories[index]
+    }
+
+    note.addEventListener("mouseover", () => {
+      note.style.filter = 'brightness(70%)';
+    })
+    note.addEventListener("mouseout", () => {
+      note.style.filter = 'brightness(100%)';
+    })
+
+    prevColor2_ = prevColor_
+    prevColor_ = newColor
+    index = index + 1
+  })
 })
 
 
 </script>
 
 <template>
-  <div class="navbar_fixed closing_color" id="navbar_container" @click.stop="openNavbar">
+  <div class="navbar_fixed" id="navbar_container" @click.stop="openNavbar">
     <p id="navbar_opener">&#8801;</p>
-    <ul class="navbar_items" id="navbar_items" v-for="category in Categories">
-      <li :id="category + '_nav'">{{ category }}</li>
+          <div class="stick_note note_2" v-for="item in Categories">
+        <div :id="item + '_1'"><span>_</span></div>
+        <div :id="item + '_2'"><span>_</span></div>
+      </div>
+<!--    <ul class="navbar_items" id="navbar_items" v-for="category in Categories">-->
+<!--      <li :id="category + '_nav'">{{ category }}</li>-->
 
 
-    </ul>
+<!--    </ul>-->
   </div>
 </template>
 
