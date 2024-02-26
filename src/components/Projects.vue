@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const projects = [
   {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde."},
-  {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer Internen Websites. Es sollte <strong>simple</strong>, aber <strong>Nutzerfreundlich</strong> sein"},
+  {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein"},
   {header: "Portfolio", content: "Richtig! Diese website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann."},
   {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter machen.<span style='text-align: center; display: block'><br><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a></span> " +
         ""}

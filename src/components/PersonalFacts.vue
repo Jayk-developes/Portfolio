@@ -4,10 +4,10 @@ import RandomArrayIndex from "../assets.ts";
 let today = new Date()
 let age = today.getMonth() == 8 && today.getDate() < 15 || today.getMonth() < 8 ? today.getFullYear() - 2002: today.getFullYear() -2001;
 const personalFacts = [
-  {id: "Ich", content: `- Joshua-Daniel Koch <br>- ${age} Jahre alt<br>- Fachinformatiker (Anwendungsentwickler)<br><span style="display: block; text-align: center; font-weight: bold">Schwerpunkte<br>Web-Entwicklung</span>- Frontend (Vue.js, TypeScript, HTML, CSS)<br><br>- Backend (Django, SQL, FastAPI, Python, Java)<br><br>- Design (UI/UX, Figma, Blender, Procreate)`},
-  {id: "Früher", content: `- Frühes Interesse aber leider ohne Anhaltspunkte<br>- Mein Horizont erweitert in anderen Bereichen (KFZ, Botanik, Architktur)<span style="display: block; text-align: center; font-weight: bold">Lieber spät als nie!</span><span style="text-align: justify; display: block; hyphens: auto">Auch mit einem verzogerten Start konnte ich mich und andere von meinen Kompetenzen und Fähigkeiten überzeugen</span>`},
-  {id: "Heute", content: `- Seit 2021 Aktiv<br>- Liebe für Design<br>- Liebe für Frontend<br>- Backendbegeistert<br>- Wissbegierig<span style="display: block; text-align: center; font-weight: bold">Volltreffer</span> In der Entwicklung hat mich jeden Bereich angesprochen. Ich lerne gerne dazu und fächer mich gerne in weiteren Bereichen aus!`},
-  {id: "Entwicklung", content: `- Schnelles Verständnis<br>- Exponentielles Lernen<br>- Hochmotiviert<br>- Teamfähig u. Tolerant<span style="display: block; text-align: center; font-weight: bold">Junior Developer</span>Als Junior-Developer biete ich überdurchschnittliche Kompetenzen und kann Aufgaben und Probleme oft schneller und gewissenhafter lösen als vergleichbare Junior-Developer.`}
+  {id: "Ich", content: `- Joshua-Daniel Koch <br>- ${age} Jahre alt<br>- Fachinformatiker (Anwendungsentwickler)<br><br><span style="display: block; text-align: center; font-weight: bold">Schwerpunkte<br>Web-Entwicklung</span>- Frontend (Vue.js, TypeScript, HTML, CSS)<br><br>- Backend (Django, SQL, FastAPI, Python, Java)<br><br>- Design (UI/UX, Figma, Blender, Procreate)`},
+  {id: "Früher", content: `- Frühes Interesse aber leider ohne Anhaltspunkte<br>- Mein Horizont erweitert in anderen Bereichen (KFZ, Botanik, Architktur)<br><br><span style="display: block; text-align: center; font-weight: bold">Lieber spät als nie!</span><span style="text-align: justify; display: block; hyphens: auto">Auch mit einem verzogerten Start konnte ich mich und andere von meinen Kompetenzen und Fähigkeiten überzeugen</span>`},
+  {id: "Heute", content: `- Seit 2021 Aktiv<br>- Liebe für Design<br>- Liebe für Frontend<br>- Backendbegeistert<br>- Wissbegierig<br><br><span style="display: block; text-align: center; font-weight: bold">Volltreffer</span> In der Entwicklung hat mich jeden Bereich angesprochen. Ich lerne gerne dazu und fächer mich gerne in weiteren Bereichen aus!`},
+  {id: "Entwicklung", content: `- Schnelles Verständnis<br>- Exponentielles Lernen<br>- Hochmotiviert<br>- Teamfähig u. Tolerant<br><br><span style="display: block; text-align: center; font-weight: bold">Junior Developer</span>Als Junior-Developer biete ich überdurchschnittliche Kompetenzen und kann Aufgaben und Probleme oft schneller und gewissenhafter lösen als vergleichbare Junior-Developer.`}
 ]
 
 const pinColors = [
@@ -24,11 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   papers.forEach((paper) => {
+    paper.style.height = paper.offsetWidth * 1.6 + "px"
     let rotation = (Math.random() * 8) - 4
     paper.style.rotate = rotation + "deg"
-    if (window.screen.width <=350) {
-      paper.style.overflowY = "scroll"
-    }
+
   })
 
   let prevColor: int;
@@ -48,11 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="content">
       <div class="content_paper" id="content_paper" v-for="fact in personalFacts">
         <div class="paper_pin"></div>
-        <p v-for="stripe in PaperStripes" class="stripe">{{stripe}}</p>
-        <p id="content">
-          <span>{{fact.id}}<br></span>
-          <span v-html="fact.content"></span>
-          </p>
+<!--        <p v-for="stripe in PaperStripes" class="stripe">{{stripe}}</p>-->
+        <div id="content">
+          <p id="personal_header">{{fact.id}}<br></p>
+          <div v-html="fact.content" id="v-html_content"></div>
+          </div>
       </div>
     </div>
   </div>

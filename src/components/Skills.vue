@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   polaroids_inside.forEach((inside) => {
+    console.log(inside.clientWidth)
+    inside.style.height = inside.clientWidth + "px"
+
     let newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
     inside.addEventListener("mouseover", () => {
       inside.style.backgroundColor = polaroidColors[newColor]
@@ -33,8 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
     inside.addEventListener("mouseout", () => {
       inside.style.backgroundColor = "#070707"
     })
-    // inside.style.backgroundColor = polaroidColors[newColor]
-    // console.log(newColor)
     prevColor2 = prevColor
     prevColor = newColor
   })

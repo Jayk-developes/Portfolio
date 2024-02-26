@@ -1,7 +1,19 @@
 <script setup lang="ts">
-
 import NewNavbar from "./components/NewNavbar.vue";
 import Content from "./components/Content.vue";
+
+document.addEventListener("DOMContentLoaded", () => {
+  let ArrowDown = document.getElementById("arrowDown")
+
+  ArrowDown.addEventListener("click", () =>  {
+    window.scroll({
+      top: window.innerHeight,
+      behavior: "smooth"})
+  })
+
+})
+
+
 </script>
 
 <template>

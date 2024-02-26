@@ -64,7 +64,7 @@ const interests = [
 </script>
 
 <template>
-  <div class="clip-text clip-text_one" id="personal">Let's Connect!<br>Offen für:</div>
+  <div class="clip-text clip-text_one" id="personal"><span id="connect">Let's Connect!</span><br>Offen für</div>
   <div style="margin-top: 3rem;" class="flex_container">
     <div class="content">
       <div class="stick_note" v-for="item in interests">

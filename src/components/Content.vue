@@ -23,6 +23,11 @@ const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => 
   bottomElement.style.top = (topRect.offsetTop + topRect.offsetHeight + 500) + "px"
 }
 
+const isElementAboveBG = (topElement: HTMLElement, bgElement: HTMLElement) => {
+  const topRect = topElement
+  bgElement.style.top = (topRect.offsetTop + topRect.offsetHeight - 50) + "px"
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   let personal = document.getElementById("content_personal") as HTMLElement
   let cv = document.getElementById("content_cv") as HTMLElement
@@ -30,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let projects = document.getElementById("content_projects") as HTMLElement
   let openFor = document.getElementById("content_open_for") as HTMLElement
   let contact = document.getElementById("content_contact") as HTMLElement
+  let BG1 = document.getElementById("BG1") as HTMLElement
+  let loop_1 = document.getElementById("loop_1") as HTMLElement
+  let loop_2 = document.getElementById("loop_2") as HTMLElement
 
   setTimeout(() => {
     isElementAbove(personal, cv)
@@ -37,6 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
     isElementAbove(skills, projects)
     isElementAbove(projects, openFor)
     isElementAbove(openFor, contact)
+
+    isElementAboveBG(personal, BG1)
+    loop_1.animate([
+      {marginTop: -loop_1.offsetHeight / 2 + "px"},
+      {marginTop: 0}
+    ],{
+      easing: "linear",
+      duration: 10000,
+      iterations: Infinity
+    })
+    loop_2.animate([
+      {marginTop: 0},
+      {marginTop: -loop_2.offsetHeight * 0.5 + "px"}
+    ],{
+      easing: "linear",
+      duration: 10000,
+      iterations: Infinity
+    })
   }, 200)
 
   let pins = document.querySelectorAll(".paper_pin")
@@ -56,12 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
   <div>
     <Home/>
   </div>
-  <div class="personal_container bg_seperator" id="content_personal">
+  <div class="personal_container bg_seperator" style="position: absolute" id="content_personal">
     <PersonalFacts/>
   </div>
 
   <div class="personal_container bg_seperator" id="content_cv">
     <CV/>
+  </div>
+
+  <div style="position: absolute;" class="BG" id="BG1">
+    <img src="../media/real_loop_trans1.png" alt="real_loop1" id="loop_1">
+    <img src="../media/real_loop_trans2.png" alt="real_loop2" id="loop_2">
   </div>
 
   <div class="personal_container bg_seperator" id="content_skills">
