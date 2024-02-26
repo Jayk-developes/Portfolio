@@ -32,6 +32,12 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
+@media screen and (min-width: 1000px) {
+  .home {
+    margin-top: 5rem;
+  }
+}
+
 .wrapper {
   text-align: center;
 }
@@ -100,7 +106,7 @@ body {
   right: 0.125em;
   bottom: 0.125em;
   left: 0.125em;
-  background-color: rgb(83, 72, 68);
+  background-color: rgb(87, 55, 55);
 }
 
 /* Background image from http://thepatternlibrary.com/ and http://lorempixel.com */
@@ -124,16 +130,16 @@ body {
 .bg_seperator {
   width: -webkit-fill-available;
   height: 20rem;
-  box-shadow: 0 0 1.5rem 0.5rem rgb(83, 72, 68);
+  box-shadow: 0 0 1.5rem 0.5rem rgb(87, 55, 55);
   position: absolute;
   z-index: -5;
   top: 0;
   left: 0;
-  background-color: rgb(83, 72, 68);
+  background-color: rgb(87, 55, 55);
 }
 
 :root {
-  background-color: rgb(83, 72, 68);
+  background-color: rgb(87, 55, 55);
 }
 
 .navbar_fixed {
@@ -144,8 +150,9 @@ body {
   left: 0;
   width: 100%;
   justify-content: space-evenly;
-  background-color: rgb(40, 34, 32);
+  background-color: rgb(58, 51, 47);
   transition: all ease-in-out 0.2s;
+  box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.3333333333);
 }
 .navbar_fixed p {
   display: none;
@@ -180,7 +187,7 @@ body {
   top: 100%;
   padding: 2rem;
   height: auto !important;
-  background-color: rgb(83, 72, 68);
+  background-color: rgb(87, 55, 55);
 }
 
 #personal {
@@ -347,8 +354,7 @@ body {
 }
 @media only screen and (min-width: 1200px) {
   .content_paper {
-    width: 25%;
-    margin-right: 10rem;
+    width: 30%;
     height: 45%;
   }
   .content_paper #v-html_content {
@@ -435,16 +441,15 @@ body {
     width: 40%;
   }
 }
-@media screen and (min-width: 1440px) {
-  .content_postit {
-    width: 33%;
-  }
+@media screen and (min-width: 1250px) {
   .content_postit p {
     color: black;
     font-size: 1.2rem;
   }
   .content_postit p:first-child {
     text-align: center;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
     font-size: 1.7rem;
     font-weight: bold;
   }
@@ -469,7 +474,7 @@ body {
     width: 40%;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1250px) {
   .content_polaroid {
     width: 33%;
     margin: 4%;
@@ -513,9 +518,10 @@ body {
     font-size: 1.2rem;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1250px) {
   .content_polaroid .content_polaroid_inside p {
     font-size: 1.2rem;
+    line-height: 1.5rem;
   }
   .content_polaroid .content_polaroid_inside p:first-child {
     font-size: 1.7rem;

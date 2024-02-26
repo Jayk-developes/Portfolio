@@ -2,8 +2,8 @@
 import {ref} from "vue";
 import RandomArrayIndex from "../assets.ts";
 
-const Categories = ["Home", "Persönliches", "Lebenslauf", "Skills", "Projekte", "Kontakt"]
-
+const Categories = ["home", "personal", "cv", "skills", "projects","open_for", "contact"]
+const Categories_ger = ["Home", "Persönliches", "Lebenslauf","Skills", "Projekte", "Offen Für", "Kontakt"]
 const noteColors = [
   "#FFBBBB",
   "#BBFFBB",
@@ -17,6 +17,7 @@ const navbar_open_status = ref(false)
 
 document.addEventListener("DOMContentLoaded", () => {
   let notes = document.querySelectorAll(".note_2")
+  let container = document.getElementById("navbar_container") as HTMLElement
   let i = 0
   let index = 0
   let prevColor_: int;
@@ -36,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       rectangle.classList.add("rectangle")
       rectangle.style.boxShadow = " -.4rem .5rem .5rem 0 #00000088"
       rectangle.style.backgroundColor = noteColors[newColor]
-      rectangle.innerText = Categories[index]
+      rectangle.innerText = Categories_ger[index]
       triangle.classList.add("triangle")
       triangle.classList.add("triangle_left")
       triangle.style.borderLeft = "2.25rem solid" + noteColors[newColor]
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
       triangle.classList.add("rectangle")
       triangle.style.boxShadow = " .45rem .5rem .5rem 0 #00000088"
       triangle.style.backgroundColor = noteColors[newColor]
-      triangle.innerText = Categories[index]
+      triangle.innerText = Categories_ger[index]
     }
 
     note.addEventListener("mouseover", () => {
@@ -62,6 +63,22 @@ document.addEventListener("DOMContentLoaded", () => {
     prevColor_ = newColor
     index = index + 1
   })
+    console.log(window.innerWidth)
+  container.addEventListener("click", () => {
+    if (window.innerWidth <= 1000 && navbar_open_status.value == false) {
+      container.style.marginLeft = "0"
+    } else if (window.innerWidth <= 1000 && navbar_open_status.value == true) {
+      container.style.marginLeft = "-13rem"
+    }
+    navbar_open_status.value = !navbar_open_status.value
+  })
+  document.addEventListener("click", () => {
+    if (window.innerWidth <= 1000 && navbar_open_status.value == true) {
+      navbar_open_status.value = !navbar_open_status.value
+      container.style.marginLeft = "-13rem"
+      return
+    }
+  })
 })
 
 
@@ -70,22 +87,13 @@ document.addEventListener("DOMContentLoaded", () => {
 <template>
   <div class="navbar_fixed" id="navbar_container" @click.stop="openNavbar">
     <p id="navbar_opener">&#8801;</p>
-          <div class="stick_note note_2" v-for="item in Categories">
-        <div :id="item + '_1'"><span>_</span></div>
-        <div :id="item + '_2'"><span>_</span></div>
-      </div>
-<!--    <ul class="navbar_items" id="navbar_items" v-for="category in Categories">-->
-<!--      <li :id="category + '_nav'">{{ category }}</li>-->
-
-
-<!--    </ul>-->
+    <div class="stick_note note_2" :id="item + '_0'" :data-target="'content_' + item" v-for="item in Categories">
+      <div :id="item + '_1'"><span>_</span></div>
+      <div :id="item + '_2'"><span>_</span></div>
+    </div>
   </div>
 </template>
 
 <style scoped>
-
-.closing_color {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-}
 
 </style>

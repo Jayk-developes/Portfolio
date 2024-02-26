@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <template>
-  <div>
+  <div class="home">
     <Home/>
   </div>
   <div class="personal_container bg_seperator" style="position: absolute" id="content_personal">

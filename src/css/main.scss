@@ -36,6 +36,12 @@ body {
   font-family: "Lucida Console", Monaco, monospace;
 }
 
+.home {
+  @media screen and (min-width: 1000px){
+    margin-top: 5rem;
+  }
+}
+
 .wrapper {
   text-align: center;
 
@@ -155,6 +161,7 @@ body {
   justify-content: space-evenly;
   background-color: $secondary;
   transition: $primary_transition_fade;
+  box-shadow: 0 .5rem .5rem 0 #0005;
   p {
     display: none;
   }
@@ -378,9 +385,8 @@ body {
   }
 
   @media only screen and (min-width: 1200px) {
-    width: 25%;
-    //FALLBACKHEIGHT
-    margin-right: 10rem;
+    width: 30%;
+    //FALLBACK HEIGHT
     height: 45%;
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 30px, #78878d 31px, #eadbcf 32px) !important;
@@ -475,14 +481,15 @@ body {
     width: 40%;
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 33%;
+  @media screen and (min-width: 1250px) {
     p {
       color: black;
-      font-size: $font-size_all;
+      font-size: $font_size_all;
 
       &:first-child {
         text-align: center;
+        margin-top: -.5rem;
+        margin-bottom: -.5rem;
         font-size: $font_mid;
         font-weight: bold;
       }
@@ -508,7 +515,7 @@ body {
     width: 40%;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1250px) {
     width: 33%;
     margin: 4%;
   }
@@ -550,8 +557,9 @@ body {
           font-size: $font_size_all;
         }
       }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 1250px) {
         font-size: $font-size_all;
+        line-height: 1.5rem;
         &:first-child {
           font-size: $font_mid;
         }
