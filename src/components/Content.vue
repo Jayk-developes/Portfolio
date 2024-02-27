@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loop_1.animate([
       {marginTop: -loop_1.offsetHeight / 2 + "px"},
       {marginTop: 0}
-    ],{
+    ], {
       easing: "linear",
       duration: 10000,
       iterations: Infinity
@@ -58,12 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
     loop_2.animate([
       {marginTop: 0},
       {marginTop: -loop_2.offsetHeight * 0.5 + "px"}
-    ],{
+    ], {
       easing: "linear",
       duration: 10000,
       iterations: Infinity
     })
-  }, 200)
+  }, 100)
 
   let pins = document.querySelectorAll(".paper_pin")
   let prevColor: int;
@@ -97,6 +97,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <div class="personal_container bg_seperator" id="content_skills">
     <Skills/>
+  </div>
+
+  <div style="position: absolute;" class="BG" id="BG2">
+    <div>
+      <img src="../media/projects/OldDesignedCss.png" alt="OldDesign">
+      <img src="../media/projects/RedesignedCss.png" alt="Redesign">
+    </div>
+    <div>
+      <img src="../media/projects/OldDesignedCss_2.png" alt="OldDesign_2">
+      <img src="../media/projects/RedesignedCss_2.png" alt="Redesign_2">
+    </div>
+    <div>
+      <img src="../media/projects/axisAlerting.png" alt="axisAlerting">
+    </div>
   </div>
 
   <div class="personal_container bg_seperator" id="content_projects">

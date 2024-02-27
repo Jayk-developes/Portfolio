@@ -207,7 +207,13 @@ body {
 .BG img {
   width: 40%;
   height: auto;
+  margin: 1rem;
   filter: drop-shadow(0 0.25rem 0.5rem black);
+}
+.BG div img {
+  border-radius: 0.5rem;
+  height: 25rem;
+  width: auto;
 }
 .BG #loop_1 {
   position: absolute;
