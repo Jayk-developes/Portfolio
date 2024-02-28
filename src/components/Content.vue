@@ -8,6 +8,7 @@ import RandomArrayIndex from "../assets.ts";
 import Projects from "./Projects.vue";
 import OpenFor from "./OpenFor.vue";
 import Contact from "./Contact.vue";
+import Projects_Images from "./Projects_Images.vue";
 
 const pinColors = [
   "#e65d5d",
@@ -36,8 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let openFor = document.getElementById("content_open_for") as HTMLElement
   let contact = document.getElementById("content_contact") as HTMLElement
   let BG1 = document.getElementById("BG1") as HTMLElement
-  let loop_1 = document.getElementById("loop_1") as HTMLElement
+  let BG2 = document.getElementById("BG2") as HTMLElement
   let loop_2 = document.getElementById("loop_2") as HTMLElement
+  let loop_1 = document.querySelectorAll(".loop_1")
 
   setTimeout(() => {
     isElementAbove(personal, cv)
@@ -47,20 +49,27 @@ document.addEventListener("DOMContentLoaded", () => {
     isElementAbove(openFor, contact)
 
     isElementAboveBG(personal, BG1)
-    loop_1.animate([
-      {marginTop: -loop_1.offsetHeight / 2 + "px"},
-      {marginTop: 0}
-    ], {
-      easing: "linear",
-      duration: 10000,
-      iterations: Infinity
+    isElementAboveBG(skills, BG2)
+    let loop_duration = [10000, 30000]
+    let i = 0
+    loop_1.forEach((loop) => {
+      loop.animate([
+          {marginTop: 0},
+        {marginTop: -loop.offsetHeight / 2 + "px"},
+      ], {
+        easing: "linear",
+        duration: loop_duration[i],
+        iterations: Infinity
+
+      })
+      i = i + 1
     })
     loop_2.animate([
+      {marginTop: -loop_2.offsetHeight / 2 + "px"},
       {marginTop: 0},
-      {marginTop: -loop_2.offsetHeight * 0.5 + "px"}
     ], {
       easing: "linear",
-      duration: 10000,
+      duration: loop_duration[0],
       iterations: Infinity
     })
   }, 100)
@@ -91,26 +100,22 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <div style="position: absolute;" class="BG" id="BG1">
-    <img src="../media/real_loop_trans1.png" alt="real_loop1" id="loop_1">
-    <img src="../media/real_loop_trans2.png" alt="real_loop2" id="loop_2">
+    <div class="inner_bg">
+      <div id="loop_1" class="loop_1">
+        <img src="../media/real_loop_trans1.png" alt="real_loop1">
+      </div>
+      <div id="loop_2" class="loop_2">
+        <img src="../media/real_loop_trans2.png" alt="real_loop2">
+      </div>
+    </div>
   </div>
 
   <div class="personal_container bg_seperator" id="content_skills">
     <Skills/>
   </div>
 
-  <div style="position: absolute;" class="BG" id="BG2">
-    <div>
-      <img src="../media/projects/OldDesignedCss.png" alt="OldDesign">
-      <img src="../media/projects/RedesignedCss.png" alt="Redesign">
-    </div>
-    <div>
-      <img src="../media/projects/OldDesignedCss_2.png" alt="OldDesign_2">
-      <img src="../media/projects/RedesignedCss_2.png" alt="Redesign_2">
-    </div>
-    <div>
-      <img src="../media/projects/axisAlerting.png" alt="axisAlerting">
-    </div>
+  <div class="BG" id="BG2">
+    <Projects_Images/>
   </div>
 
   <div class="personal_container bg_seperator" id="content_projects">

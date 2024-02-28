@@ -1,24 +1,43 @@
 <script setup lang="ts">
 import RandomArrayIndex from "../assets.ts";
+import {ref} from "vue";
 
 const postItColors = [
-    "#FFBBBB",
-    "#BBFFBB",
-    "#BBBBFF",
-    "#FFFFBB",
-    "#FFBBFF",
-    "#BBFFFF"
+  "#FFBBBB",
+  "#BBFFBB",
+  "#BBBBFF",
+  "#FFFFBB",
+  "#FFBBFF",
+  "#BBFFFF"
 ]
+
+
+const certActive = ref(false)
 
 const CV = [
-  {header: "Allgemein", content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Gebiren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- joshua.daniel.koch@gmail.com<br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"},
-  {header: "Schulische Laufbahn", content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br> Multimedia BBS, Hannover<br></brY><br><span style='font-weight: bold'> 08.2018 -07.2020</span><br> IGS Linden, Hannover<br><br> <span style='font-weight: bold'>08.2012 - 06.2018</span> <br>IGS Stöcken, Hannover<br><br><span style='font-weight: bold'> 08.2008 - 07.2012 </span><br>Grundschule Entenfang, Hannover</span>"},
-  {header: "Berufspraxis", content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br><span style='white-space: nowrap'>Ausbildung - Anwendungsentwicklung</span><span style='font-size: .5rem; white-space: normal'><br>Frontend, Backend, Design</span><br><br><span style='font-weight: bold'>05.2021 - 10.2021</span><br>Berufsvorbereitung - Wirtschaft<br><br><span style='font-weight: bold'>09.2017 und 08.2016</span><br>Praktika<br>Floristik und Fahrzeuglackeirer"},
-  {header: "Interessen", content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Neues lernen"},
-  {header: "Sprachen", content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"}
+  {
+    header: "Allgemein",
+    content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Gebiren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- <span id='name_mail'>joshua.daniel.koch@gmail.com</span><br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"
+  },
+  {
+    header: "Schulische Laufbahn",
+    content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br> Multimedia BBS, Hannover<br><br><span style='font-weight: bold'> 08.2018 -07.2020</span><br> IGS Linden, Hannover<br><br> <span style='font-weight: bold'>08.2012 - 06.2018</span> <br>IGS Stöcken, Hannover<br><br><span style='font-weight: bold'> 08.2008 - 07.2012 </span><br>Grundschule Entenfang, Hannover <br><input type='button' id='certificate_button' value='Meine Zeugnisse' class='zeugnis_button'></span>"
+  },
+  {
+    header: "Berufspraxis",
+    content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br><span style='white-space: nowrap'>Ausbildung <br> Anwendungsentwicklung</span><span style='font-size: .5rem; white-space: normal'><br>Frontend, Backend, Design</span><br><br><span style='font-weight: bold'>05.2021 - 10.2021</span><br>Berufsvorbereitung - Wirtschaft<br><br><span style='font-weight: bold'>09.2017 und 08.2016</span><br>Praktika<br>Floristik und Fahrzeuglackeirer"
+  },
+  {
+    header: "Interessen",
+    content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Neues lernen"
+  },
+  {
+    header: "Sprachen",
+    content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"
+  }
 ]
-
 document.addEventListener("DOMContentLoaded", () => {
+
 
   let postits = document.querySelectorAll(".content_postit")
   let prevColor: int;
@@ -32,6 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
     prevColor2 = prevColor
     prevColor = newColor
   })
+
+  let cert_button = document.getElementById("certificate_button") as HTMLElement
+
+  cert_button.addEventListener("click", () => {
+    certActive.value = true
+  })
+
+
 })
 
 </script>
@@ -44,6 +71,19 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>{{ entry.header }}</p>
         <p v-html="entry.content"></p>
       </div>
+    </div>
+  </div>
+
+  <div v-if="certActive" class="show_cert">
+    <div class="close_cert" @click="certActive = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/certificates/MMBBS-2022.png" alt="MMBBS2022">
+      <img src="../media/certificates/MMBBS-2023.png" alt="MMBBS2023">
+      <img src="../media/certificates/Zwischenzeugnis_1.png" alt="ZwZeug1">
+      <img src="../media/certificates/Zwischenzeugnis_2.png" alt="ZwZeug2">
+      <img src="../media/certificates/Fachabi.png" alt="Fachabi">
+      <img src="../media/certificates/Fachabi_Bescheinigung.png" alt="Fachabi2">
+      <img src="../media/certificates/Sekundar_1.png" alt="Sek1">
     </div>
   </div>
 </template>

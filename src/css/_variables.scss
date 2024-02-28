@@ -1,40 +1,56 @@
-$primary: rgb(87, 55, 55) !default;
-$primary_left: rgb(55, 54, 70) !default;
-$primary_right: rgb(58, 73, 79) !default;
+@use "sass:color";
 
-$secondary: rgb(58, 51, 47) !default;
-$secondary_left: rgb(81, 79, 98) !default;
-$secondary_right: rgb(73, 83, 89) !default;
+//FALLBACK PRIMARY COLOR
+$primary: #4b3832 !default;
 
-$contrast_color: rgb(0, 10, 28) !default;
-$contrast_color_left: rgb(9, 0, 30) !default;
-$contrast_color_right: rgb(0, 23, 35) !default;
-$black_color: rgb(0, 0, 0) !default;
+@if(40% > color.lightness($primary)) {
+  $primary: color.change($primary, $lightness: 40%)
+} @else if ((color.lightness($primary) > 60%)) {
+  $primary: color.change($primary, $lightness: 60%)
+}
 
-$complimentary: rgb(231, 153, 203) !default;
-$complimentary_left: rgb(188, 150, 218) !default;
-$complimentary_right: rgb(224, 151, 200) !default;
+@if(35% < color.saturation($primary)) {
+  $primary: color.change($primary, $saturation: 35%)
+}
 
-// Transparent Colors
-$primary_opacity: 0.4 !default;
 
-$primary_trans: rgba(30, 14, 33, $primary_opacity) !default;
-$primary_left_trans: rgba(55, 54, 70, $primary_opacity) !default;
-$primary_right_trans: rgba(58, 73, 79, $primary_opacity) !default;
+$primary_2: color.adjust($primary, $hue: 15deg);
+$primary_3: color.adjust($primary, $hue: -15deg);
 
-$secondary_trans: rgba(85, 89, 105, $primary_opacity) !default;
-$secondary_left_trans: rgba(81, 79, 98, $primary_opacity) !default;
-$secondary_right_trans: rgba(73, 83, 89, $primary_opacity) !default;
+$primary_trans: color.change($primary, $alpha: 0.6);
+$primary_2_trans: color.change($primary_2, $alpha: 0.6);
+$primary_3_trans: color.change($primary_3, $alpha: 0.6);
 
-// Text Color And Size
 
-$primary_text: rgb(255, 255, 255) !default;
-$secondary_text_color: rgb(185, 185, 185) !default;
-$dark_text_color: rgb(70, 70, 70) !default;
+
+$secondary: color.change($primary, $lightness: 60%);
+$secondary: color.adjust($secondary, $hue: -35deg);
+$secondary_2: color.change($primary_2, $lightness: 70%);
+$secondary_3: color.change($primary_3, $lightness: 70%);
+
+$secondary_trans: color.change($secondary, $alpha: 0.6);
+$secondary_2_trans: color.change($secondary_2, $alpha: 0.6);
+$secondary_3_trans: color.change($secondary_3, $alpha: 0.6);
+
+
+
+$contrast: color.change($primary, $lightness: 20%);
+$contrast_trans: color.change($contrast, $alpha: 0.6);
+$contrast_2: color.change($primary_2, $lightness: 20%);
+$contrast_3: color.change($primary_3, $lightness: 20%);
+
+$complimentary: color.adjust($primary, $hue: 180deg, $saturation: 20%, $lightness: 10%);
+$complimentary_2: color.adjust($primary, $hue: -155deg, $saturation: 20%, $lightness: 5%);
+$complimentary_3: color.adjust($primary, $hue: 155deg, $saturation: 20%, $lightness: 5%);
+
+$text_light: rgb(255, 255, 255);
+$text_dark: rgb(55, 55, 55);
+
+$primary_transition_fade: all ease-in-out .2s;
 
 $font_small: .7rem !default;
 $font_size_all: 1.2rem !default;
-$font_mid: 1.7rem, !default;
+$font_mid: 1.6rem, !default;
 $font_large: 2.2rem !default;
 $font_xl: 3rem !default;
 $font_xxl: 3.7rem;
