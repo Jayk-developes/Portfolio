@@ -4,18 +4,18 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(173, 133, 147, 0.6);
+  background: rgba(92, 61, 63, 0.6);
   border-radius: 100rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(122, 91, 82, 0.6);
+  background: rgba(65, 43, 48, 0.6);
   border-radius: 100rem;
   transition: all ease-in-out 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4d9ab3;
+  background: #2f7061;
 }
 
 *,
@@ -106,7 +106,7 @@ body {
   right: 0.125em;
   bottom: 0.125em;
   left: 0.125em;
-  background-color: #7a5b52;
+  background-color: #412b30;
 }
 
 /* Background image from http://thepatternlibrary.com/ and http://lorempixel.com */
@@ -118,6 +118,8 @@ body {
 
 .img_bg {
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 100%;
   position: fixed;
   top: 0;
@@ -129,17 +131,19 @@ body {
 
 .bg_seperator {
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 20rem;
-  box-shadow: 0 0 1.5rem 0.5rem #7a5b52;
+  box-shadow: 0 0 1.5rem 0.5rem #3d292d;
   position: absolute;
   z-index: -5;
   top: 0;
   left: 0;
-  background-color: #7a5b52;
+  background-color: #412b30;
 }
 
 :root {
-  background-color: #7a5b52;
+  background-color: #412b30;
 }
 
 .navbar_fixed {
@@ -150,7 +154,7 @@ body {
   left: 0;
   width: 100%;
   justify-content: space-evenly;
-  background-color: #ad8593;
+  background-color: #5c3d3f;
   transition: all ease-in-out 0.2s;
   box-shadow: 0 0.5rem 0.5rem 0 rgba(0, 0, 0, 0.3333333333);
 }
@@ -178,7 +182,7 @@ body {
     transition: all ease-in-out 0.2s;
   }
   .navbar_fixed p:hover {
-    color: #4d9ab3;
+    color: #2f7061;
   }
 }
 
@@ -187,7 +191,7 @@ body {
   top: 100%;
   padding: 2rem;
   height: auto !important;
-  background-color: #7a5b52;
+  background-color: #412b30;
 }
 
 #personal {
@@ -203,6 +207,9 @@ body {
   width: 100%;
   background-color: transparent;
   overflow: hidden;
+}
+.BG .direction {
+  flex-direction: row !important;
 }
 .BG .inner_bg {
   display: flex;
@@ -228,6 +235,9 @@ body {
     width: 90%;
   }
 }
+.BG .inner_bg .imgSize {
+  width: 45% !important;
+}
 .BG .inner_bg span {
   font-size: 7rem;
 }
@@ -241,13 +251,15 @@ body {
 }
 .BG .inner_bg div {
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
 }
 .BG .inner_bg div img {
   box-shadow: none;
   width: 90%;
 }
 .BG .inner_bg_text {
-  background-color: rgba(61, 46, 41, 0.6);
+  background-color: rgba(61, 41, 45, 0.6);
   font-size: 1.6rem;
   color: white;
   margin: 1rem 0 1rem 5%;
@@ -262,15 +274,6 @@ body {
   text-shadow: 1px 0 0 #FFF, 0 -1px 0 #FFF, 0 1px 0 #FFF, -1px 0 0 #FFF;
 }
 
-#loop_1 {
-  animation: loop_1 10s infinite linear !important;
-  top: 0;
-}
-
-#loop_2 {
-  animation: loop_2 10s infinite linear;
-}
-
 .zeugnis_button {
   position: absolute;
   bottom: 5%;
@@ -279,7 +282,7 @@ body {
   color: white;
   border: none;
   border-radius: 0.25rem;
-  background-color: #ad8593;
+  background-color: #5c3d3f;
   padding: 0.25rem 0.5rem;
   box-shadow: 0 0.125rem 0.125rem 0 rgba(0, 0, 0, 0.6666666667);
   transition: all ease-in-out 0.2s;
@@ -291,7 +294,7 @@ body {
   }
 }
 .zeugnis_button:hover {
-  background-color: #4d9ab3;
+  background-color: #2f7061;
 }
 
 .show_cert {
@@ -300,7 +303,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(122, 91, 82, 0.6);
+  background-color: rgba(65, 43, 48, 0.6);
   z-index: 100000000000000000000000000000000000000000000000000;
   overflow-y: scroll;
   padding: 3rem;
@@ -339,7 +342,7 @@ body {
   transition: filter ease-in-out 0.2s;
 }
 .arrowDown:hover {
-  filter: invert(100%) drop-shadow(0 0 0.25rem #4d9ab3);
+  filter: invert(100%) drop-shadow(0 0 0.25rem #2f7061);
 }
 
 @keyframes upAndDown {
@@ -377,6 +380,8 @@ body {
 .content_paper {
   box-shadow: 0 6px 10px 0 black;
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   border-radius: 0.125rem;
   height: 23rem;
   padding-top: 0.25rem;
@@ -390,7 +395,11 @@ body {
 }
 .content_paper #content {
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
   padding: 0.55rem 1.5rem 1rem;
   text-align: left;
   font-size: small;
@@ -400,7 +409,9 @@ body {
 }
 .content_paper #content #v-html_content {
   background: repeating-linear-gradient(#eadbcf, #eadbcf 19px, #78878d 20px, #eadbcf 21px);
-  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   margin-top: 3rem;
   overflow-y: scroll;
   margin-right: -1rem;
@@ -476,7 +487,7 @@ body {
   padding: 0.5rem 0.25rem;
 }
 .content_paper input[type=button]:hover {
-  background-color: #4d9ab3;
+  background-color: #2f7061;
 }
 .content_paper textarea {
   border: none;
@@ -493,7 +504,9 @@ body {
 }
 
 .content_postit {
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 16rem;
   line-height: 0.8rem;
   border-radius: 0.125rem;
@@ -537,29 +550,40 @@ body {
     width: 40%;
   }
 }
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1185px) {
   .content_postit {
-    width: 35%;
-    line-height: 1.9rem;
-  }
-  .content_postit a {
-    font-size: 1.2rem;
+    width: 37.5%;
+    line-height: 1.2rem;
   }
   .content_postit p {
     color: black;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
   }
   .content_postit p:first-child {
     text-align: center;
     margin-top: -0.5rem;
     margin-bottom: -0.5rem;
-    font-size: 2.2rem;
+    font-size: 1.6rem;
     font-weight: bold;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .content_postit p {
+    line-height: 1.7rem;
+    font-size: 1.6rem;
+  }
+  .content_postit p:first-child {
+    font-size: 2.2rem;
+  }
+  .content_postit a {
+    font-size: 1.2rem;
   }
 }
 
 .content_polaroid {
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   padding: 0.75rem;
   height: 20rem;
   border-radius: 0.125rem;
@@ -584,7 +608,9 @@ body {
   }
 }
 .content_polaroid .content_polaroid_inside {
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 15rem;
   margin-top: -2.5rem;
   background-color: #070707;
@@ -638,10 +664,6 @@ body {
   .content_polaroid .content_polaroid_inside p:first-child {
     font-size: 1.6rem;
   }
-}
-.content_polaroid .content_polaroid_inside #project_polaroid {
-  background-color: #aaa;
-  background-image: none;
 }
 
 .transparent_text p {

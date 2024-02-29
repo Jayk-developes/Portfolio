@@ -8,7 +8,9 @@
         <div id="Daniel">DANIEL</div>
         <br> KOCH</div>
 
-      <div class="clip-text_one img_bg"></div>
+      <div class="clip-text_one img_bg">
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0006"></div>
+      </div>
 </template>
 
 <style scoped>

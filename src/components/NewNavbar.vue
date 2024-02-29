@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     prevColor_ = newColor
     index = index + 1
   })
-    console.log(window.innerWidth)
   container.addEventListener("click", () => {
     if (window.innerWidth <= 1000 && navbar_open_status.value == false) {
       container.style.marginLeft = "0"

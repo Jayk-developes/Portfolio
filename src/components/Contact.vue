@@ -1,5 +1,20 @@
 <script setup lang="ts">
+import URI from "urijs";
 
+const OpenMail = () => {
+    let body = document.getElementById("Email_body")
+    let subject = document.getElementById("Email_subject")
+
+    // "mailto:m.mustermann@domain.de?body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+    // "mailto:m.mustermann@domain.de?subject=Hier%20steht%20der%20Betreff&amp;body=Hallo%20Max,%0D%0A%0D%0Ahier%20steht%20die%20Nachricht."
+
+    body = URI.encode(body.value)
+    subject = URI.encode(subject.value)
+    let URIString = `mailto:joshua.daniel.koch@gmail.com?subject=${subject}&body=${body}`
+  console.log(URIString)
+  window.location.href = URIString
+
+  }
 </script>
 
 <template>
@@ -9,15 +24,23 @@
       <div class="content_paper" id="contact_content">
         <div class="paper_pin"></div>
         <p style="line-height: 0">Betreff</p>
-        <input type="text">
+        <input type="text" placeholder="Betreff" id="Email_subject">
         <p style="line-height: 0">Inhalt</p>
-        <textarea></textarea>
-        <input type="button" value="E-mail öffnen">
+        <textarea name="Email_body" id="Email_body" placeholder="Inhalt"></textarea>
+        <input type="button" value="E-mail öffnen" @click="OpenMail()">
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+::placeholder {
+  color: #aaa !important;
+  opacity: 0.5;
+}
+
+::-ms-input-placeholder { /* Edge 12-18 */
+  color: red;
+}
 
 </style>

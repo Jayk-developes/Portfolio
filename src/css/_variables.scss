@@ -1,17 +1,9 @@
 @use "sass:color";
 
 //FALLBACK PRIMARY COLOR
-$primary: #4b3832 !default;
+$primary: #412b30 !default;
 
-@if(40% > color.lightness($primary)) {
-  $primary: color.change($primary, $lightness: 40%)
-} @else if ((color.lightness($primary) > 60%)) {
-  $primary: color.change($primary, $lightness: 60%)
-}
 
-@if(35% < color.saturation($primary)) {
-  $primary: color.change($primary, $saturation: 35%)
-}
 
 
 $primary_2: color.adjust($primary, $hue: 15deg);
@@ -23,8 +15,8 @@ $primary_3_trans: color.change($primary_3, $alpha: 0.6);
 
 
 
-$secondary: color.change($primary, $lightness: 60%);
-$secondary: color.adjust($secondary, $hue: -35deg);
+$secondary: color.change($primary, $lightness: 30%);
+$secondary: color.adjust($secondary, $hue: 10deg);
 $secondary_2: color.change($primary_2, $lightness: 70%);
 $secondary_3: color.change($primary_3, $lightness: 70%);
 

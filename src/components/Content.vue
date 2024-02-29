@@ -48,30 +48,35 @@ document.addEventListener("DOMContentLoaded", () => {
     isElementAbove(projects, openFor)
     isElementAbove(openFor, contact)
 
-    isElementAboveBG(personal, BG1)
-    isElementAboveBG(skills, BG2)
-    let loop_duration = [10000, 30000]
-    let i = 0
-    loop_1.forEach((loop) => {
-      loop.animate([
-          {marginTop: 0},
-        {marginTop: -loop.offsetHeight / 2 + "px"},
+    setTimeout(() => {
+
+
+      isElementAboveBG(personal, BG1)
+      isElementAboveBG(skills, BG2)
+      let loop_duration = [15000, 25000]
+      let i = 0
+      loop_1.forEach((loop) => {
+        let loop_margin = [loop.offsetHeight / 2 + "px", 0]
+        loop.animate([
+          {marginTop: loop_margin[i]},
+          {marginTop: -loop.offsetHeight / 2 + "px"},
+        ], {
+          easing: "linear",
+          duration: loop_duration[i],
+          iterations: Infinity
+
+        })
+        i = i + 1
+      })
+      loop_2.animate([
+        {marginTop: -loop_2.offsetHeight / 2 + "px"},
+        {marginTop: loop_2.offsetHeight / 2 + "px"},
       ], {
         easing: "linear",
-        duration: loop_duration[i],
+        duration: loop_duration[0],
         iterations: Infinity
-
       })
-      i = i + 1
-    })
-    loop_2.animate([
-      {marginTop: -loop_2.offsetHeight / 2 + "px"},
-      {marginTop: 0},
-    ], {
-      easing: "linear",
-      duration: loop_duration[0],
-      iterations: Infinity
-    })
+    },300)
   }, 100)
 
   let pins = document.querySelectorAll(".paper_pin")
@@ -100,11 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
   <div style="position: absolute;" class="BG" id="BG1">
-    <div class="inner_bg">
-      <div id="loop_1" class="loop_1">
+    <div class="inner_bg direction">
+      <div id="loop_1" class="loop_1 imgSize">
         <img src="../media/real_loop_trans1.png" alt="real_loop1">
       </div>
-      <div id="loop_2" class="loop_2">
+      <div id="loop_2" class="loop_2 imgSize">
         <img src="../media/real_loop_trans2.png" alt="real_loop2">
       </div>
     </div>

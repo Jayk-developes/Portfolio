@@ -30,24 +30,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let i = 0
   polaroids_inside.forEach((inside) => {
     let newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
-    inside.style.backgroundColor = polaroidColors[newColor]
     inside.addEventListener("mouseover", () => {
-      inside.style.backgroundImage = images[i]
-      console.log(inside.style.backgroundImage, images[i])
-      inside.style.backgroundColor = "transparent"
-      inside.classList.add("transparent_text")
+      inside.style.backgroundColor = polaroidColors[newColor]
 
     })
     inside.addEventListener("mouseout", () => {
-      inside.style.backgroundColor = polaroidColors[newColor]
-      inside.style.backgroundImage = "None"
-      inside.classList.remove("transparent_text")
+      inside.style.backgroundColor = "black"
     })
     // inside.style.backgroundColor = polaroidColors[newColor]
     // console.log(newColor)
     prevColor2 = prevColor
     prevColor = newColor
-    i = i+1
+    i = i + 1
   })
 })
 

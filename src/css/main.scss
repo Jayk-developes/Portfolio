@@ -123,6 +123,8 @@ body {
 
 .img_bg {
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 100%;
   position: fixed;
   top: 0;
@@ -135,8 +137,10 @@ body {
 .bg_seperator {
   //ADD MARGIN TOP FOR NEW INHERITANCE
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   height: 20rem;
-  box-shadow: 0 0 1.5rem .5rem $primary;
+  box-shadow: 0 0 1.5rem .5rem $contrast;
   position: absolute;
   z-index: -5;
   top: 0;
@@ -219,6 +223,9 @@ body {
   width: 100%;
   background-color: transparent;
   overflow: hidden;
+  .direction{
+      flex-direction: row !important;
+    }
 
   .inner_bg {
     display: flex;
@@ -244,6 +251,10 @@ body {
 
     }
 
+    .imgSize {
+      width: 45% !important;
+    }
+
 
     span {
       font-size: 7rem;
@@ -258,6 +269,8 @@ body {
 
     div {
       width: -webkit-fill-available;
+      width: -moz-available;
+      width: fill-available;
 
       img {
         box-shadow: none;
@@ -289,16 +302,16 @@ body {
   }
 }
 
-#loop_1 {
-  //position: absolute;
-  animation: loop_1 10s infinite linear !important;
-  top: 0;
-}
-
-#loop_2 {
-  //position: absolute;
-  animation: loop_2 10s infinite linear;
-}
+//#loop_1 {
+//  //position: absolute;
+//  animation: loop_1 10s infinite linear !important;
+//  top: 0;
+//}
+//
+//#loop_2 {
+//  //position: absolute;
+//  animation: loop_2 10s infinite linear;
+//}
 
 .zeugnis_button {
   position: absolute;
@@ -416,6 +429,8 @@ body {
 .content_paper {
   box-shadow: 0 6px 10px 0 #000000ff;
   width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   border-radius: .125rem;
   //HEIGHT IN JAVASCRIPT
   //FALLBACK HEIGHT
@@ -432,7 +447,11 @@ body {
 
   #content {
     width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
     height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
     padding: .55rem 1.5rem 1rem;
     text-align: left;
     font-size: small;
@@ -444,7 +463,9 @@ body {
 
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 19px, #78878d 20px, #eadbcf 21px);
-      height: -webkit-fill-available;
+      width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
       margin-top: 3rem;
       overflow-y: scroll;
       margin-right: -1rem;
@@ -546,7 +567,9 @@ body {
 }
 
 .content_postit {
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   //FALLBACK HEIGHT
   height: 16rem;
   line-height: .8rem;
@@ -593,29 +616,41 @@ body {
     width: 40%;
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 35%;
-    line-height: 1.9rem;
-    a {
-      font-size: $font_size_all;
-    }
+  @media screen and (min-width: 1185px) {
+    width: 37.5%;
+    line-height: 1.2rem;
     p {
       color: black;
-      font-size: $font_mid;
+      font-size: $font_size_all;
 
       &:first-child {
         text-align: center;
         margin-top: -.5rem;
         margin-bottom: -.5rem;
-        font-size: $font_large;
+        font-size: $font_mid;
         font-weight: bold;
       }
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    p {
+      line-height: 1.7rem;
+      font-size: $font_mid;
+      &:first-child {
+        font-size: $font_large;
+      }
+    }
+
+    a {
+      font-size: $font-size_all
     }
   }
 }
 
 .content_polaroid {
-  width: webkit-fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
   padding: .75rem;
   //FALLBACK HEIGHT
   height: 20rem;
@@ -638,7 +673,9 @@ body {
   }
 
   .content_polaroid_inside {
-    width: webkit-fill-available;
+    width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
     //FALLBACK HEIGHT
     height: 15rem;
     margin-top: -2.5rem;
@@ -690,11 +727,6 @@ body {
           font-size: $font_mid;
         }
       }
-    }
-
-    #project_polaroid {
-      background-color: #aaa;
-      background-image: none;
     }
   }
 }
