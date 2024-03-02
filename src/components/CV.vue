@@ -17,7 +17,7 @@ const certActive = ref(false)
 const CV = [
   {
     header: "Allgemein",
-    content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Gebiren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- <span id='name_mail'>joshua.daniel.koch@gmail.com</span><br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"
+    content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Geboren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- <span id='name_mail'>joshua.daniel.koch@gmail.com</span><br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"
   },
   {
     header: "Schulische Laufbahn",
@@ -25,15 +25,15 @@ const CV = [
   },
   {
     header: "Berufspraxis",
-    content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br><span style='white-space: nowrap'>Ausbildung <br> Anwendungsentwicklung</span><span style='font-size: .5rem; white-space: normal'><br>Frontend, Backend, Design</span><br><br><span style='font-weight: bold'>05.2021 - 10.2021</span><br>Berufsvorbereitung - Wirtschaft<br><br><span style='font-weight: bold'>09.2017 und 08.2016</span><br>Praktika<br>Floristik und Fahrzeuglackeirer"
+    content: "<span style='text-align: center; display: block;'><span style='font-weight: bold'>11.10.2021 - 06.2024</span><br><span style='white-space: nowrap'>Ausbildung <br> Anwendungsentwicklung</span><span style='font-size: .5rem; white-space: normal'><br>Frontend, Backend, Design</span><br><br><span style='font-weight: bold'>05.2021 - 10.2021</span><br>Berufsvorbereitung - Wirtschaft<br><br><span style='font-weight: bold'>09.2017 und 08.2016</span><br>Praktika<br>Floristik und Fahrzeuglackierer"
   },
   {
     header: "Interessen",
-    content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Neues lernen"
+    content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Troubleshooten<br><br> (Ich liebe es aktiv Probleme zu bewältigen. Solche Erfolge geben mir Seratonin und Motivation.)"
   },
   {
     header: "Sprachen",
-    content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"
+    content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br>(Meine mit Abstand liebste Sprache. Ich bewältige nahezu alles in Englisch und freue mich jedes Mal, wenn ich Englisch anwenden kann.)<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"
   }
 ]
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,6 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
     postit.style.rotate = ((Math.random() * 8) - 4) + "deg"
     postit.style.height = postit.clientWidth + "px"
     postit.style.backgroundColor = postItColors[newColor]
+    postit.addEventListener("click", () => {
+      newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
+      postit.style.backgroundColor = postItColors[newColor]
+      prevColor2 = prevColor
+      prevColor = newColor
+    })
     prevColor2 = prevColor
     prevColor = newColor
   })

@@ -30,13 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let i = 0
   polaroids_inside.forEach((inside) => {
     let newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
-    inside.addEventListener("mouseover", () => {
-      inside.style.backgroundColor = polaroidColors[newColor]
-
-    })
-    inside.addEventListener("mouseout", () => {
-      inside.style.backgroundColor = "black"
-    })
     // inside.style.backgroundColor = polaroidColors[newColor]
     // console.log(newColor)
     prevColor2 = prevColor
@@ -46,10 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 const projects = [
-  {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde."},
-  {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein"},
-  {header: "Portfolio", content: "Richtig! Diese website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann."},
-  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter machen.<span style='text-align: center; display: block'><br><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a></span> " +
+  {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde.<br><br> Beispielsweise hatte ich neben dem Design auch die Aufgabe, <strong>Daten für das Migrieren in die Datenbank</strong> bereitzustellen und diese <strong>Funktionen im Backend</strong> letztendlich auch zu vervollständigen."},
+  {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein! <br><br>Ich habe versucht, das ursprüngliche Design wenig zu verändern. Ich wollte aber die <strong>Nutzung</strong> und die <strong>Darstellung</strong> optimieren."},
+  {header: "Portfolio", content: "Richtig! Diese Website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann. <br><br> Diese Website wurde <strong>ausschließlich von mir programmiert</strong>. Hier wurden keine vorgefertigten Templates oder der gleichen verwendet. <strong>Ich präsentiere euch somit stolz diese Website</strong>."},
+  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter gestalten, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> " +
         ""}
 ]
 

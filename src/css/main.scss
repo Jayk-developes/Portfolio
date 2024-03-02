@@ -2,6 +2,10 @@
 
 // INIT App.Vue
 
+//html {
+//  font-size: $font_size_all;
+//}
+
 ::-webkit-scrollbar {
   width: .5rem;
   border-radius: 100rem;
@@ -33,11 +37,11 @@
 html,
 body {
   min-height: 100%;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: "Lucida Console",Geneva, Verdana, Monaco, Copperplate, Papyrus, fantasy, sans-serif;
 }
 
 .home {
-  @media screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
     margin-top: 5rem;
   }
 }
@@ -70,11 +74,11 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
-  @media screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     padding: .5em 5rem;
   }
 
-  @media screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
     margin-top: 0;
     padding: .5em 10rem;
     font-size: 5rem;
@@ -170,8 +174,19 @@ body {
   p {
     display: none;
   }
-
-  @media screen and (max-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
+    font-size: $font_small ;
+    div, p {
+      font-size: $font_small;
+    }
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: $font_size_all ;
+    div, p {
+      font-size: $font_size_all;
+    }
+  }
+  @media only screen and (max-width: 1000px) {
     border-bottom-right-radius: .5rem;
     border-top-right-radius: .5rem;
     flex-direction: column;
@@ -235,7 +250,7 @@ body {
     align-items: center;
     height: inherit;
 
-    @media screen and (max-width: 800px) {
+    @media only screen and (max-width: 800px) {
       flex-direction: column
     }
 
@@ -245,7 +260,7 @@ body {
       border-radius: 1rem;
       box-shadow: 0 .5rem .5rem #000000AA;
 
-      @media screen and (max-width: 800px) {
+      @media only screen and (max-width: 800px) {
         width: 90%
       }
 
@@ -259,7 +274,7 @@ body {
     span {
       font-size: 7rem;
 
-      @media screen and (max-width: 800px) {
+      @media only screen and (max-width: 800px) {
         font-size: 3rem;
         transform: rotate(90deg);
         margin-top: -3rem;
@@ -326,9 +341,14 @@ body {
   box-shadow: 0 .125rem .125rem 0 #000a;
   transition: $primary_transition_fade;
 
-  @media screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px){
     font-size: $font_mid;
     padding: .5rem 1rem;
+  }
+  
+  @media only screen and (min-width: 1000px) and (max-width: 1440px){
+    font-size: $font_size_all;
+    
   }
 
   &:hover {
@@ -417,7 +437,7 @@ body {
   font-weight: 400;
   width: 80%;
 
-  @media screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -439,7 +459,7 @@ body {
   padding-top: .25rem;
   margin: 2rem .5rem;
   background-color: #eadbcf;
-  font-family: "Lucida Console", Monaco, monospace;
+  // font-family: "Lucida Console", Monaco, monospace;
   font-size: $font-size_all;
   -webkit-text-fill-color: #000;
   color: #000 !important;
@@ -466,10 +486,14 @@ body {
       width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
+      height: -webkit-fill-available;
+  height: -moz-available;
+      height: fill-available;
       margin-top: 3rem;
       overflow-y: scroll;
       margin-right: -1rem;
       padding-right: 1rem;
+      padding-bottom: 1rem;
     }
 
     #personal_header {
@@ -480,6 +504,21 @@ body {
       margin-bottom: -2.5rem;
     }
   }
+
+    @media only screen and (min-width: 570px) {
+    #v-html_content {
+      background: repeating-linear-gradient(#eadbcf, #eadbcf 26px, #78878d 27px, #eadbcf 28px) !important;
+      font-size: $font_mid;
+      line-height: 1.75rem;
+    }
+
+    #personal_header {
+      margin-top: 0 !important;
+      font-size: $font_large !important;
+      padding-bottom: 1rem;
+    }
+  }
+
 
   @media only screen and (min-width: 670px) {
     width: 80%;
@@ -512,13 +551,23 @@ body {
   }
 
   @media only screen and (min-width: 1200px) {
-    width: 30%;
-    //FALLBACK HEIGHT
-    height: 45%;
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 30px, #78878d 31px, #eadbcf 32px) !important;
-      font-size: $font-size_all;
+      font-size: $font_mid !important;
       line-height: 2rem;
+    }
+    #personal_header {
+      margin-top: 0 !important;
+      font-size: $font_large !important;
+    }
+  }
+
+  @media only screen and (min-width: 1500px) {
+    width: 30%;
+    #v-html_content {
+      background: repeating-linear-gradient(#eadbcf, #eadbcf 36px, #78878d 37px, #eadbcf 38px) !important;
+      font-size: $font_mid !important;
+      line-height: 2.38rem;
     }
     #personal_header {
       margin-top: 0 !important;
@@ -539,7 +588,7 @@ body {
 
     &[type="button"] {
       position: absolute;
-      bottom: 0;
+      bottom: 3%;
       left: 0;
       margin-top: .5rem;
       margin-bottom: .5rem;
@@ -552,13 +601,17 @@ body {
   }
 
   textarea {
+    position: absolute;
+    height: -webkit-fill-available;
+    height: moz-fill-available;
+    height: fill-available;
+    left: 0;
     border: none;
     width: 80%;
-    height: 50%;
     min-width: 80%;
     max-width: 80%;
     overflow-y: scroll;
-    margin: 0 10% 1rem;
+    margin: 0 10% 5rem;
     padding: .25rem;
     background-color: #fffa;
     border-radius: .25rem;
@@ -576,7 +629,7 @@ body {
   border-radius: .125rem;
   background-color: #ffbbbb;
   box-shadow: 0 .5rem .5rem .125rem rgba(0, 0, 0, 0.4);
-
+  transition: $primary_transition_fade;
   p {
     color: black;
     font-size: $font-small;
@@ -590,13 +643,33 @@ body {
       padding: 1rem 0 0;
     }
   }
+@media only screen and (min-width: 400px) {
+  line-height: 1rem;
+}
+   @media only screen and (min-width: 500px) and (max-width: 599px) {
+     line-height: 1.2rem;
+     p {
+      white-space: normal;
+      color: black;
+      font-size: $font_size_all;
 
-  @media screen and (min-width: 600px) and (max-width: 999px) {
+      &:first-child {
+        text-align: center;
+        font-size: $font_mid;
+        overflow: hidden;
+        margin-bottom: -1rem;
+        margin-top: -.25rem;
+        font-weight: bold;
+      }
+    }
+   }
+
+  @media only screen and (min-width: 600px) and (max-width: 999px) {
     width: 90%;
     line-height: 1.65rem;
 
     p {
-      white-space: nowrap;
+      white-space: normal;
       color: black;
       font-size: $font-size_all;
 
@@ -611,12 +684,12 @@ body {
     }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
     line-height: 1rem;
     width: 40%;
   }
 
-  @media screen and (min-width: 1185px) {
+  @media only screen and (min-width: 1185px) {
     width: 37.5%;
     line-height: 1.2rem;
     p {
@@ -626,17 +699,19 @@ body {
       &:first-child {
         text-align: center;
         margin-top: -.5rem;
+        padding-top: 1.25rem;
         margin-bottom: -.5rem;
         font-size: $font_mid;
         font-weight: bold;
       }
     }
   }
-  @media screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1440px) {
     p {
-      line-height: 1.7rem;
+      line-height: 1.65rem;
       font-size: $font_mid;
       &:first-child {
+        padding-top: 1.5rem;
         font-size: $font_large;
       }
     }
@@ -658,16 +733,23 @@ body {
   background-color: #fff;
   box-shadow: 0 .5rem .5rem .125rem rgba(0, 0, 0, 0.4);
   border: solid 1px #00000088;
-
-  @media screen and (min-width: 600px) {
-    width: 90%;
+  a{
+    transition: $primary_transition_fade;
+    &:hover {
+      color: $complimentary
+    }
   }
 
-  @media screen and (min-width: 1000px) {
+  @media only screen and (min-width: 600px) {
+    width: 90%;
+    line-height: 1.3rem;
+  }
+
+  @media only screen and (min-width: 1000px) {
     width: 40%;
   }
 
-  @media screen and (min-width: 1250px) {
+  @media only screen and (min-width: 1250px) {
     width: 33%;
     margin: 4%;
   }
@@ -679,13 +761,14 @@ body {
     //FALLBACK HEIGHT
     height: 15rem;
     margin-top: -2.5rem;
-    background-color: #070707;
+    //background-color: #070707;
     box-shadow: 0 0 4px 0 #00000022;
     transition: $primary_transition_fade;
 
     p {
       color: black;
       font-size: $font-small;
+      line-height: .9rem;
       text-align: justify;
       padding: 0 1rem;
       transition: $primary_transition_fade;
@@ -695,39 +778,105 @@ body {
         font-size: $font_size_all;
         font-weight: bold;
         padding: 1.5rem 0 0;
-        margin-bottom: -.25rem;
+        margin-bottom: -.75rem;
 
       }
 
-      @media screen and (max-width: 370px) {
+      @media only screen and (max-width: 380px) {
         font-size: $font_small;
-        line-height: 1rem;
+        line-height: 0.85rem;
 
         &:first-child {
           font-size: $font-size_all;
+          padding: 1rem 0 .5rem;
         }
       }
 
-      @media screen and (min-width: 600px) {
+      @media only screen and (min-width: 600px) {
         font-size: $font-size_all;
+        line-height: 1.2rem;
         &:first-child {
           font-size: $font_mid;
         }
       }
-      @media screen and (min-width: 1000px) {
+      @media only screen and (min-width: 1000px) {
         font-size: $font-small;
+        line-height: 1rem;
         &:first-child {
+          padding-bottom: .75rem;
           font-size: $font_size_all;
         }
       }
-      @media screen and (min-width: 1250px) {
-        font-size: $font-size_all;
-        line-height: 1.5rem;
+      @media only screen and (min-width: 1250px) {
+        line-height: 1.2rem;
+        font-size: $font_small;
+        &:first-child {
+          font-size: $font_mid;
+        }
+      }
+      @media only screen and (min-width: 1480px) {
+        line-height: 1.2rem;
+        font-size: $font_size_all;
+        &:first-child {
+          font-size: $font_mid;
+        }
+      }
+            @media only screen and (min-width: 1820px) {
+        line-height: 1.4rem;
+        font-size: $font_mid;
         &:first-child {
           font-size: $font_mid;
         }
       }
     }
+  }
+}
+
+.skills p {
+  @media only screen and (min-width: 450px) {
+    font-size: $font_size_all !important;
+    line-height: 1.2rem !important;
+  }
+
+  @media only screen and (min-width: 600px) {
+        font-size: $font-mid !important;
+    line-height: 1.5rem !important;
+        &:first-child {
+          font-size: $font_large !important;
+        }
+      }
+  @media only screen and (min-width: 800px) and (max-width: 999px){
+        font-size: $font-mid !important;
+    line-height: 1.8rem !important;
+        &:first-child {
+          font-size: $font_large !important;
+        }
+      }
+
+  @media only screen and (min-width: 1000px){
+        font-size: $font-size_all !important;
+    line-height: 1.2rem !important;
+        &:first-child {
+          font-size: $font_mid !important;
+        }
+      }
+
+  @media only screen and (min-width: 1150px){
+        font-size: $font-size_all !important;
+    line-height: 1.4rem;
+        &:first-child {
+          font-size: $font_mid !important;
+        }
+      }
+  @media only screen and (min-width: 1440px){
+        font-size: $font-mid !important;
+    line-height: 1.3rem !important;
+        &:first-child {
+          font-size: $font_large !important;
+        }
+      }
+  @media only screen and (min-width: 1700px) {
+    line-height: 1.7rem !important;
   }
 }
 
@@ -784,11 +933,11 @@ body {
   width: 90%;
   display: flex;
 
-  @media screen and (min-width: 1000px) {
+  @media only screen and (min-width: 1000px) {
     width: 35%;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1440px) {
     margin: 0 2%;
     width: 27%;
   }
