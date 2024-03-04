@@ -90,7 +90,11 @@ onMounted(() => {
   }
   LoadPage()
   window.addEventListener("load", () => {
-    LoadPage()
+    for (let i = 0; i < 4; i++) {
+      setTimeout(() => {
+        LoadPage()
+      }, 500)
+    }
   })
   window.addEventListener("resize", () => {
     LoadPage()
