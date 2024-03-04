@@ -10,6 +10,8 @@ const polaroidColors = [
     "#BBFFFF"
 ]
 
+const interest = ["Sensorik-Website", "comne"]
+
 const images = [
     0, 1, 'url("/src/media/Redesign.png")', 3, 4, 5, 6, 7, 8, 9, 10
 ]
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   polaroids.forEach((polaroid) => {
 
     polaroid.style.rotate = ((Math.random() * 10) - 5) + "deg"
-    polaroid.style.height = (polaroid.clientWidth * 1.15) + "px"
+    polaroid.style.height = (polaroid.clientWidth * 1.2) + "px"
   })
   let i = 0
   polaroids_inside.forEach((inside) => {
@@ -36,14 +38,45 @@ document.addEventListener("DOMContentLoaded", () => {
     prevColor = newColor
     i = i + 1
   })
+
+  let notes = document.querySelectorAll(".project_note")
+  let index = 0
+  let prevColor_: int;
+  let prevColor2_: int;
+  notes.forEach((note) => {
+    console.log(note)
+    note.style.rotate = ((Math.random() * 8) - 4) + "deg"
+    console.log(projects[index])
+
+    let rectangle = document.getElementById(projects[index].header + "_1") as HTMLElement
+    let triangle = document.getElementById(projects[index].header + "_2") as HTMLElement
+
+    let newColor = RandomArrayIndex(prevColor_, prevColor2_, polaroidColors.length)
+    rectangle.style.backgroundColor = polaroidColors[newColor]
+    rectangle.style.boxShadow = " -.2rem .25rem .25rem 0 #00000088"
+    triangle.style.borderLeft = "2.25rem solid" + polaroidColors[newColor]
+
+    note.addEventListener("mouseover", () => {
+      rectangle.style.filter = "brightness(80%)"
+      triangle.style.filter = "brightness(80%)"
+    })
+    note.addEventListener("mouseout", () => {
+      rectangle.style.filter = "brightness(100%)"
+      triangle.style.filter = "brightness(100%)"
+    })
+
+    prevColor2_ = prevColor_
+    prevColor_ = newColor
+    index = index + 1
+  })
 })
 
 const projects = [
   {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde.<br><br> Beispielsweise hatte ich neben dem Design auch die Aufgabe, <strong>Daten für das Migrieren in die Datenbank</strong> bereitzustellen und diese <strong>Funktionen im Backend</strong> letztendlich auch zu vervollständigen."},
   {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein! <br><br>Ich habe versucht, das ursprüngliche Design wenig zu verändern. Ich wollte aber die <strong>Nutzung</strong> und die <strong>Darstellung</strong> optimieren."},
   {header: "Portfolio", content: "Richtig! Diese Website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann. <br><br> Diese Website wurde <strong>ausschließlich von mir programmiert</strong>. Hier wurden keine vorgefertigten Templates oder der gleichen verwendet. <strong>Ich präsentiere euch somit stolz diese Website</strong>."},
-  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter gestalten, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> " +
-        ""}
+  {header: "Figma Mock-Up", content: "Auch in Figma habe ich schon einige Erfahrungen machen können. Hier auf der Seite wird mein Mock-Up von einer To-Do-Website dargestellt. Dafür habe ich funktionalität und Nutzerfreundlichkeit in den Fokus gestellt."},
+  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter gestalten, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> "}
 ]
 
 </script>
@@ -57,6 +90,10 @@ const projects = [
         <div class="content_polaroid_inside no_real_class_1">
           <p>{{project.header}}</p>
           <p v-html="project.content" id="project_content"></p>
+        </div>
+        <div class="stick_note note project_note" style="float: right; width: 80%">
+          <div class="rectangle" :id="project.header + '_1'">Zum Projekt</div>
+          <div class="triangle" :id="project.header + '_2'" ></div>
         </div>
       </div>
     </div>

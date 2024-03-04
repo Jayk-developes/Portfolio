@@ -12,7 +12,7 @@ const noteColors = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  let notes = document.querySelectorAll(".note")
+  let notes = document.querySelectorAll(".note_note")
   let i = 0
   let index = 0
   let prevColor_: int;
@@ -67,7 +67,7 @@ const interests = [
   <div class="clip-text clip-text_one" id="personal"><span id="connect">Let's Connect!</span><br>Offen für</div>
   <div style="margin-top: 3rem;" class="flex_container">
     <div class="content">
-      <div class="stick_note note" v-for="item in interests">
+      <div class="stick_note note note_note" v-for="item in interests">
         <div :id="item + '_1'"><span>_</span></div>
         <div :id="item + '_2'"><span>_</span></div>
       </div>

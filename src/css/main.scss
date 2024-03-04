@@ -233,7 +233,7 @@ body {
 .BG {
   z-index: -10;
   position: absolute;
-  height: 600px;
+  height: 800px;
   left: 0;
   width: 100%;
   background-color: transparent;
@@ -368,6 +368,7 @@ body {
   padding: 3rem;
 
   .close_cert {
+    cursor: pointer;
     position: fixed;
     top: 10%;
     right: 5%;
@@ -603,7 +604,7 @@ body {
   textarea {
     position: absolute;
     height: -webkit-fill-available;
-    height: moz-fill-available;
+    height: -moz-available;
     height: fill-available;
     left: 0;
     border: none;
@@ -722,10 +723,18 @@ body {
   }
 }
 
+.project_note {
+
+}
+.note_note {
+
+}
+
 .content_polaroid {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
+  margin: 1rem 0;
   padding: .75rem;
   //FALLBACK HEIGHT
   height: 20rem;
@@ -738,6 +747,27 @@ body {
     &:hover {
       color: $complimentary
     }
+  }
+
+  .rectangle {
+    line-height: 1.8rem;
+    height: -webkit-fill-available;
+    height: -moz-available;
+    height: fill-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    width: fill-available;
+    margin-top: .75rem;
+    transition: $primary_transition_fade;
+  }
+
+  .triangle {
+        border-top: 1.25rem solid transparent;
+    border-bottom: 1.25rem solid transparent;
+    z-index: 10;
+    margin: .45rem 0 0 -.2rem;
+    border-left: 2.25rem solid lightblue;
+    transition: $primary_transition_fade;
   }
 
   @media only screen and (min-width: 600px) {
@@ -917,9 +947,7 @@ body {
   }
 
   .triangle_left {
-    z-index: 10;
-    margin: 1rem 0 1rem -.2rem;
-    border-left: 2.25rem solid lightblue;
+
   }
 
   .triangle_right {

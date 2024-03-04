@@ -19,23 +19,30 @@ const pinColors = [
 ]
 
 document.addEventListener("DOMContentLoaded", () => {
-  let papers = document.querySelectorAll(".content_paper")
-  let pins = document.querySelectorAll(".paper_pin")
+  const PersonalLoaded = () => {
+    let papers = document.querySelectorAll(".content_paper")
+    let pins = document.querySelectorAll(".paper_pin")
 
 
-  papers.forEach((paper) => {
-    paper.style.height = paper.offsetWidth * 1.6 + "px"
-    let rotation = (Math.random() * 8) - 4
-    paper.style.rotate = rotation + "deg"
+    papers.forEach((paper) => {
+      paper.style.height = paper.offsetWidth * 1.6 + "px"
+      let rotation = (Math.random() * 8) - 4
+      paper.style.rotate = rotation + "deg"
 
-  })
+    })
 
-  let prevColor: int;
+    let prevColor: int;
 
-  pins.forEach((pin) => {
-    let newColor = RandomArrayIndex(prevColor, pinColors.length)
-    pin.style.background = pinColors[newColor]
-    prevColor = newColor
+    pins.forEach((pin) => {
+      let newColor = RandomArrayIndex(prevColor, pinColors.length)
+      pin.style.background = pinColors[newColor]
+      prevColor = newColor
+    })
+  }
+
+    PersonalLoaded()
+  window.addEventListener("resize", () => {
+    PersonalLoaded()
   })
 })
 

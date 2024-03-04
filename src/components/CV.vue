@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RandomArrayIndex from "../assets.ts";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 const postItColors = [
   "#FFBBBB",
@@ -13,11 +13,12 @@ const postItColors = [
 
 
 const certActive = ref(false)
+const cvActive = ref(false)
 
 const CV = [
   {
     header: "Allgemein",
-    content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Geboren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- <span id='name_mail'>joshua.daniel.koch@gmail.com</span><br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a>"
+    content: "Name: Joshua-Daniel Koch<br>Geboren am: 15. September 2001<br>Geboren in: Hannover<br>Familienstand: Ledig<br>Staatsangehörigkeit: Deutsch<span style='display: block; text-align: center; font-weight: bold'>Kontaktdaten</span>- <span id='name_mail'>joshua.daniel.koch@gmail.com</span><br>- +49 176 345 18 116<br>- <a href='https://www.linkedin.com/in/joshua-daniel-koch-517971208/'>LinkedIn - Joshua-Daniel Koch</a><br>- <a href='https://github.com/Jayk-developes'>GitHub - Jayk-Developes</a><br><input type='button' id='cv_button' value='Mein Lebenslauf' class='zeugnis_button'>"
   },
   {
     header: "Schulische Laufbahn",
@@ -36,32 +37,42 @@ const CV = [
     content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br>(Meine mit Abstand liebste Sprache. Ich bewältige nahezu alles in Englisch und freue mich jedes Mal, wenn ich Englisch anwenden kann.)<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"
   }
 ]
-document.addEventListener("DOMContentLoaded", () => {
+onMounted(() =>{
+  const CVLoaded = () => {
+    let postits = document.querySelectorAll(".content_postit")
+    let prevColor: int;
+    let prevColor2: int;
 
-
-  let postits = document.querySelectorAll(".content_postit")
-  let prevColor: int;
-  let prevColor2: int;
-
-  postits.forEach((postit) => {
-    let newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
-    postit.style.rotate = ((Math.random() * 8) - 4) + "deg"
-    postit.style.height = postit.clientWidth + "px"
-    postit.style.backgroundColor = postItColors[newColor]
-    postit.addEventListener("click", () => {
-      newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
+    postits.forEach((postit) => {
+      let newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
+      postit.style.rotate = ((Math.random() * 8) - 4) + "deg"
+      postit.style.height = postit.clientWidth + "px"
       postit.style.backgroundColor = postItColors[newColor]
+      postit.addEventListener("click", () => {
+        newColor = RandomArrayIndex(prevColor, prevColor2, postItColors.length)
+        postit.style.backgroundColor = postItColors[newColor]
+        prevColor2 = prevColor
+        prevColor = newColor
+      })
       prevColor2 = prevColor
       prevColor = newColor
     })
-    prevColor2 = prevColor
-    prevColor = newColor
-  })
 
-  let cert_button = document.getElementById("certificate_button") as HTMLElement
+    let cert_button = document.getElementById("certificate_button") as HTMLElement
 
-  cert_button.addEventListener("click", () => {
-    certActive.value = true
+    cert_button.addEventListener("click", () => {
+      certActive.value = true
+    })
+
+    let cv_button = document.getElementById("cv_button") as HTMLElement
+
+    cv_button.addEventListener("click", () => {
+      cvActive.value = true
+    })
+  }
+  CVLoaded()
+  window.addEventListener("resize", () => {
+    CVLoaded()
   })
 
 
@@ -90,6 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <img src="../media/certificates/Fachabi.png" alt="Fachabi">
       <img src="../media/certificates/Fachabi_Bescheinigung.png" alt="Fachabi2">
       <img src="../media/certificates/Sekundar_1.png" alt="Sek1">
+    </div>
+  </div>
+  <div v-if="cvActive" class="show_cert">
+    <div class="close_cert" @click="cvActive = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/cv/cv_1.png" alt="cv_1">
+      <img src="../media/cv/cv_2.png" alt="cv_2">
     </div>
   </div>
 </template>

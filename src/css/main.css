@@ -218,7 +218,7 @@ body {
 .BG {
   z-index: -10;
   position: absolute;
-  height: 600px;
+  height: 800px;
   left: 0;
   width: 100%;
   background-color: transparent;
@@ -330,6 +330,7 @@ body {
   padding: 3rem;
 }
 .show_cert .close_cert {
+  cursor: pointer;
   position: fixed;
   top: 10%;
   right: 5%;
@@ -538,7 +539,7 @@ body {
 .content_paper textarea {
   position: absolute;
   height: -webkit-fill-available;
-  height: moz-fill-available;
+  height: -moz-available;
   height: fill-available;
   left: 0;
   border: none;
@@ -660,6 +661,7 @@ body {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
+  margin: 1rem 0;
   padding: 0.75rem;
   height: 20rem;
   border-radius: 0.125rem;
@@ -672,6 +674,25 @@ body {
 }
 .content_polaroid a:hover {
   color: #2f7061;
+}
+.content_polaroid .rectangle {
+  line-height: 1.8rem;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  margin-top: 0.75rem;
+  transition: all ease-in-out 0.2s;
+}
+.content_polaroid .triangle {
+  border-top: 1.25rem solid transparent;
+  border-bottom: 1.25rem solid transparent;
+  z-index: 10;
+  margin: 0.45rem 0 0 -0.2rem;
+  border-left: 2.25rem solid lightblue;
+  transition: all ease-in-out 0.2s;
 }
 @media only screen and (min-width: 600px) {
   .content_polaroid {
@@ -855,11 +876,6 @@ body {
 .note_2 .triangle {
   border-top: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
-}
-.note_2 .triangle_left {
-  z-index: 10;
-  margin: 1rem 0 1rem -0.2rem;
-  border-left: 2.25rem solid lightblue;
 }
 .note_2 .triangle_right {
   margin: 1rem -0.2rem 1rem 0;

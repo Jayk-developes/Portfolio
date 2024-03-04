@@ -9,6 +9,8 @@ import Projects from "./Projects.vue";
 import OpenFor from "./OpenFor.vue";
 import Contact from "./Contact.vue";
 import Projects_Images from "./Projects_Images.vue";
+import {onMounted} from "vue";
+
 
 const pinColors = [
   "#e65d5d",
@@ -25,11 +27,11 @@ const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => 
 }
 
 const isElementAboveBG = (topElement: HTMLElement, bgElement: HTMLElement) => {
-  const topRect = topElement
+      const topRect = topElement
   bgElement.style.top = (topRect.offsetTop + topRect.offsetHeight - 50) + "px"
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+onMounted(() => {
   let personal = document.getElementById("content_personal") as HTMLElement
   let cv = document.getElementById("content_cv") as HTMLElement
   let skills = document.getElementById("content_skills") as HTMLElement
@@ -41,52 +43,57 @@ document.addEventListener("DOMContentLoaded", () => {
   let loop_2 = document.getElementById("loop_2") as HTMLElement
   let loop_1 = document.querySelectorAll(".loop_1")
 
-  setTimeout(() => {
+
+  const LoadPage = () => {
+
     isElementAbove(personal, cv)
     isElementAbove(cv, skills)
     isElementAbove(skills, projects)
     isElementAbove(projects, openFor)
     isElementAbove(openFor, contact)
 
-    setTimeout(() => {
-
-
-      isElementAboveBG(personal, BG1)
-      isElementAboveBG(skills, BG2)
-      let loop_duration = [15000, 25000]
-      let i = 0
-      loop_1.forEach((loop) => {
-        let loop_margin = [loop.offsetHeight / 2 + "px", 0]
-        loop.animate([
-          {marginTop: loop_margin[i]},
-          {marginTop: -loop.offsetHeight / 2 + "px"},
-        ], {
-          easing: "linear",
-          duration: loop_duration[i],
-          iterations: Infinity
-
-        })
-        i = i + 1
-      })
-      loop_2.animate([
-        {marginTop: -loop_2.offsetHeight / 2 + "px"},
-        {marginTop: loop_2.offsetHeight / 2 + "px"},
+    isElementAboveBG(personal, BG1)
+    isElementAboveBG(skills, BG2)
+    let loop_duration = [15000, 25000]
+    let i = 0
+    loop_1.forEach((loop) => {
+      let loop_margin = [loop.offsetHeight / 2 + "px", 0]
+      loop.animate([
+        {marginTop: loop_margin[i]},
+        {marginTop: -loop.offsetHeight / 2 + "px"},
       ], {
         easing: "linear",
-        duration: loop_duration[0],
+        duration: loop_duration[i],
         iterations: Infinity
-      })
-    },300)
-  }, 100)
 
-  let pins = document.querySelectorAll(".paper_pin")
-  let prevColor: int;
-  let prevColor2: int;
-  pins.forEach((pin) => {
-    let newColor = RandomArrayIndex(prevColor, prevColor2, pinColors.length)
-    pin.style.backgroundColor = pinColors[newColor]
-    prevColor2 = prevColor
-    prevColor = newColor
+      })
+      i = i + 1
+    })
+    loop_2.animate([
+      {marginTop: -loop_2.offsetHeight / 2 + "px"},
+      {marginTop: loop_2.offsetHeight / 2 + "px"},
+    ], {
+      easing: "linear",
+      duration: loop_duration[0],
+      iterations: Infinity
+    })
+
+    let pins = document.querySelectorAll(".paper_pin")
+    let prevColor: int;
+    let prevColor2: int;
+    pins.forEach((pin) => {
+      let newColor = RandomArrayIndex(prevColor, prevColor2, pinColors.length)
+      pin.style.backgroundColor = pinColors[newColor]
+      prevColor2 = prevColor
+      prevColor = newColor
+    })
+  }
+  LoadPage()
+  window.addEventListener("load", () => {
+    LoadPage()
+  })
+  window.addEventListener("resize", () => {
+    LoadPage()
   })
 })
 

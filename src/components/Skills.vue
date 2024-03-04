@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import RandomArrayIndex from "../assets.ts";
+import {onMounted} from "vue";
 
 const polaroidColors = [
     "#FFBBBB",
@@ -11,42 +12,47 @@ const polaroidColors = [
     "#BBFFFF"
 ]
 
-document.addEventListener("DOMContentLoaded", () => {
+onMounted(() =>{
+  const SkillsLoaded = () => {
+    let polaroids = document.querySelectorAll(".content_polaroid")
+    let polaroids_inside = document.querySelectorAll(".content_polaroid_inside")
 
-  let polaroids = document.querySelectorAll(".content_polaroid")
-  let polaroids_inside = document.querySelectorAll(".content_polaroid_inside")
+    let prevColor: int;
+    let prevColor2: int;
 
-  let prevColor: int;
-  let prevColor2: int;
+    polaroids.forEach((polaroid) => {
 
-  polaroids.forEach((polaroid) => {
+      polaroid.style.rotate = ((Math.random() * 10) - 5) + "deg"
+      polaroid.style.height = (polaroid.clientWidth * 1.15) + "px"
+    })
 
-    polaroid.style.rotate = ((Math.random() * 10) - 5) + "deg"
-    polaroid.style.height = (polaroid.clientWidth * 1.15) + "px"
-  })
+    polaroids_inside.forEach((inside) => {
+      inside.style.height = inside.clientWidth + "px"
 
-  polaroids_inside.forEach((inside) => {
-    inside.style.height = inside.clientWidth + "px"
-
-    let newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
-    inside.style.backgroundColor = polaroidColors[newColor]
-    inside.addEventListener("click", () => {
-      newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
+      let newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
       inside.style.backgroundColor = polaroidColors[newColor]
+      inside.addEventListener("click", () => {
+        newColor = RandomArrayIndex(prevColor, prevColor2, polaroidColors.length)
+        inside.style.backgroundColor = polaroidColors[newColor]
+        prevColor2 = prevColor
+        prevColor = newColor
+      })
+      inside.style.filter = "brightness(0)"
+      document.addEventListener("scroll", () => {
+        // if object halfway through brightness = 1
+        let setBrightness = (1 - (1 / window.innerHeight * inside.getBoundingClientRect().y * 1.2)) * 2.5 > 1 ? 1 : (1 - (1 / window.innerHeight * (inside.getBoundingClientRect().y * 1.2))) * 2.5
+        setBrightness = inside.getBoundingClientRect().y <= 0 ? 1 - (1 / (window.innerHeight / 3) * (-inside.getBoundingClientRect().y)) : setBrightness
+        setBrightness = setBrightness < 0 ? 0 : setBrightness
+        inside.style.filter = "brightness(" + setBrightness + ")"
+
+      })
       prevColor2 = prevColor
       prevColor = newColor
     })
-    inside.style.filter = "brightness(0)"
-    document.addEventListener("scroll", () => {
-      // if object halfway through brightness = 1
-      let setBrightness = (1 - (1 / window.innerHeight * inside.getBoundingClientRect().y * 1.2)) * 2.5 > 1 ? 1 : (1 - (1 / window.innerHeight * (inside.getBoundingClientRect().y * 1.2))) * 2.5
-      setBrightness = inside.getBoundingClientRect().y <= 0 ? 1 - (1/(window.innerHeight / 3) * (-inside.getBoundingClientRect().y)) : setBrightness
-      setBrightness = setBrightness < 0 ? 0 : setBrightness
-      inside.style.filter = "brightness(" + setBrightness + ")"
-
-    })
-    prevColor2 = prevColor
-    prevColor = newColor
+  }
+    SkillsLoaded()
+  window.addEventListener("resize", () => {
+    SkillsLoaded()
   })
 })
 
