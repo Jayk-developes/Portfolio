@@ -20,6 +20,14 @@
       <img src="../media/projects/RedesignedCss_2.png" alt="Redesign_2" id="BG2_right">
     </div>
     <div class="inner_bg inner_bg_text">
+      comNET Redesign 3
+    </div>
+    <div class="inner_bg">
+      <img src="../media/projects/OldDesignedCss_3.png" alt="OldDesign_2" id="BG2_left">
+      <span id="pfeil">&#8658;</span>
+      <img src="../media/projects/RedesignCss_3.png" alt="Redesign_2" id="BG2_right">
+    </div>
+    <div class="inner_bg inner_bg_text">
       Sensorik-Website
     </div>
       <div class="inner_bg">
