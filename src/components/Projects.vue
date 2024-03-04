@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RandomArrayIndex from "../assets.ts";
+import {ref} from "vue";
 
 const polaroidColors = [
     "#FFBBBB",
@@ -65,6 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
+let project_sensor = ref(false)
+let project_redesign = ref(false)
+let project_mockup = ref(false)
+let project_website = ref(false)
+let project_algorithmus = ref(false)
+
 const projects = [
   {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde.<br><br> Beispielsweise hatte ich neben dem Design auch die Aufgabe, <strong>Daten für das Migrieren in die Datenbank</strong> bereitzustellen und diese <strong>Funktionen im Backend</strong> letztendlich auch zu vervollständigen."},
   {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein! <br><br>Ich habe versucht, das ursprüngliche Design wenig zu verändern. Ich wollte aber die <strong>Nutzung</strong> und die <strong>Darstellung</strong> optimieren."},
@@ -86,7 +93,7 @@ const projects = [
           <p>{{project.header}}</p>
           <p v-html="project.content" id="project_content"></p>
         </div>
-        <div class="stick_note note project_note" style="float: right; width: 80%">
+        <div class="stick_note note project_note zeugnis_button"  :id='project.header + "_button"' >style="float: right; width: 80%">
           <div class="rectangle" :id="project.header + '_1'">Zum Projekt</div>
           <div class="triangle" :id="project.header + '_2'" ></div>
         </div>
