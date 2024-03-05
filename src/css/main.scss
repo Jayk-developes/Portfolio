@@ -362,10 +362,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $primary_trans;
-  z-index: 100000000000000000000000000000000000000000000000000;
+  background-color: #000a;
+  z-index: 100000000000;
   overflow-y: scroll;
-  padding: 3rem;
+  padding: 6rem 0;
 
   .close_cert {
     cursor: pointer;
@@ -389,8 +389,13 @@ body {
 
   img {
     width: 40%;
-    margin: 1rem 5rem;
+    margin: 1rem;
     height: auto;
+    box-shadow: 0 0 1rem .25rem #000a;
+  }
+
+  .projects {
+    width: 60%;
   }
 }
 
@@ -724,7 +729,27 @@ body {
 }
 
 .project_note {
+  position: absolute !important;
+  width: 80% !important;
+  right: 5% !important;
 
+  .rectangle {
+    padding: .25rem;
+
+    @media screen and (max-width: 750px) {
+      padding: 0;
+    }
+  }
+  .triangle {
+    border-top: 1.5rem solid transparent !important;
+    border-bottom: 1.5rem solid transparent !important;
+    margin: 0.5rem 0 0 -0.2rem !important;
+
+    @media screen and (max-width: 750px) {
+      border-top: 1.2rem solid transparent !important;
+    border-bottom: 1.2rem solid transparent !important;
+    }
+  }
 }
 .note_note {
 

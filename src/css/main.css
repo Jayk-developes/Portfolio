@@ -324,10 +324,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(65, 43, 48, 0.6);
-  z-index: 100000000000000000000000000000000000000000000000000;
+  background-color: rgba(0, 0, 0, 0.6666666667);
+  z-index: 100000000000;
   overflow-y: scroll;
-  padding: 3rem;
+  padding: 6rem 0;
 }
 .show_cert .close_cert {
   cursor: pointer;
@@ -348,8 +348,12 @@ body {
 }
 .show_cert img {
   width: 40%;
-  margin: 1rem 5rem;
+  margin: 1rem;
   height: auto;
+  box-shadow: 0 0 1rem 0.25rem rgba(0, 0, 0, 0.6666666667);
+}
+.show_cert .projects {
+  width: 60%;
 }
 
 .arrowDown {
@@ -654,6 +658,31 @@ body {
   }
   .content_postit a {
     font-size: 1.2rem;
+  }
+}
+
+.project_note {
+  position: absolute !important;
+  width: 80% !important;
+  right: 5% !important;
+}
+.project_note .rectangle {
+  padding: 0.25rem;
+}
+@media screen and (max-width: 750px) {
+  .project_note .rectangle {
+    padding: 0;
+  }
+}
+.project_note .triangle {
+  border-top: 1.5rem solid transparent !important;
+  border-bottom: 1.5rem solid transparent !important;
+  margin: 0.5rem 0 0 -0.2rem !important;
+}
+@media screen and (max-width: 750px) {
+  .project_note .triangle {
+    border-top: 1.2rem solid transparent !important;
+    border-bottom: 1.2rem solid transparent !important;
   }
 }
 

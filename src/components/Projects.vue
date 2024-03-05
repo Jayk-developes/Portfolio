@@ -11,6 +11,14 @@ const polaroidColors = [
     "#BBFFFF"
 ]
 
+let project_sensor = ref(false)
+let project_redesign = ref(false)
+let project_portfolio = ref(false)
+let project_mockup = ref(false)
+let project_algorithmus = ref(false)
+
+let projectActives = [project_sensor, project_redesign, project_portfolio, project_mockup, project_algorithmus]
+
 document.addEventListener("DOMContentLoaded", () => {
 
   let polaroids = document.querySelectorAll(".content_polaroid")
@@ -39,9 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let prevColor_: int;
   let prevColor2_: int;
   notes.forEach((note) => {
-    console.log(note)
     note.style.rotate = ((Math.random() * 8) - 4) + "deg"
-    console.log(projects[index])
 
     let rectangle = document.getElementById(projects[index].header + "_1") as HTMLElement
     let triangle = document.getElementById(projects[index].header + "_2") as HTMLElement
@@ -64,13 +70,16 @@ document.addEventListener("DOMContentLoaded", () => {
     prevColor_ = newColor
     index = index + 1
   })
-})
 
-let project_sensor = ref(false)
-let project_redesign = ref(false)
-let project_mockup = ref(false)
-let project_website = ref(false)
-let project_algorithmus = ref(false)
+projects.forEach((project, index) => {
+    let button = document.getElementById(project.header + "_button");
+    if (button) {
+      button.addEventListener("click", () => {
+        projectActives[index].value = true;
+      });
+    }
+  });
+})
 
 const projects = [
   {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde.<br><br> Beispielsweise hatte ich neben dem Design auch die Aufgabe, <strong>Daten für das Migrieren in die Datenbank</strong> bereitzustellen und diese <strong>Funktionen im Backend</strong> letztendlich auch zu vervollständigen."},
@@ -93,11 +102,48 @@ const projects = [
           <p>{{project.header}}</p>
           <p v-html="project.content" id="project_content"></p>
         </div>
-        <div class="stick_note note project_note zeugnis_button"  :id='project.header + "_button"' >style="float: right; width: 80%">
+        <div class="stick_note note project_note"  :id='project.header + "_button"' >
           <div class="rectangle" :id="project.header + '_1'">Zum Projekt</div>
           <div class="triangle" :id="project.header + '_2'" ></div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div v-if="project_sensor" class="show_cert">
+    <div class="close_cert" @click="project_sensor = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
+    </div>
+  </div>
+  <div v-if="project_redesign" class="show_cert">
+    <div class="close_cert" @click="project_redesign = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/projects/RedesignedCss.png" alt="Redesign" class="projects">
+      <img src="../media/projects/RedesignedCss_2.png" alt="Redesign_2" class="projects">
+      <img src="../media/projects/RedesignCss_3.png" alt="Redesign_3" class="projects">
+    </div>
+  </div>
+  <div v-if="project_portfolio" class="show_cert">
+    <div class="close_cert" @click="project_portfolio = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/projects/OldPortfolio.png" alt="oldPortfolio" class="projects">
+      <img src="../media/projects/OldPortfolio2.png" alt="oldPortfolio2" class="projects">
+      <img src="../media/projects/OldPortfolio3.png" alt="oldPortfolio3" class="projects">
+      <img src="../media/projects/OldPortfolio4.png" alt="oldPortfolio4" class="projects">
+      <img src="../media/projects/NewPortfolio.png" alt="newPortfolio" class="projects">
+    </div>
+  </div>
+  <div v-if="project_mockup" class="show_cert">
+    <div class="close_cert" @click="project_mockup = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/projects/Mockup.gif" alt="MockUp" class="projects">
+    </div>
+  </div>
+  <div v-if="project_algorithmus" class="show_cert">
+    <div class="close_cert" @click="project_algorithmus = false">&#10005;</div>
+    <div class="cert_container">
+      <img src="../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
     </div>
   </div>
 </template>
