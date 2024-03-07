@@ -87,7 +87,7 @@ const projects = [
   {header: "Portfolio", content: "Richtig! Diese Website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann. <br><br> Diese Website wurde <strong>ausschließlich von mir programmiert</strong>. Hier wurden keine vorgefertigten Templates oder der gleichen verwendet. <strong>Ich präsentiere euch somit stolz diese Website</strong>."},
   {header: "Figma Mock-Up", content: "Auch in Figma habe ich schon einige Erfahrungen machen können. Hier auf der Seite wird mein <strong>Mock-Up von einer To-Do-Website</strong> dargestellt. Dafür habe ich <strong>Funktionalität und Nutzerfreundlichkeit</strong> in den Fokus gestellt."},
   {header: "Quiz - Algorithmus", content: "Für den Algorithmus haben wir als Team ein Front- und Backend angelegt, welches ein Rätzel anhand <strong>eines Bildes analysiert</strong> und die <strong>Datenbank nach möglichen Lösungen</strong> abfragt."},
-  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mein Leben einfach etwas leichter gestalten, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> "}
+  {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mich privat unterstützen, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> "}
 ]
 
 </script>
@@ -102,7 +102,7 @@ const projects = [
           <p>{{project.header}}</p>
           <p v-html="project.content" id="project_content"></p>
         </div>
-        <div class="stick_note note project_note"  :id='project.header + "_button"' >
+        <div class="stick_note note project_note"  :id='project.header + "_button"' v-if="project.header != 'Quiz - Algorithmus' && project.header != 'Private Projekte'">
           <div class="rectangle" :id="project.header + '_1'">Zum Projekt</div>
           <div class="triangle" :id="project.header + '_2'" ></div>
         </div>
