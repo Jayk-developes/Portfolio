@@ -11,17 +11,17 @@
     "increase_limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
   "dependencies": {
-    "sass": "^1.69.4",
+    "sass": "^1.72.0",
     "urijs": "^1.19.11",
     "volar": "^0.0.2",
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "cross-env": "^5.0.5",
+    "increase-memory-limit": "^1.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.5.2",
-    "vue-tsc": "^1.8.5",
-    "increase-memory-limit": "^1.0.3",
-    "cross-env": "^5.0.5"
+    "vue-tsc": "^1.8.5"
   }
 }

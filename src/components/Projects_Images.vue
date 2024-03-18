@@ -1,6 +1,10 @@
 <script setup lang="ts">
-
 import Project_Images_Loop from "./Project_Images_Loop.vue";
+import {onMounted} from "vue";
+
+onMounted(() =>{
+
+})
 
 </script>
 

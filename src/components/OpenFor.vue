@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RandomArrayIndex from "../assets.ts";
+import {onMounted} from "vue";
 
 const noteColors = [
   "#FFBBBB",
@@ -10,8 +11,7 @@ const noteColors = [
   "#BBFFFF"
 ]
 
-
-document.addEventListener("DOMContentLoaded", () => {
+onMounted(() =>{
   let notes = document.querySelectorAll(".note_note")
   let i = 0
   let index = 0

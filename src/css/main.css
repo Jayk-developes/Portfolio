@@ -434,12 +434,6 @@ body {
 }
 .content_paper #content #v-html_content {
   background: repeating-linear-gradient(#eadbcf, #eadbcf 19px, #78878d 20px, #eadbcf 21px);
-  width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
-  height: -webkit-fill-available;
-  height: -moz-available;
-  height: fill-available;
   margin-top: 3rem;
   overflow-y: scroll;
   margin-right: -1rem;
@@ -470,6 +464,7 @@ body {
     width: 80%;
   }
   .content_paper #v-html_content {
+    height: 15rem;
     background: repeating-linear-gradient(#eadbcf, #eadbcf 26px, #78878d 27px, #eadbcf 28px) !important;
     font-size: 1.6rem;
     line-height: 1.75rem;
@@ -972,6 +967,15 @@ body {
   position: relative;
   overflow: hidden;
   transform: scaleY(0.5);
+}
+
+.v-html-loaded {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
 }
 
 /*# sourceMappingURL=main.css.map */

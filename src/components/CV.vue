@@ -30,14 +30,14 @@ const CV = [
   },
   {
     header: "Interessen",
-    content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Troubleshooten<br><br> (Ich liebe es aktiv Probleme zu bewältigen. Solche Erfolge geben mir Seratonin und Motivation.)"
+    content: "-<strong> Programmieren</strong><br>-<strong> Designen</strong><br><br>- Zeichnen <br>- Musizieren <br>- 3D-Modelieren<br>- Troubleshooten<br><br> (Ich liebe es aktiv Probleme zu bewältigen. Solche Erfolge geben mir Serotonin und Motivation.)"
   },
   {
     header: "Sprachen",
     content: "<span style='display: block; text-align: center; font-weight: bold'>Deutsch</span>- C2, Muttersprache<br><br><span style='display: block; text-align: center; font-weight: bold'>Englisch</span>- C1 in Schrift und Sprache<br>(Meine mit Abstand liebste Sprache. Ich bewältige nahezu alles in Englisch und freue mich jedes Mal, wenn ich Englisch anwenden kann.)<br><br><span style='display: block; text-align: center; font-weight: bold'>Spanisch</span>- A2, Grundkenntnisse"
   }
 ]
-onMounted(() =>{
+onMounted(() => {
   const CVLoaded = () => {
     let postits = document.querySelectorAll(".content_postit")
     let prevColor: int;
@@ -71,8 +71,14 @@ onMounted(() =>{
     })
   }
   CVLoaded()
+  let CurrentWindowWidth = window.innerWidth
+
   window.addEventListener("resize", () => {
-    CVLoaded()
+    if ((window.innerWidth <= 600 && window.innerWidth != CurrentWindowWidth) || (window.innerWidth > 600)) {
+      CVLoaded()
+    }
+    CurrentWindowWidth = window.innerWidth
+
   })
 
 

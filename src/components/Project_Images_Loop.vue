@@ -1,5 +1,11 @@
 <script setup lang="ts">
 
+import {onMounted} from "vue";
+
+onMounted(() =>{
+
+})
+
 </script>
 
 <template>
@@ -34,7 +40,7 @@
       <img src="../media/projects/axisAlerting.png" alt="axisAlerting" >
     </div>
 <div class="inner_bg inner_bg_text">
-      Mock-Up To-Do App
+      Mockup To-Do App
     </div>
       <div class="inner_bg">
       <img src="../media/projects/Mockup.gif" alt="mockup" >

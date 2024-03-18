@@ -1,5 +1,10 @@
 <script setup lang="ts">
 import URI from "urijs";
+import {onMounted} from "vue";
+
+onMounted(() =>{
+
+})
 
 const OpenMail = () => {
     let body = document.getElementById("Email_body")

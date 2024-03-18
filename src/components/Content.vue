@@ -10,6 +10,7 @@ import OpenFor from "./OpenFor.vue";
 import Contact from "./Contact.vue";
 import Projects_Images from "./Projects_Images.vue";
 import {onMounted} from "vue";
+import PersonalImages from "./PersonalImages.vue";
 
 
 const pinColors = [
@@ -27,9 +28,11 @@ const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => 
 }
 
 const isElementAboveBG = (topElement: HTMLElement, bgElement: HTMLElement) => {
-      const topRect = topElement
+  const topRect = topElement
   bgElement.style.top = (topRect.offsetTop + topRect.offsetHeight - 50) + "px"
 }
+
+console.log(PersonalFacts)
 
 onMounted(() => {
   let personal = document.getElementById("content_personal") as HTMLElement
@@ -88,16 +91,25 @@ onMounted(() => {
       prevColor = newColor
     })
   }
+
+
   LoadPage()
-  window.addEventListener("load", () => {
-    for (let i = 0; i < 4; i++) {
-      setTimeout(() => {
-        LoadPage()
-      }, 500)
-    }
-  })
+
+  for (let i = 1; i <= 5; i++) {
+    setTimeout(() => {
+      LoadPage()
+    }, 300)
+  }
+
+
+
+  let CurrentWindowWidth = window.innerWidth
   window.addEventListener("resize", () => {
-    LoadPage()
+    if ((window.innerWidth <= 600 && window.innerWidth != CurrentWindowWidth) || (window.innerWidth > 600)) {
+      LoadPage()
+    }
+    CurrentWindowWidth = window.innerWidth
+
   })
 })
 
@@ -115,16 +127,7 @@ onMounted(() => {
     <CV/>
   </div>
 
-  <div style="position: absolute;" class="BG" id="BG1">
-    <div class="inner_bg direction">
-      <div id="loop_1" class="loop_1 imgSize">
-        <img src="../media/real_loop_trans1.png" alt="real_loop1">
-      </div>
-      <div id="loop_2" class="loop_2 imgSize">
-        <img src="../media/real_loop_trans2.png" alt="real_loop2">
-      </div>
-    </div>
-  </div>
+  <PersonalImages />
 
   <div class="personal_container bg_seperator" id="content_skills">
     <Skills/>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RandomArrayIndex from "../assets.ts";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 const polaroidColors = [
     "#FFBBBB",
@@ -19,7 +19,7 @@ let project_algorithmus = ref(false)
 
 let projectActives = [project_sensor, project_redesign, project_portfolio, project_mockup, project_algorithmus]
 
-document.addEventListener("DOMContentLoaded", () => {
+onMounted(() =>{
 
   let polaroids = document.querySelectorAll(".content_polaroid")
   let polaroids_inside = document.querySelectorAll(".no_real_class_1")
@@ -85,8 +85,8 @@ const projects = [
   {header: "Sensorik-Website", content: "Hier war ich verantwortlich für das <strong>Design</strong> und für die <strong>Erstellung von Schlüsselfunktionen</strong>, die zur Auslesung der Daten genutzt wurde.<br><br> Beispielsweise hatte ich neben dem Design auch die Aufgabe, <strong>Daten für das Migrieren in die Datenbank</strong> bereitzustellen und diese <strong>Funktionen im Backend</strong> letztendlich auch zu vervollständigen."},
   {header: "comNET Redesign", content: "Ich war einzig und allein verantwortlich für das gesamte Redesign unserer internen Websites. Es sollte <strong>simpel</strong>, aber <strong>nutzerfreundlich</strong> sein! <br><br>Ich habe versucht, das ursprüngliche Design wenig zu verändern. Ich wollte aber die <strong>Nutzung</strong> und die <strong>Darstellung</strong> optimieren."},
   {header: "Portfolio", content: "Richtig! Diese Website ist ebenfalls eines meiner Projekte. In dieser Website stecken viele <strong>viele Stunden an Arbeit</strong> und zeigt wunderbar, was ich kann. <br><br> Diese Website wurde <strong>ausschließlich von mir programmiert</strong>. Hier wurden keine vorgefertigten Templates oder der gleichen verwendet. <strong>Ich präsentiere euch somit stolz diese Website</strong>."},
-  {header: "Figma Mock-Up", content: "Auch in Figma habe ich schon einige Erfahrungen machen können. Hier auf der Seite wird mein <strong>Mock-Up von einer To-Do-Website</strong> dargestellt. Dafür habe ich <strong>Funktionalität und Nutzerfreundlichkeit</strong> in den Fokus gestellt."},
-  {header: "Quiz - Algorithmus", content: "Für den Algorithmus haben wir als Team ein Front- und Backend angelegt, welches ein Rätzel anhand <strong>eines Bildes analysiert</strong> und die <strong>Datenbank nach möglichen Lösungen</strong> abfragt."},
+  {header: "Figma Mockup", content: "Auch in Figma habe ich schon einige Erfahrungen machen können. Hier auf der Seite wird mein <strong>Mock-Up von einer To-Do-Website</strong> dargestellt. Dafür habe ich <strong>Funktionalität und Nutzerfreundlichkeit</strong> in den Fokus gestellt."},
+  {header: "Quiz - Algorithmus", content: "Für den Algorithmus haben wir als Team ein Front- und Backend angelegt, welches ein Rätsel anhand <strong>eines Bildes analysiert</strong> und die <strong>Datenbank nach möglichen Lösungen</strong> abfragt."},
   {header: "Private Projekte", content: "Ich habe auch zahlreiche private Projekte erstellen können. Unter einigen Übungsprojekten erstellte ich auch Projekte, welche mich privat unterstützen, wie ein Music-Converter.<span style='text-align: center; display: block'><br><strong >Habe ich Ihr Interesse geweckt? Schaut euch gerne meine Profile an!<br><br></strong><strong>Mein öffentliches Github</strong><br><a href='https://github.com/Jayk-developes' id='ancer'>GitHub - Jayk-Developes</a></span> "}
 ]
 

@@ -20,44 +20,24 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     nav_personal.addEventListener("click", () => {
         personal_data.scrollIntoView({behavior: "smooth"})
-        setTimeout(() => {
-            personal_data.scrollIntoView({behavior: "smooth"})
-        }, 500)
     })
     arrowDown.addEventListener("click", () => {
         personal_data.scrollIntoView({behavior: "smooth"})
-        setTimeout(() => {
-            personal_data.scrollIntoView({behavior: "smooth"})
-        }, 500)
+
     })
     nav_CV.addEventListener("click", () => {
         cv.scrollIntoView({behavior: "smooth"})
-        setTimeout(() => {
-            cv.scrollIntoView({behavior: "smooth"})
-        }, 500)
     })
     nav_skills.addEventListener("click", () => {
         skills.scrollIntoView({behavior: "smooth"})
-        setTimeout(() => {
-            skills.scrollIntoView({behavior: "smooth"})
-        }, 500)
     })
     nav_project.addEventListener("click", () => {
         project.scrollIntoView({behavior: "smooth"})
-        setTimeout(() => {
-            project.scrollIntoView({behavior: "smooth"})
-        }, 500)
     })
     nav_contact.addEventListener("click", () => {
         window.scrollTo({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
-        setTimeout(() => {
-            window.scrollTo({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
-        }, 700)
     })
     date_contact.addEventListener("click", () => {
         window.scrollTo({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
-        setTimeout(() => {
-            window.scrollTo({top: document.body.scrollHeight, left: 0, behavior: "smooth"})
-        }, 1000)
     })
 });

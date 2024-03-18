@@ -452,6 +452,7 @@ body {
   }
 }
 
+
 .content_paper {
   box-shadow: 0 6px 10px 0 #000000ff;
   width: -webkit-fill-available;
@@ -489,12 +490,6 @@ body {
 
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 19px, #78878d 20px, #eadbcf 21px);
-      width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
-      height: -webkit-fill-available;
-  height: -moz-available;
-      height: fill-available;
       margin-top: 3rem;
       overflow-y: scroll;
       margin-right: -1rem;
@@ -529,6 +524,7 @@ body {
   @media only screen and (min-width: 670px) {
     width: 80%;
     #v-html_content {
+      height: 15rem;
       background: repeating-linear-gradient(#eadbcf, #eadbcf 26px, #78878d 27px, #eadbcf 28px) !important;
       font-size: $font_mid;
       line-height: 1.75rem;
@@ -1042,4 +1038,13 @@ body {
   position: relative;
   overflow: hidden;
   transform: scaleY(.5);
+}
+
+.v-html-loaded {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill-available;
+    height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
 }
