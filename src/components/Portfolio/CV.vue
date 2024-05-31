@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RandomArrayIndex from "../assets.ts";
+import RandomArrayIndex from "../../assets.ts";
 import {onMounted, ref} from "vue";
 
 const postItColors = [
@@ -100,20 +100,20 @@ onMounted(() => {
   <div v-if="certActive" class="show_cert">
     <div class="close_cert" @click="certActive = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/certificates/MMBBS-2022.png" alt="MMBBS2022">
-      <img src="../media/certificates/MMBBS-2023.png" alt="MMBBS2023">
-      <img src="../media/certificates/Zwischenzeugnis_1.png" alt="ZwZeug1">
-      <img src="../media/certificates/Zwischenzeugnis_2.png" alt="ZwZeug2">
-      <img src="../media/certificates/Fachabi.png" alt="Fachabi">
-      <img src="../media/certificates/Fachabi_Bescheinigung.png" alt="Fachabi2">
-      <img src="../media/certificates/Sekundar_1.png" alt="Sek1">
+      <img src="../../media/certificates/MMBBS-2022.png" alt="MMBBS2022">
+      <img src="../../media/certificates/MMBBS-2023.png" alt="MMBBS2023">
+      <img src="../../media/certificates/Zwischenzeugnis_1.png" alt="ZwZeug1">
+      <img src="../../media/certificates/Zwischenzeugnis_2.png" alt="ZwZeug2">
+      <img src="../../media/certificates/Fachabi.png" alt="Fachabi">
+      <img src="../../media/certificates/Fachabi_Bescheinigung.png" alt="Fachabi2">
+      <img src="../../media/certificates/Sekundar_1.png" alt="Sek1">
     </div>
   </div>
   <div v-if="cvActive" class="show_cert">
     <div class="close_cert" @click="cvActive = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/cv/cv_1.png" alt="cv_1">
-      <img src="../media/cv/cv_2.png" alt="cv_2">
+      <img src="../../media/cv/cv_1.png" alt="cv_1">
+      <img src="../../media/cv/cv_2.png" alt="cv_2">
     </div>
   </div>
 </template>

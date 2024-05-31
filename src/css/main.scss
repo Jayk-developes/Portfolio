@@ -37,7 +37,7 @@
 html,
 body {
   min-height: 100%;
-  font-family: "Lucida Console",Geneva, Verdana, Monaco, Copperplate, Papyrus, fantasy, sans-serif;
+  font-family: "Lucida Console", Geneva, Verdana, Monaco, Copperplate, Papyrus, fantasy, sans-serif;
 }
 
 .home {
@@ -174,14 +174,15 @@ body {
   p {
     display: none;
   }
+
   @media only screen and (min-width: 1000px) {
-    font-size: $font_small ;
+    font-size: $font_small;
     div, p {
       font-size: $font_small;
     }
   }
   @media only screen and (min-width: 1200px) {
-    font-size: $font_size_all ;
+    font-size: $font_size_all;
     div, p {
       font-size: $font_size_all;
     }
@@ -238,9 +239,10 @@ body {
   width: 100%;
   background-color: transparent;
   overflow: hidden;
-  .direction{
-      flex-direction: row !important;
-    }
+
+  .direction {
+    flex-direction: row !important;
+  }
 
   .inner_bg {
     display: flex;
@@ -341,14 +343,14 @@ body {
   box-shadow: 0 .125rem .125rem 0 #000a;
   transition: $primary_transition_fade;
 
-  @media only screen and (min-width: 600px){
+  @media only screen and (min-width: 600px) {
     font-size: $font_mid;
     padding: .5rem 1rem;
   }
-  
-  @media only screen and (min-width: 1000px) and (max-width: 1440px){
+
+  @media only screen and (min-width: 1000px) and (max-width: 1440px) {
     font-size: $font_size_all;
-    
+
   }
 
   &:hover {
@@ -404,14 +406,14 @@ body {
   left: 50%;
   top: 85%;
   z-index: 10;
-  filter: invert(0) drop-shadow(0 0 1rem transparent);
+  filter: invert(100%) drop-shadow(0 0 1rem transparent);
   width: 4rem;
   transform: translate(-50%, 50%);
   animation: upAndDown 2s infinite;
   transition: filter ease-in-out .2s;
 
   &:hover {
-    filter: invert(100%) drop-shadow(0 0 .25rem $complimentary);
+    filter: invert(0) drop-shadow(0 0 .25rem $complimentary);
   }
 }
 
@@ -474,11 +476,11 @@ body {
 
   #content {
     width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
+    width: -moz-available;
+    width: fill-available;
     height: -webkit-fill-available;
-  height: -moz-available;
-  height: fill-available;
+    height: -moz-available;
+    height: fill-available;
     padding: .55rem 1.5rem 1rem;
     text-align: left;
     font-size: small;
@@ -506,7 +508,7 @@ body {
     }
   }
 
-    @media only screen and (min-width: 570px) {
+  @media only screen and (min-width: 570px) {
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 26px, #78878d 27px, #eadbcf 28px) !important;
       font-size: $font_mid;
@@ -632,6 +634,7 @@ body {
   background-color: #ffbbbb;
   box-shadow: 0 .5rem .5rem .125rem rgba(0, 0, 0, 0.4);
   transition: $primary_transition_fade;
+
   p {
     color: black;
     font-size: $font-small;
@@ -645,12 +648,13 @@ body {
       padding: 1rem 0 0;
     }
   }
-@media only screen and (min-width: 400px) {
-  line-height: 1rem;
-}
-   @media only screen and (min-width: 500px) and (max-width: 599px) {
-     line-height: 1.2rem;
-     p {
+
+  @media only screen and (min-width: 400px) {
+    line-height: 1rem;
+  }
+  @media only screen and (min-width: 500px) and (max-width: 599px) {
+    line-height: 1.2rem;
+    p {
       white-space: normal;
       color: black;
       font-size: $font_size_all;
@@ -664,7 +668,7 @@ body {
         font-weight: bold;
       }
     }
-   }
+  }
 
   @media only screen and (min-width: 600px) and (max-width: 999px) {
     width: 90%;
@@ -712,6 +716,7 @@ body {
     p {
       line-height: 1.65rem;
       font-size: $font_mid;
+
       &:first-child {
         padding-top: 1.5rem;
         font-size: $font_large;
@@ -736,6 +741,7 @@ body {
       padding: 0;
     }
   }
+
   .triangle {
     border-top: 1.5rem solid transparent !important;
     border-bottom: 1.5rem solid transparent !important;
@@ -743,10 +749,11 @@ body {
 
     @media screen and (max-width: 750px) {
       border-top: 1.2rem solid transparent !important;
-    border-bottom: 1.2rem solid transparent !important;
+      border-bottom: 1.2rem solid transparent !important;
     }
   }
 }
+
 .note_note {
 
 }
@@ -763,8 +770,10 @@ body {
   background-color: #fff;
   box-shadow: 0 .5rem .5rem .125rem rgba(0, 0, 0, 0.4);
   border: solid 1px #00000088;
-  a{
+
+  a {
     transition: $primary_transition_fade;
+
     &:hover {
       color: $complimentary
     }
@@ -783,7 +792,7 @@ body {
   }
 
   .triangle {
-        border-top: 1.25rem solid transparent;
+    border-top: 1.25rem solid transparent;
     border-bottom: 1.25rem solid transparent;
     z-index: 10;
     margin: .45rem 0 0 -.2rem;
@@ -807,8 +816,8 @@ body {
 
   .content_polaroid_inside {
     width: -webkit-fill-available;
-  width: -moz-available;
-  width: fill-available;
+    width: -moz-available;
+    width: fill-available;
     //FALLBACK HEIGHT
     height: 15rem;
     margin-top: -2.5rem;
@@ -872,7 +881,7 @@ body {
           font-size: $font_mid;
         }
       }
-            @media only screen and (min-width: 1820px) {
+      @media only screen and (min-width: 1820px) {
         line-height: 1.4rem;
         font-size: $font_mid;
         &:first-child {
@@ -890,42 +899,42 @@ body {
   }
 
   @media only screen and (min-width: 600px) {
-        font-size: $font-mid !important;
+    font-size: $font-mid !important;
     line-height: 1.5rem !important;
-        &:first-child {
-          font-size: $font_large !important;
-        }
-      }
-  @media only screen and (min-width: 800px) and (max-width: 999px){
-        font-size: $font-mid !important;
+    &:first-child {
+      font-size: $font_large !important;
+    }
+  }
+  @media only screen and (min-width: 800px) and (max-width: 999px) {
+    font-size: $font-mid !important;
     line-height: 1.8rem !important;
-        &:first-child {
-          font-size: $font_large !important;
-        }
-      }
+    &:first-child {
+      font-size: $font_large !important;
+    }
+  }
 
-  @media only screen and (min-width: 1000px){
-        font-size: $font-size_all !important;
+  @media only screen and (min-width: 1000px) {
+    font-size: $font-size_all !important;
     line-height: 1.2rem !important;
-        &:first-child {
-          font-size: $font_mid !important;
-        }
-      }
+    &:first-child {
+      font-size: $font_mid !important;
+    }
+  }
 
-  @media only screen and (min-width: 1150px){
-        font-size: $font-size_all !important;
+  @media only screen and (min-width: 1150px) {
+    font-size: $font-size_all !important;
     line-height: 1.4rem;
-        &:first-child {
-          font-size: $font_mid !important;
-        }
-      }
-  @media only screen and (min-width: 1440px){
-        font-size: $font-mid !important;
+    &:first-child {
+      font-size: $font_mid !important;
+    }
+  }
+  @media only screen and (min-width: 1440px) {
+    font-size: $font-mid !important;
     line-height: 1.3rem !important;
-        &:first-child {
-          font-size: $font_large !important;
-        }
-      }
+    &:first-child {
+      font-size: $font_large !important;
+    }
+  }
   @media only screen and (min-width: 1700px) {
     line-height: 1.7rem !important;
   }
@@ -1044,7 +1053,88 @@ body {
   width: -webkit-fill-available;
   width: -moz-available;
   width: fill-available;
-    height: -webkit-fill-available;
+  height: -webkit-fill-available;
   height: -moz-available;
   height: fill-available;
 }
+
+.shopButton {
+  font-family: "Lucida Console", Geneva, Verdana, Monaco, Copperplate, Papyrus, fantasy, sans-serif;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  border: none;
+  box-shadow: 0 .5rem .5rem #0006;
+  transition: $primary_transition_fade;
+  text-align: center;
+  background-color: $complimentary;
+  color: white !important;
+
+  &:hover {
+    background-color: $complimentary_2;
+
+    .arrowShop {
+      filter: invert(100%) drop-shadow(0 0 .25rem $complimentary);
+      animation: leftAndRight 2s infinite;
+    }
+  }
+}
+
+.arrowShop {
+  top: 50%;
+  z-index: 10;
+  filter: invert(0);
+  width: 3rem;
+  margin-left: 1rem;
+  margin-right: -1rem;
+  transform: rotate(270deg);
+  transition: filter ease-in-out .2s;
+}
+
+@keyframes leftAndRight {
+  0% {
+    margin-left: 1rem;
+    margin-right: -1rem;
+  }
+  50% {
+    margin-left: 2.5rem;
+    margin-right: -2.5rem;
+  }
+  100% {
+    margin-left: 1rem;
+    margin-right: -1rem;
+  }
+}
+
+.imgContainer {
+  background-color: $contrast_2;
+  background-image: url("../media/Abstract Background-01.jpg");
+}
+
+.digitalArtPriceList {
+  position: absolute;
+  overflow: hidden;
+  background-color: $secondary;
+  white-space: nowrap;
+  padding: 1rem;
+  margin-left: -1rem;
+  border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 .25rem .5rem 0 #0006;
+
+  .priceContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+  .actualSeparator {
+    border-bottom: solid 1px white;
+    box-shadow: 0 0 .25rem 0 #000f;
+    background-color: #fff;
+  }

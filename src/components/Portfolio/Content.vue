@@ -4,13 +4,14 @@ import Home from "./Home.vue";
 import PersonalFacts from "./PersonalFacts.vue";
 import CV from "./CV.vue";
 import Skills from "./Skills.vue";
-import RandomArrayIndex from "../assets.ts";
+import RandomArrayIndex from "../../assets.ts";
 import Projects from "./Projects.vue";
 import OpenFor from "./OpenFor.vue";
-import Contact from "./Contact.vue";
+import Contact from "../Contact.vue";
 import Projects_Images from "./Projects_Images.vue";
 import {onMounted} from "vue";
 import PersonalImages from "./PersonalImages.vue";
+import NewNavbar from "./NewNavbar.vue";
 
 
 const pinColors = [
@@ -45,6 +46,26 @@ onMounted(() => {
   let BG2 = document.getElementById("BG2") as HTMLElement
   let loop_2 = document.getElementById("loop_2") as HTMLElement
   let loop_1 = document.querySelectorAll(".loop_1")
+
+    let ArrowDown = document.getElementById("arrowDown")
+
+  ArrowDown.addEventListener("click", () => {
+    window.scroll({
+      top: window.innerHeight,
+      behavior: "smooth"
+    })
+  })
+
+  let navbar_items = document.querySelectorAll(".note_2")
+  navbar_items.forEach((item) => {
+    item.addEventListener("click", () => {
+      if (item.getAttribute("data-target") == "content_home") {
+        window.scroll({top: 0, behavior: "smooth"})
+      } else {
+        document.getElementById(item.getAttribute("data-target")).scrollIntoView({behavior: "smooth", block: "start"})
+      }
+    })
+  })
 
 
   const LoadPage = () => {
@@ -116,6 +137,8 @@ onMounted(() => {
 </script>
 
 <template>
+    <NewNavbar/>
+      <img src="../../media/Arrow-down.svg.png" alt="arrowDown" class="arrowDown" id="arrowDown">
   <div class="home">
     <Home/>
   </div>

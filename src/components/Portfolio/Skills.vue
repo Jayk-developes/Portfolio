@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import RandomArrayIndex from "../assets.ts";
+import RandomArrayIndex from "../../assets.ts";
 import {onMounted} from "vue";
 
 const polaroidColors = [

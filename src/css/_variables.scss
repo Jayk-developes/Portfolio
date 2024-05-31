@@ -31,7 +31,7 @@ $contrast_trans: color.change($contrast, $alpha: 0.6);
 $contrast_2: color.change($primary_2, $lightness: 20%);
 $contrast_3: color.change($primary_3, $lightness: 20%);
 
-$complimentary: color.adjust($primary, $hue: 180deg, $saturation: 20%, $lightness: 10%);
+$complimentary: color.adjust($primary, $hue: 180deg, $saturation: 20%, $lightness: 20%);
 $complimentary_2: color.adjust($primary, $hue: -155deg, $saturation: 20%, $lightness: 5%);
 $complimentary_3: color.adjust($primary, $hue: 155deg, $saturation: 20%, $lightness: 5%);
 

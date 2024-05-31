@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {ref} from "vue";
-import RandomArrayIndex from "../assets.ts";
+import RandomArrayIndex from "../../assets.ts";
 
-const Categories = ["home", "personal", "cv", "skills", "projects","open_for", "contact"]
-const Categories_ger = ["Home", "Persönliches", "Lebenslauf","Skills", "Projekte", "Offen Für", "Kontakt"]
+const Categories = ["Commisions", "T-ShirtDesigner", "TattooDesigner", "WebsiteDesigner"]
+const Categories_ger = ["Commisions", "T-Shirt", "Tattoo", "Website"]
 const noteColors = [
   "#FFBBBB",
   "#BBFFBB",
@@ -18,10 +18,10 @@ const navbar_open_status = ref(false)
 document.addEventListener("DOMContentLoaded", () => {
   let notes = document.querySelectorAll(".note_2")
   let container = document.getElementById("navbar_container") as HTMLElement
-  let i = 0
-  let index = 0
-  let prevColor_: int;
-  let prevColor2_: int;
+  let i: number = 0
+  let index: number = 0
+  let prevColor_: number;
+  let prevColor2_: number;
   notes.forEach((note) => {
     note.style.rotate = ((Math.random() * 8) - 4) + "deg"
 

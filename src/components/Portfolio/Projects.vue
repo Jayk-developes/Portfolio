@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RandomArrayIndex from "../assets.ts";
+import RandomArrayIndex from "../../assets.ts";
 import {onMounted, ref} from "vue";
 
 const polaroidColors = [
@@ -113,37 +113,37 @@ const projects = [
   <div v-if="project_sensor" class="show_cert">
     <div class="close_cert" @click="project_sensor = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
+      <img src="../../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
     </div>
   </div>
   <div v-if="project_redesign" class="show_cert">
     <div class="close_cert" @click="project_redesign = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/projects/RedesignedCss.png" alt="Redesign" class="projects">
-      <img src="../media/projects/RedesignedCss_2.png" alt="Redesign_2" class="projects">
-      <img src="../media/projects/RedesignCss_3.png" alt="Redesign_3" class="projects">
+      <img src="../../media/projects/RedesignedCss.png" alt="Redesign" class="projects">
+      <img src="../../media/projects/RedesignedCss_2.png" alt="Redesign_2" class="projects">
+      <img src="../../media/projects/RedesignCss_3.png" alt="Redesign_3" class="projects">
     </div>
   </div>
   <div v-if="project_portfolio" class="show_cert">
     <div class="close_cert" @click="project_portfolio = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/projects/OldPortfolio.png" alt="oldPortfolio" class="projects">
-      <img src="../media/projects/OldPortfolio2.png" alt="oldPortfolio2" class="projects">
-      <img src="../media/projects/OldPortfolio3.png" alt="oldPortfolio3" class="projects">
-      <img src="../media/projects/OldPortfolio4.png" alt="oldPortfolio4" class="projects">
-      <img src="../media/projects/NewPortfolio.png" alt="newPortfolio" class="projects">
+      <img src="../../media/projects/OldPortfolio.png" alt="oldPortfolio" class="projects">
+      <img src="../../media/projects/OldPortfolio2.png" alt="oldPortfolio2" class="projects">
+      <img src="../../media/projects/OldPortfolio3.png" alt="oldPortfolio3" class="projects">
+      <img src="../../media/projects/OldPortfolio4.png" alt="oldPortfolio4" class="projects">
+      <img src="../../media/projects/NewPortfolio.png" alt="newPortfolio" class="projects">
     </div>
   </div>
   <div v-if="project_mockup" class="show_cert">
     <div class="close_cert" @click="project_mockup = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/projects/Mockup.gif" alt="MockUp" class="projects">
+      <img src="../../media/projects/Mockup.gif" alt="MockUp" class="projects">
     </div>
   </div>
   <div v-if="project_algorithmus" class="show_cert">
     <div class="close_cert" @click="project_algorithmus = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
+      <img src="../../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
     </div>
   </div>
 </template>

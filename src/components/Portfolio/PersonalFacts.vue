@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import PaperStripes from "../paperStripes.ts";
-import RandomArrayIndex from "../assets.ts";
+import PaperStripes from "../../paperStripes.ts";
+import RandomArrayIndex from "../../assets.ts";
 import {onMounted} from "vue";
 
 let today = new Date()
@@ -81,7 +81,6 @@ onMounted(() => {
     <div class="content">
       <div class="content_paper" id="content_paper" v-for="fact in personalFacts">
         <div class="paper_pin"></div>
-        <!--        <p v-for="stripe in PaperStripes" class="stripe">{{stripe}}</p>-->
         <div id="content">
           <p id="personal_header">{{ fact.id }}<br></p>
           <div v-html="fact.content" id="v-html_content"></div>

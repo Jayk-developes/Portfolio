@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Navbar from "./components/Navbar.vue";
+import Navbar from "./components/Portfolio/Navbar.vue";
 import Content from "./components/Content_old.vue";
 import "./trail.ts";
 import "./scrollIntoView.ts"
 import {ref, watch} from "vue";
-import NewNavbar from "./components/NewNavbar.vue";
+import NewNavbar from "./components/Portfolio/NewNavbar.vue";
 
 document.addEventListener("DOMContentLoaded", () => {
   let wallpaper = document.getElementById("wallpaper")
