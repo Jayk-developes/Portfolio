@@ -171,12 +171,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     <div class="TShirtDesigner" ref="tshirtContainer">
       <h1 style="white-space: nowrap">Design your Shirt!</h1>
       <div id="leftSelect" class="selector">
+        <div id="up">	&#9650;</div>
         <div>
           <img src="../../media/shop/colorSelect.png" alt="">
           <input type="color" name="" id="colorTshirtSelector" value="#ffffff" @input="recolorTshirt">
         </div>
         <div v-for="color in tshirtColors" :style="'background-color:' + color" @click="recolorTshirt(color)">
         </div>
+        <div id="down">	&#9660;</div>
       </div>
       <div>
         <div class="selectedImage" ref="selectedImageContainer">
@@ -224,6 +226,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 }
 
 .selector {
+  max-width: 7rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -341,4 +344,15 @@ iframe, img {
   pointer-events: none;
   width: 1.25rem;
 }
+
+#up, #down {
+  font-size: 2rem;
+  margin: 0;
+  background-color: transparent;
+  height: 3rem !important;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 #0000;
+}
+
+
 </style>
