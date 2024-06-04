@@ -19,7 +19,7 @@ const priceList = [
 ]
 
 const resizeObject = (obj: HTMLElement, obj2: HTMLElement) => {
-  windowWidth.value = window.innerWidth * 0.8 + "px"
+  windowWidth.value = window.innerWidth * .96  + "px"
   if (window.innerWidth > window.innerHeight) {
     obj.style.height = window.innerHeight - 128 + "px"
     obj.style.width = "auto"
@@ -34,23 +34,15 @@ const resizeObject = (obj: HTMLElement, obj2: HTMLElement) => {
   }
   obj2.style.height = obj.getBoundingClientRect().height + "px"
 
-  digitalArtHead.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.275 + "px"
-  digitalArtTorso.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.575 + "px"
-  digitalArtFull.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.875 + "px"
-}
-
-const isElementAbove = (topElement: HTMLElement, bottomElement: HTMLElement) => {
-  const topRect = topElement
-  bottomElement.style.top = (topRect.offsetTop + topRect.offsetHeight + 500) + "px"
-}
-
-const isElementAboveBG = (topElement: HTMLElement, bgElement: HTMLElement) => {
-  const topRect = topElement
-  bgElement.style.top = (topRect.offsetTop + topRect.offsetHeight - 50) + "px"
+  if(digitalArtHead.value && digitalArtTorso.value && digitalArtFull.value && digitalArtPriceList.value) {
+    digitalArtHead.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.275 + "px"
+    digitalArtTorso.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.575 + "px"
+    digitalArtFull.value.style.marginTop = digitalArtPriceList.value.getBoundingClientRect().height * 0.875 + "px"
+  }
 }
 
 onMounted(async () => {
-  if (priceObjectDigital.value) {
+  if (priceObjectDigital.value && digitalArtPriceList.value) {
     resizeObject(priceObjectDigital.value, digitalArtPriceList.value)
     await new Promise(r => setTimeout(r, 500));
     resizeObject(priceObjectDigital.value, digitalArtPriceList.value)
@@ -85,7 +77,7 @@ onMounted(async () => {
           <PriceListContainer :price-list="priceList[2]" title="FULL ‎ ‎ BODY"/>
           <div class="actualSeparator" ref="actual"></div>
         </div>
-        <img src="../../media/shop/digitalArt/Frey.jpg" alt="" ref="priceObjectDigital">
+        <img class="img_price" src="../../media/shop/digitalArt/Frey.jpg" alt="" ref="priceObjectDigital">
       </div>
       <p>(Weitere Anfragen und Kosten auf Absprache verhandelbar)</p>
     </div>
@@ -113,6 +105,11 @@ onMounted(async () => {
 .priceList {
   position: absolute;
   margin-top: v-bind(digitalArtHead);
+}
+
+.img_price {
+  border-radius: 1rem;
+  box-shadow: 0 .5rem 1rem #000a;
 }
 
 </style>

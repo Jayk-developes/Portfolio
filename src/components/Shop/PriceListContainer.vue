@@ -12,23 +12,7 @@ const isLessThan800 = ref<boolean>(false)
 
 onMounted(() => {
   isLessThan800.value = window.innerWidth < 800
-  priceList.value.style.top = -(priceList.value.getBoundingClientRect().height) + "px"
-  priceList.value.style.fontSize = window.innerWidth / 400 >= 1 ? "1rem" : window.innerWidth / 400 + "rem"
-
-  if (window.innerWidth < 800 && window.innerWidth < window.innerHeight) {
-    priceList.value.style.width = "2rem"
-    priceList.value.style.paddingRight = "-2rem"
-    priceList.value.style.paddingLeft = "2rem"
-    priceList.value.style.marginLeft = "-1rem"
-
-  } else {
-    priceList.value.style.width = "20rem"
-  }
-
-
-  window.addEventListener("resize", () => {
-    isLessThan800.value = window.innerWidth < 800
-    console.log(isLessThan800)
+  if (priceList.value) {
     priceList.value.style.top = -(priceList.value.getBoundingClientRect().height) + "px"
     priceList.value.style.fontSize = window.innerWidth / 400 >= 1 ? "1rem" : window.innerWidth / 400 + "rem"
 
@@ -42,17 +26,35 @@ onMounted(() => {
       priceList.value.style.width = "20rem"
     }
 
-  })
+
+    window.addEventListener("resize", () => {
+      isLessThan800.value = window.innerWidth < 800
+      if (priceList.value) {
+        priceList.value.style.top = -(priceList.value.getBoundingClientRect().height) + "px"
+        priceList.value.style.fontSize = window.innerWidth / 400 >= 1 ? "1rem" : window.innerWidth / 400 + "rem"
+
+        if (window.innerWidth < 800 && window.innerWidth < window.innerHeight) {
+          priceList.value.style.width = "2rem"
+          priceList.value.style.paddingRight = "-2rem"
+          priceList.value.style.paddingLeft = "2rem"
+          priceList.value.style.marginLeft = "-1rem"
+
+        } else {
+          priceList.value.style.width = "20rem"
+        }
+      }
+    })
+  }
 })
 
 const expandPrice = () => {
-  if (window.innerWidth < 800) {
+  if (window.innerWidth < 800 && priceList.value) {
     priceList.value.style.width = parseInt(priceList.value.style.width) > 2 ? "1.5rem" : "15rem"
   }
 }
 
 document.addEventListener("click", () => {
- if (window.innerWidth < 800) {
+  if (window.innerWidth < 800 && priceList.value) {
     priceList.value.style.width = "1.5rem"
   }
 })

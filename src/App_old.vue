@@ -74,7 +74,6 @@ let currentDay = new Date()
 const month = [
     "JAN", "FEB", "MAR", "APR", "MAI", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 ]
-console.log(currentDay.getDate())
 </script>
 
 <template>

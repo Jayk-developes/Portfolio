@@ -3,6 +3,7 @@ import NavbarShop from "./NavbarShop.vue";
 import Commisions from "./Commisions.vue";
 import HomeShop from "./HomeShop.vue";
 import {onMounted, ref} from "vue";
+import TShirt from "./TShirt.vue";
 
 const digital = ref<HTMLElement | null>(null);
 const tshirt = ref<HTMLElement | null>(null);

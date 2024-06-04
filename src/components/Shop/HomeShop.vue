@@ -19,7 +19,7 @@ onMounted(() => {
     <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #0006"></div>
   </div>
   <div style="display:flex; justify-content: center">
-    <router-link :to="{name: 'homepage'}" class="shopButton">Zum Portfolio!</router-link>
+    <router-link :to="{name: 'homepage'}" class="shopButton">Zum Portfolio!<img src="../../media/Arrow-down.svg.png" alt="arrowDown" class="arrowShop" id="arrowShop"></router-link>
   </div>
 </template>
 

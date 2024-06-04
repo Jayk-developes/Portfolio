@@ -16,7 +16,6 @@ const OpenMail = () => {
     body = URI.encode(body.value)
     subject = URI.encode(subject.value)
     let URIString = `mailto:joshua.daniel.koch@gmail.com?subject=${subject}&body=${body}`
-  console.log(URIString)
   window.location.href = URIString
 
   }
