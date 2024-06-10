@@ -42,7 +42,9 @@ onMounted(() => {
         } else {
           priceList.value.style.width = "20rem"
         }
-        if (!isLessThan800.value)
+        if (!isLessThan800.value) {
+
+        }
       }
     })
   }
