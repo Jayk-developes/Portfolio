@@ -10,6 +10,7 @@ const personalFacts = [
     id: "Ich",
     content: `- Joshua-Daniel Koch <br>- ${age} Jahre alt<br>- Fachinformatiker (Anwendungsentwickler)<br><br><span style="display: block; text-align: center; font-weight: bold">Schwerpunkte<br>Web-Entwicklung</span>- Frontend (Vue.js, TypeScript, HTML, CSS)<br><br>- Backend (Django, SQL, FastAPI, Python, Java)<br><br>- Design (UI/UX, Figma, Blender, Procreate)`
   },
+
   {
     id: "Früher",
     content: `- Frühes Interesse, aber leider ohne Anhaltspunkte<br>- Mein Horizont erweitert in anderen Bereichen (KFZ, Botanik, Architektur)<br><br><span style="display: block; text-align: center; font-weight: bold">Lieber spät als nie!</span><span style="text-align: justify; display: block; hyphens: auto">Auch mit einem verzögerten Start konnte ich mich und andere von meinen Kompetenzen und Fähigkeiten überzeugen!</span>`

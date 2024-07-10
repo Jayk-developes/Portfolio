@@ -39,6 +39,7 @@ const CV = [
 ]
 onMounted(() => {
   const CVLoaded = () => {
+    
     let postits = document.querySelectorAll(".content_postit")
     let prevColor: int;
     let prevColor2: int;
@@ -112,8 +113,7 @@ onMounted(() => {
   <div v-if="cvActive" class="show_cert">
     <div class="close_cert" @click="cvActive = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../../media/cv/cv_1.png" alt="cv_1">
-      <img src="../../media/cv/cv_2.png" alt="cv_2">
+      <img src="../../media/cv/cv.png" alt="cv_1">
     </div>
   </div>
 </template>

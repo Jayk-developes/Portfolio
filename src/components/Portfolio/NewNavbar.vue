@@ -1,98 +1,151 @@
 <script setup lang="ts">
-import {ref} from "vue";
-import RandomArrayIndex from "../../assets.ts";
+import { onMounted, watch, ref } from "vue";
+import { useRoute } from "vue-router";
 
-const Categories = ["home", "personal", "cv", "skills", "projects","open_for", "contact"]
-const Categories_ger = ["Home", "Persönliches", "Lebenslauf","Skills", "Projekte", "Offen Für", "Kontakt"]
-const noteColors = [
-  "#FFBBBB",
-  "#BBFFBB",
-  "#BBBBFF",
-  "#FFFFBB",
-  "#FFBBFF",
-  "#BBFFFF"
-]
+const CategoriesPortfolio = [
+  "Home",
+  "Ich",
+  "Lebenslauf",
+  "Skills",
+  "Projekte",
+  "Offen Für",
+];
+const CategoriesShop = [
+  "Home",
+  "Anfragen",
+  "Shirt Design",
+  "Tattoo Design",
+  "Website Design",
+];
 
-const navbar_open_status = ref(false)
+const CategoriesCorespondent = [
+  [
+    "home",
+    "content_personal",
+    "content_cv",
+    "content_skills",
+    "content_projects",
+    "content_open_for",
+  ],
+  ["home", "content_digital", "content_tshirt"],
+];
+
+const route = useRoute();
+const navbar = ref<HTMLElement | null>(null);
+const shopExt = ref<HTMLElement | null>(null);
+const contact = ref<HTMLElement | null>(null);
 
 document.addEventListener("DOMContentLoaded", () => {
-  let notes = document.querySelectorAll(".note_2")
-  let container = document.getElementById("navbar_container") as HTMLElement
-  let i = 0
-  let index = 0
-  let prevColor_: int;
-  let prevColor2_: int;
-  notes.forEach((note) => {
-    note.style.rotate = ((Math.random() * 8) - 4) + "deg"
+  const setListener = () => {
+    let contactCo = document.getElementById("content_contact")
+    contact.value.addEventListener("click", () => {
+        
+        contactCo.scrollIntoView({"behavior": "smooth"})
+    })
+    const navbarExtender = document.querySelectorAll(
+      ".extending_bar"
+    ) as NodeListOf<HTMLElement>;
 
-
-    i = (Math.floor(Math.random() * 2))
-
-    let rectangle = document.getElementById(Categories[index] + "_1") as HTMLElement
-    let triangle = document.getElementById(Categories[index] + "_2") as HTMLElement
-
-    let newColor = RandomArrayIndex(prevColor_, prevColor2_, noteColors.length)
-
-    if (i == 0) {
-      rectangle.classList.add("rectangle")
-      rectangle.style.boxShadow = " -.4rem .5rem .5rem 0 #00000088"
-      rectangle.style.backgroundColor = noteColors[newColor]
-      rectangle.innerText = Categories_ger[index]
-      triangle.classList.add("triangle")
-      triangle.classList.add("triangle_left")
-      triangle.style.borderLeft = "2.25rem solid" + noteColors[newColor]
+    if(window.innerWidth < 1000) {
+        navbar.value?.addEventListener("mouseover", () => {
+                    navbar.value.style.marginLeft = "0rem"
+        })
+        navbar.value?.addEventListener("mouseout", () => {
+                    navbar.value.style.marginLeft = "-13rem"
+        })
     } else {
-      rectangle.classList.add("triangle")
-      rectangle.classList.add("triangle_right")
-      rectangle.style.borderRight = "2.25rem solid" + noteColors[newColor]
-
-      triangle.classList.add("rectangle")
-      triangle.style.boxShadow = " .45rem .5rem .5rem 0 #00000088"
-      triangle.style.backgroundColor = noteColors[newColor]
-      triangle.innerText = Categories_ger[index]
+        shopExt.value.style.marginRight = "auto"
     }
 
-    note.addEventListener("mouseover", () => {
-      note.style.filter = 'brightness(70%)';
-    })
-    note.addEventListener("mouseout", () => {
-      note.style.filter = 'brightness(100%)';
-    })
+    navbarExtender.forEach((navItem, itemIndex) => {
+      navItem.addEventListener("mouseover", () => {
+        if (window.innerWidth >= 1000) {
+          navItem.style.paddingBottom = "32rem";
+          navItem.style.marginTop = "17rem";
+        } else {
+        }
+      });
 
-    prevColor2_ = prevColor_
-    prevColor_ = newColor
-    index = index + 1
-  })
-  container.addEventListener("click", () => {
-    if (window.innerWidth <= 1000 && navbar_open_status.value == false) {
-      container.style.marginLeft = "0"
-    } else if (window.innerWidth <= 1000 && navbar_open_status.value == true) {
-      container.style.marginLeft = "-13rem"
+      navItem.addEventListener("mouseout", () => {
+        navItem.style.paddingBottom = "1rem";
+        navItem.style.marginTop = "1rem";
+      });
+
+      const trigger = navItem.querySelectorAll(".categories");
+
+      trigger.forEach((item, index) => {
+        let corespondent = document.getElementById(
+          CategoriesCorespondent[itemIndex][index]
+        ) as HTMLElement;
+        item.addEventListener("click", () => {
+          if (index == 0) {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+          } else {
+            corespondent.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+    });
+  };
+  setListener();
+
+  watch(
+    () => route.path,
+    (newPath, oldPath) => {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      setListener();
     }
-    navbar_open_status.value = !navbar_open_status.value
-  })
-  document.addEventListener("click", () => {
-    if (window.innerWidth <= 1000 && navbar_open_status.value == true) {
-      navbar_open_status.value = !navbar_open_status.value
-      container.style.marginLeft = "-13rem"
-      return
-    }
-  })
-})
+  );
+});
 
-
+const scrollToContact = () => {
+    
+  }
 </script>
-
 <template>
-  <div class="navbar_fixed" id="navbar_container" @click.stop="openNavbar">
-    <p id="navbar_opener">&#8801;</p>
-    <div class="stick_note note_2" :id="item + '_0'" :data-target="'content_' + item" v-for="item in Categories">
-      <div :id="item + '_1'"><span>_</span></div>
-      <div :id="item + '_2'"><span>_</span></div>
+  <div class="navbar_fixed" id="navbar" ref="navbar">
+    <div class="extending_bar">
+      <router-link :to="{ name: 'homepage' }">
+        <section>Portfolio</section>
+        <section
+          v-for="category in CategoriesPortfolio"
+          class="categories"
+          :id="'nav_' + category"
+        >
+          {{ category }}
+        </section>
+      </router-link>
+    </div>
+
+    <div class="extending_bar" ref="shopExt">
+      <router-link :to="{ name: 'shop' }">
+        <section>Shop</section>
+        <section v-for="category in CategoriesShop" class="categories">
+          {{ category }}
+        </section>
+      </router-link>
+    </div>
+    <div class="contact" id="contact" ref="contact">
+      <section style="margin: 0.5rem 0 4.5rem">Kontakt</section>
     </div>
   </div>
 </template>
-
 <style scoped>
 
+
+.categories, .contact {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.contact {
+    padding-top: 1.1rem;
+}
+
+.categories:hover, .contact:gover {
+  background-color: #4002;
+}
 </style>

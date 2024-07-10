@@ -122,9 +122,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <NewNavbar/>
   <img src="../../media/Arrow-down.svg.png" alt="arrowDown" class="arrowDown" id="arrowDown">
-  <div class="home">
+  <div class="home" id="content_home">
     <Home/>
   </div>
   <div class="personal_container bg_seperator" style="position: absolute" id="content_personal" ref="personal">
@@ -142,7 +141,6 @@ onMounted(async () => {
   </div>
 
   <div class="BG" id="BG2" ref="BG2">
-    <Projects_Images/>
   </div>
 
   <div class="personal_container bg_seperator" id="content_projects" ref="projects">

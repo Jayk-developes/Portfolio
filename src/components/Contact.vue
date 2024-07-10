@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import URI from "urijs";
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 
-onMounted(() =>{
+const paper = ref<HTMLElement|null>(null)
 
+onMounted(() => {
+  paper.value.style.height = paper.value.getBoundingClientRect().width * 1.5 +"px"
 })
 
 const OpenMail = () => {
@@ -25,7 +27,7 @@ const OpenMail = () => {
  <div class="clip-text clip-text_one" id="personal">Kontaktiere Mich!</div>
   <div style="margin-top: 3rem;" class="flex_container">
     <div class="content">
-      <div class="content_paper" id="contact_content">
+      <div class="content_paper" id="contact_content" ref="paper">
         <div class="paper_pin"></div>
         <p style="line-height: 0">Betreff</p>
         <input type="text" placeholder="Betreff" id="Email_subject">
@@ -46,5 +48,16 @@ const OpenMail = () => {
 ::-ms-input-placeholder { /* Edge 12-18 */
   color: red;
 }
+
+input, textarea {
+  width: 80% !important;
+  position: relative !important;
+}
+
+#Email_body {
+  height: 50%;
+}
+
+
 
 </style>

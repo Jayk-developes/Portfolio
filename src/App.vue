@@ -1,15 +1,15 @@
 <script setup lang="ts">
-
+    import Navbar from "./components/Portfolio/NewNavbar.vue";
 
 </script>
 
 <template>
-  <div class="wrapper">
+    <Navbar />
+    <div class="wrapper">
 
-    <router-view />
+        <router-view />
 
-<!--    <Content/>-->
-  </div>
+    </div>
 </template>
 
 <style scoped>

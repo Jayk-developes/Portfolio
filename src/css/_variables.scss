@@ -1,7 +1,7 @@
 @use "sass:color";
 
 //FALLBACK PRIMARY COLOR
-$primary: #412b30 !default;
+$primary: #4e3a3e !default;
 
 
 
@@ -17,8 +17,8 @@ $primary_3_trans: color.change($primary_3, $alpha: 0.6);
 
 $secondary: color.change($primary, $lightness: 30%);
 $secondary: color.adjust($secondary, $hue: 10deg);
-$secondary_2: color.change($primary_2, $lightness: 70%);
-$secondary_3: color.change($primary_3, $lightness: 70%);
+$secondary_2: color.change($primary_2, $lightness: 50%);
+$secondary_3: color.change($primary_3, $lightness: 50%);
 
 $secondary_trans: color.change($secondary, $alpha: 0.6);
 $secondary_2_trans: color.change($secondary_2, $alpha: 0.6);

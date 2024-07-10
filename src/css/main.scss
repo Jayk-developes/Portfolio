@@ -160,34 +160,66 @@ body {
 }
 
 .navbar_fixed {
+  padding: 1rem;
+  font-weight: lighter;
   z-index: 10000000;
   display: flex;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  justify-content: space-evenly;
+  height: 0%;
+  background-color: transparent !important;
+  align-items: center;
   background-color: $secondary;
   transition: $primary_transition_fade;
-  box-shadow: 0 .5rem .5rem 0 #0005;
+
+  div section {
+    color: white;
+  }
 
   p {
     display: none;
   }
-
   @media only screen and (min-width: 1000px) {
-    font-size: $font_small;
-    div, p {
-      font-size: $font_small;
-    }
-  }
-  @media only screen and (min-width: 1200px) {
     font-size: $font_size_all;
     div, p {
       font-size: $font_size_all;
     }
+
+    div {
+      text-align: center;
+      height: 4rem;
+      margin: .5rem 2rem;
+      padding: 1rem 1rem;
+      box-shadow: 0 0 .75rem .125rem #0004;
+      background-color: $secondary_2;
+      border-bottom-left-radius: 1.5rem;
+      border-bottom-right-radius: 1.5rem;
+      transition: $primary_transition_fade;
+      min-width: 20%;
+      white-space: nowrap;
+
+      section:first-child {
+        margin: 0.5rem 0 4.5rem;
+      }
+
+      &:hover {
+        background-color: lighten($secondary_2, 7.4%);
+      }
+    }
   }
+  @media only screen and (min-width: 1600px) {
+    div {
+      min-width: 15%;
+    }
+  }
+
   @media only screen and (max-width: 1000px) {
+    display: block;
+    overflow-y: scroll;
+    align-items:  baseline;
+    background-color: $primary !important;
     border-bottom-right-radius: .5rem;
     border-top-right-radius: .5rem;
     flex-direction: column;
@@ -196,6 +228,20 @@ body {
     top: 10%;
     padding-right: 1rem;
     height: 80%;
+    box-shadow: 0 0 .75rem #0005;
+
+    div {
+      margin-right: 3rem;
+    }
+
+    section, .contact {
+      padding: 0 !important;
+
+      &:first-child {
+        font-size: $font-size_all;
+        margin: 1rem;
+      }
+    }
 
     p {
       color: white;
@@ -227,6 +273,15 @@ body {
 #personal {
   font-size: $font-large;
   padding-bottom: 1.4rem;
+}
+
+.extending_bar {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1000px) {
+    overflow: hidden;
+  }
 }
 
 // ASSETS
@@ -295,7 +350,7 @@ body {
       }
     }
 
-    &_text {
+    &_t  {
       background-color: $contrast_trans;
       font-size: $font_mid;
       color: white;
@@ -555,6 +610,8 @@ body {
   }
 
   @media only screen and (min-width: 1200px) {
+    width: 35%;
+    margin: 3rem;
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 30px, #78878d 31px, #eadbcf 32px) !important;
       font-size: $font_mid !important;
@@ -567,7 +624,8 @@ body {
   }
 
   @media only screen and (min-width: 1500px) {
-    width: 30%;
+    width: 27%;
+    margin: 3rem;
     #v-html_content {
       background: repeating-linear-gradient(#eadbcf, #eadbcf 36px, #78878d 37px, #eadbcf 38px) !important;
       font-size: $font_mid !important;
@@ -696,11 +754,11 @@ body {
   }
 
   @media only screen and (min-width: 1185px) {
-    width: 37.5%;
+    width: 28%;
     line-height: 1.2rem;
     p {
       color: black;
-      font-size: $font_size_all;
+      font-size: $font_size_all !important;
 
       &:first-child {
         text-align: center;
@@ -812,6 +870,11 @@ body {
   @media only screen and (min-width: 1250px) {
     width: 33%;
     margin: 4%;
+  }  
+  
+  @media only screen and (min-width: 1450px) {
+    width: 27%;
+    margin: 4%;
   }
 
   .content_polaroid_inside {
@@ -876,14 +939,13 @@ body {
       }
       @media only screen and (min-width: 1480px) {
         line-height: 1.2rem;
-        font-size: $font_size_all;
         &:first-child {
           font-size: $font_mid;
         }
       }
-      @media only screen and (min-width: 1820px) {
+      @media only screen and (min-width: 1920px) {
         line-height: 1.4rem;
-        font-size: $font_mid;
+        font-size: $font_size_all;
         &:first-child {
           font-size: $font_mid;
         }
@@ -990,6 +1052,7 @@ body {
   position: relative;
   width: 90%;
   display: flex;
+  white-space: nowrap !important;
 
   @media only screen and (min-width: 1000px) {
     width: 35%;
@@ -1059,6 +1122,7 @@ body {
 }
 
 .shopButton {
+  margin: 3rem;
   font-family: "Lucida Console", Geneva, Verdana, Monaco, Copperplate, Papyrus, fantasy, sans-serif;
   margin-top: 2rem;
   display: flex;
@@ -1079,6 +1143,14 @@ body {
 
     .arrowShop {
       filter: invert(100%) drop-shadow(0 0 .25rem $complimentary);
+      animation: leftAndRight 2s infinite;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    font-size: $font-size_all;
+    
+    .arrowShop {
       animation: leftAndRight 2s infinite;
     }
   }

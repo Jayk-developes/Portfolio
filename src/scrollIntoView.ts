@@ -1,10 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-    let nav_home = document.getElementById("nav_home") as HTMLElement
-    let nav_personal = document.getElementById("nav_personal_data") as HTMLElement
-    let nav_CV = document.getElementById("nav_CV") as HTMLElement
-    let nav_skills = document.getElementById("nav_skills") as HTMLElement
-    let nav_contact = document.getElementById("nav_contact") as HTMLElement
-    let nav_project = document.getElementById("nav_project") as HTMLElement
+
+    console.log("UWU");
+    
+    
+    let nav_home = document.getElementById("nav_Home") as HTMLElement
+    let nav_personal = document.getElementById("nav_Ich") as HTMLElement
+    let nav_CV = document.getElementById("nav_Lebenslauf") as HTMLElement
+    let nav_skills = document.getElementById("nav_Skills") as HTMLElement
+    let nav_contact = document.getElementById("nav_Contact") as HTMLElement
+    let nav_project = document.getElementById("nav_Projekte") as HTMLElement
     let arrowDown = document.getElementById("arrowDown") as HTMLElement
     let date_contact = document.getElementById("contactButton")
 
@@ -22,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         personal_data.scrollIntoView({behavior: "smooth"})
     })
     arrowDown.addEventListener("click", () => {
+        console.log("EXEC");
+        
         personal_data.scrollIntoView({behavior: "smooth"})
 
     })

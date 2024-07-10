@@ -1,30 +1,36 @@
 <script setup lang="ts">
-import {ref} from "vue";
+    import { ref } from "vue";
     import router from "../../router";
-import RandomArrayIndex from "../../assets.ts";
+    import RandomArrayIndex from "../../assets.ts";
 
-const Categories = ["Commisions", "T-ShirtDesigner", "TattooDesigner", "WebsiteDesigner"]
-const Categories_ger = ["Commisions", "T-Shirt", "Tattoo", "Website"]
-const noteColors = [
-  "#FFBBBB",
-  "#BBFFBB",
-  "#BBBBFF",
-  "#FFFFBB",
-  "#FFBBFF",
-  "#BBFFFF"
-]
+    const Categories = ["home", "personal", "cv", "skills", "projects", "open_for", "contact", "Commisions", "T-ShirtDesigner", "TattooDesigner", "WebsiteDesigner"]
+    const Categories_ger = ["Home", "Persönliches", "Lebenslauf", "Skills", "Projekte", "Offen Für", "Kontakt", "Commisions", "T-Shirt", "Tattoo", "Website"]
+    const noteColors = [
+        "#FFBBBB",
+        "#BBFFBB",
+        "#BBBBFF",
+        "#FFFFBB",
+        "#FFBBFF",
+        "#BBFFFF"
+    ]
 
-const navbar_open_status = ref(false)
+    const navbar_open_status = ref(false)
 
     document.addEventListener("DOMContentLoaded", () => {
-        const loadNav = () => {
+        const loadNav = (from: number, to: number) => {
             let notes = document.querySelectorAll(".note_2")
             let container = document.getElementById("navbar_container") as HTMLElement
             let i: number = 0
             let index: number = 0
             let prevColor_: number;
             let prevColor2_: number;
-            notes.forEach((note) => {
+
+            notes.forEach((note, j) => {
+                if(j < from || j > to) {
+
+                    note.style.display = "none"
+                } else {
+                note.style.display = "block"
                 note.style.rotate = ((Math.random() * 8) - 4) + "deg"
 
 
@@ -64,6 +70,7 @@ const navbar_open_status = ref(false)
                 prevColor2_ = prevColor_
                 prevColor_ = newColor
                 index = index + 1
+                }
             })
             container.addEventListener("click", () => {
                 if (window.innerWidth <= 1000 && navbar_open_status.value == false) {
@@ -80,22 +87,35 @@ const navbar_open_status = ref(false)
                     return
                 }
             })
+
         }
-        loadNav()
+        if (router.currentRoute._value.path == "/")  {
+                loadNav(0, 6)
+            } else if (router.currentRoute._value.path == "/shop") {
+                loadNav(7, 10)
+            }
+
+
+        router.beforeEach((to, from) => {
+            if (to == "/") {
+                loadNav(0, 6)
+            } else if (to == "/shop") {
+                loadNav(7, 10)
+            }
+        })
     });
 
 </script>
 
 <template>
-  <div class="navbar_fixed" id="navbar_container" @click.stop="openNavbar">
-    <p id="navbar_opener">&#8801;</p>
-    <div class="stick_note note_2" :id="item + '_0'" :data-target="'content_' + item" v-for="item in Categories">
-      <div :id="item + '_1'"><span>_</span></div>
-      <div :id="item + '_2'"><span>_</span></div>
+    <div class="navbar_fixed" id="navbar_container" @click.stop="openNavbar">
+        <p id="navbar_opener">&#8801;</p>
+        <div class="stick_note note_2" :id="item + '_0'" :data-target="'content_' + item" v-for="item in Categories">
+            <div :id="item + '_1'"><span>_</span></div>
+            <div :id="item + '_2'"><span>_</span></div>
+        </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
-
 </style>
