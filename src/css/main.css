@@ -676,14 +676,14 @@ body {
     width: 40%;
   }
 }
-@media only screen and (min-width: 1185px) {
+@media only screen and (min-width: 1300px) {
   .content_postit {
     width: 28%;
-    line-height: 1.2rem;
+    line-height: 1rem;
   }
   .content_postit p {
     color: black;
-    font-size: 1.2rem !important;
+    font-size: 0.7rem;
   }
   .content_postit p:first-child {
     text-align: center;
@@ -694,10 +694,10 @@ body {
     font-weight: bold;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1560px) {
   .content_postit p {
-    line-height: 1.65rem;
-    font-size: 1.6rem;
+    line-height: 1rem;
+    font-size: 1.2rem;
   }
   .content_postit p:first-child {
     padding-top: 1.5rem;
@@ -858,12 +858,13 @@ body {
 @media only screen and (min-width: 1480px) {
   .content_polaroid .content_polaroid_inside p {
     line-height: 1.2rem;
+    font-size: 0.7rem;
   }
   .content_polaroid .content_polaroid_inside p:first-child {
     font-size: 1.6rem;
   }
 }
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1800px) {
   .content_polaroid .content_polaroid_inside p {
     line-height: 1.4rem;
     font-size: 1.2rem;
@@ -873,65 +874,19 @@ body {
   }
 }
 
-@media only screen and (min-width: 450px) {
-  .skills p {
-    font-size: 1.2rem !important;
-    line-height: 1.2rem !important;
+@media screen and (min-width: 1480px) {
+  #project_content {
+    font-size: 0.7rem;
   }
 }
-@media only screen and (min-width: 600px) {
-  .skills p {
-    font-size: 1.6rem !important;
-    line-height: 1.5rem !important;
-  }
-  .skills p:first-child {
-    font-size: 2.2rem !important;
-  }
-}
-@media only screen and (min-width: 800px) and (max-width: 999px) {
-  .skills p {
-    font-size: 1.6rem !important;
-    line-height: 1.8rem !important;
-  }
-  .skills p:first-child {
-    font-size: 2.2rem !important;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .skills p {
-    font-size: 1.2rem !important;
-    line-height: 1.2rem !important;
-  }
-  .skills p:first-child {
-    font-size: 1.6rem !important;
-  }
-}
-@media only screen and (min-width: 1150px) {
-  .skills p {
-    font-size: 1.2rem !important;
-    line-height: 1.4rem;
-  }
-  .skills p:first-child {
-    font-size: 1.6rem !important;
-  }
-}
-@media only screen and (min-width: 1440px) {
-  .skills p {
-    font-size: 1.6rem !important;
-    line-height: 1.3rem !important;
-  }
-  .skills p:first-child {
-    font-size: 2.2rem !important;
-  }
-}
-@media only screen and (min-width: 1700px) {
-  .skills p {
-    line-height: 1.7rem !important;
+@media screen and (min-width: 1880px) {
+  #project_content {
+    font-size: 1.2rem;
   }
 }
 
 .transparent_text p {
-  color: transparent !important;
+  color: transparent;
 }
 
 .paper_pin {

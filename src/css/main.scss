@@ -753,12 +753,12 @@ body {
     width: 40%;
   }
 
-  @media only screen and (min-width: 1185px) {
+  @media only screen and (min-width: 1300px) {
     width: 28%;
-    line-height: 1.2rem;
+    line-height: 1rem;
     p {
       color: black;
-      font-size: $font_size_all !important;
+      font-size: $font_small;
 
       &:first-child {
         text-align: center;
@@ -770,10 +770,10 @@ body {
       }
     }
   }
-  @media only screen and (min-width: 1440px) {
+  @media only screen and (min-width: 1560px) {
     p {
-      line-height: 1.65rem;
-      font-size: $font_mid;
+      line-height: 1rem;
+      font-size: $font_size_all;
 
       &:first-child {
         padding-top: 1.5rem;
@@ -939,11 +939,12 @@ body {
       }
       @media only screen and (min-width: 1480px) {
         line-height: 1.2rem;
+        font-size: $font_small;
         &:first-child {
           font-size: $font_mid;
         }
       }
-      @media only screen and (min-width: 1920px) {
+      @media only screen and (min-width: 1800px) {
         line-height: 1.4rem;
         font-size: $font_size_all;
         &:first-child {
@@ -954,57 +955,19 @@ body {
   }
 }
 
-.skills p {
-  @media only screen and (min-width: 450px) {
-    font-size: $font_size_all !important;
-    line-height: 1.2rem !important;
+#project_content{
+  @media screen and (min-width: 1480px) {
+    font-size: $font-small;
   }
-
-  @media only screen and (min-width: 600px) {
-    font-size: $font-mid !important;
-    line-height: 1.5rem !important;
-    &:first-child {
-      font-size: $font_large !important;
-    }
-  }
-  @media only screen and (min-width: 800px) and (max-width: 999px) {
-    font-size: $font-mid !important;
-    line-height: 1.8rem !important;
-    &:first-child {
-      font-size: $font_large !important;
-    }
-  }
-
-  @media only screen and (min-width: 1000px) {
-    font-size: $font-size_all !important;
-    line-height: 1.2rem !important;
-    &:first-child {
-      font-size: $font_mid !important;
-    }
-  }
-
-  @media only screen and (min-width: 1150px) {
-    font-size: $font-size_all !important;
-    line-height: 1.4rem;
-    &:first-child {
-      font-size: $font_mid !important;
-    }
-  }
-  @media only screen and (min-width: 1440px) {
-    font-size: $font-mid !important;
-    line-height: 1.3rem !important;
-    &:first-child {
-      font-size: $font_large !important;
-    }
-  }
-  @media only screen and (min-width: 1700px) {
-    line-height: 1.7rem !important;
+   @media screen and (min-width: 1880px) {
+    font-size: $font-size_all;
   }
 }
 
+
 .transparent_text {
   p {
-    color: transparent !important;
+    color: transparent ;
   }
 }
 

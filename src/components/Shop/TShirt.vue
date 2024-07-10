@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { useRoute } from "vue-router";
 import LoopLeftRight from "./LoopLeftRight.vue";
-import {ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 
 let tshirtColors = [
   "#fff",
@@ -27,7 +28,10 @@ const scaler = ref<HTMLElement | null>(null)
 const selectedImageContainer = ref<HTMLElement | null>(null)
 
 const loadReactivity = async () => {
+  svgTshirt.value = document.getElementById("svgTshirt")
   if (svgTshirt.value) {
+    svgTshirt.value.style.width = "100%"
+    
     svgTshirt.value.style.height = svgTshirt.value.getBoundingClientRect().width * 1.25 + "px"
     while (!svgTshirtFill.value) {
       svgTshirtFill.value = svgTshirt.value.contentWindow.document.getElementById("tshirtFill")
@@ -75,8 +79,7 @@ const showImage = (image) => {
     scaler.value.style.opacity = "1"
   }
 }
-
-document.addEventListener("DOMContentLoaded", async () => {
+onMounted(async () => {
   await loadReactivity()
   window.addEventListener("resize", async () => {
     await loadReactivity()
