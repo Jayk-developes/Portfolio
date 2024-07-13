@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
 import LoopLeftRight from "./LoopLeftRight.vue";
-import { onMounted, ref, watch } from "vue";
+import { onMounted, ref } from "vue";
 
 let tshirtColors = [
   "#fff",
@@ -191,7 +190,6 @@ onMounted(async () => {
       const initImgSize = parseInt(selectedImage.value.style.height);
       const marginTop = parseInt(scaler.value.style.marginTop) || 0;
       const initMousePosY = mouseEvent.screenY;
-      const initMousePosX = mouseEvent.screenX;
 
       scaler.value.style.opacity = "0";
 
@@ -297,7 +295,7 @@ onMounted(async () => {
           <img src="src/media/shop/cameraIcon.png" alt="" />
         </div>
         <div id="save" style="background-color: #99f">
-          <img src="src/media/shop/saveIcon.png" alt="" />
+          <img src="src/media/shop/ShoppingIcon.png" alt="" />
         </div>
       </div>
     </div>
@@ -348,7 +346,7 @@ onMounted(async () => {
     background-color: #fff;
     border-radius: 50%;
     overflow: hidden;
-    box-shadow: 0 0 0.5rem 0.25rem #0007 inset;
+    box-shadow: 0 0 0.5rem #0007 inset;
     cursor: pointer;
     transition: all ease-in-out 0.2s;
     border: transparent;

@@ -18,6 +18,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@types/urijs": "^1.19.25",
     "@vitejs/plugin-vue": "^4.2.3",
     "cross-env": "^5.0.5",
     "increase-memory-limit": "^1.0.3",

@@ -35,9 +35,6 @@ const resizeObject = (obj: HTMLElement, obj2: HTMLElement) => {
   if (window.innerWidth > window.innerHeight) {
     obj.style.height = window.innerHeight - 128 + "px";
     obj.style.width = "auto";
-  } else {
-    obj.style.width = window.innerWidth - 64 + "px";
-    obj.style.height = "auto";
   }
   if (window.innerWidth <= obj.getBoundingClientRect().width * 2) {
     obj.style.float = "right";
@@ -67,7 +64,6 @@ onMounted(async () => {
     digitalArtPriceList.value &&
     useRoute().path == "/shop"
   ) {
-    console.log(useRoute().path);
 
     resizeObject(priceObjectDigital.value, digitalArtPriceList.value);
     await new Promise((r) => setTimeout(r, 500));

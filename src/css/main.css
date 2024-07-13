@@ -65,6 +65,7 @@ body {
   /* Color fallback */
   color: #fff;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 @media only screen and (min-width: 600px) {
@@ -170,7 +171,8 @@ body {
   .navbar_fixed {
     font-size: 1.2rem;
   }
-  .navbar_fixed div, .navbar_fixed p {
+  .navbar_fixed div,
+  .navbar_fixed p {
     font-size: 1.2rem;
   }
   .navbar_fixed div {
@@ -189,8 +191,11 @@ body {
   .navbar_fixed div section:first-child {
     margin: 0.5rem 0 4.5rem;
   }
-  .navbar_fixed div:hover {
-    background-color: #a28482;
+  .navbar_fixed div section:first-child:hover {
+    background-color: transparent;
+  }
+  .navbar_fixed div section:hover {
+    background-color: rgba(0, 0, 0, 0.0666666667);
   }
 }
 @media only screen and (min-width: 1600px) {
@@ -217,10 +222,12 @@ body {
   .navbar_fixed div {
     margin-right: 3rem;
   }
-  .navbar_fixed section, .navbar_fixed .contact {
+  .navbar_fixed section,
+  .navbar_fixed .contact {
     padding: 0 !important;
   }
-  .navbar_fixed section:first-child, .navbar_fixed .contact:first-child {
+  .navbar_fixed section:first-child,
+  .navbar_fixed .contact:first-child {
     font-size: 1.2rem;
     margin: 1rem;
   }
@@ -236,6 +243,39 @@ body {
   .navbar_fixed p:hover {
     color: #4ea090;
   }
+}
+
+.contact section {
+  padding: 0.25rem;
+  margin-top: 0.25rem !important;
+  border-radius: 1rem;
+  transition: all ease-in-out 0.2s;
+}
+.contact section:hover {
+  background-color: rgba(0, 0, 0, 0.1333333333) !important;
+}
+
+.TattooPriceList {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.TattooPriceList section {
+  background-color: rgba(255, 255, 255, 0.2666666667);
+  border-radius: 0.5rem;
+  max-width: 30rem;
+  padding: 1em;
+  margin: 1em;
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: 80% auto;
+}
+.TattooPriceList section div {
+  font-size: 1.2em;
+  font-weight: 100;
+}
+.TattooPriceList section div:nth-child(even) {
+  justify-self: start;
 }
 
 .personal_container {
@@ -328,12 +368,17 @@ body {
   width: 90%;
   border-radius: 0.25rem;
 }
+@media screen and (max-width: -1px) {
+  .BG .loop_1 {
+    background-color: white;
+  }
+}
 .BG #pfeil {
   z-index: 100;
   color: black;
   position: relative;
   font-size: 6rem;
-  text-shadow: 1px 0 0 #FFF, 0 -1px 0 #FFF, 0 1px 0 #FFF, -1px 0 0 #FFF;
+  text-shadow: 1px 0 0 #fff, 0 -1px 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff;
 }
 
 .zeugnis_button {
@@ -428,6 +473,12 @@ body {
     top: 85%;
   }
 }
+@media screen and (max-width: -1px) {
+  .loop_2 {
+    background-color: white;
+  }
+}
+
 .flex_container {
   display: flex;
   justify-content: center;
@@ -733,6 +784,12 @@ body {
   }
 }
 
+@media screen and (max-width: -1px) {
+  .note_note {
+    background-color: white;
+  }
+}
+
 .content_polaroid {
   width: -webkit-fill-available;
   width: -moz-available;
@@ -902,6 +959,12 @@ body {
   background: radial-gradient(circle, rgba(0, 0, 0, 0.6530987395) 0%, rgba(0, 0, 0, 0.7007177871) 40%, rgb(0, 0, 0) 41%, rgba(0, 0, 0, 0.6026785714) 56%, rgba(0, 0, 0, 0.4458158263) 64%, rgba(0, 0, 0, 0.7119222689) 75%, rgb(0, 0, 0) 100%);
 }
 
+@media screen and (max-width: -1px) {
+  .note {
+    background-color: white;
+  }
+}
+
 .note_2 {
   padding: 0 0.5rem;
   transition: all ease-in-out 0.2s;
@@ -912,6 +975,11 @@ body {
 .note_2 .triangle {
   border-top: 1rem solid transparent;
   border-bottom: 1rem solid transparent;
+}
+@media screen and (max-width: -1px) {
+  .note_2 .triangle_left {
+    background-color: white;
+  }
 }
 .note_2 .triangle_right {
   margin: 1rem -0.2rem 1rem 0;

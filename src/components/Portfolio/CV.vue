@@ -44,9 +44,9 @@ const CV = [
 ];
 onMounted(() => {
   const CVLoaded = () => {
-    let postits = document.querySelectorAll(".content_postit");
-    let prevColor: int;
-    let prevColor2: int;
+    let postits = document.querySelectorAll(".content_postit") as NodeListOf<HTMLElement>
+    let prevColor: number;
+    let prevColor2: number;
 
     postits.forEach((postit) => {
       let newColor = RandomArrayIndex(

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, watch, ref } from "vue";
+import { ref, watch } from "vue";
 import { useRoute } from "vue-router";
 
 const CategoriesPortfolio = [
@@ -37,24 +37,33 @@ const contact = ref<HTMLElement | null>(null);
 
 document.addEventListener("DOMContentLoaded", () => {
   const setListener = () => {
-    let contactCo = document.getElementById("content_contact")
-    contact.value.addEventListener("click", () => {
-        
-        contactCo.scrollIntoView({"behavior": "smooth"})
-    })
+    let contactCo = document.getElementById("content_contact");
+    if (contact.value) {
+      contact.value.addEventListener("click", () => {
+        if (contactCo) {
+          contactCo.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
     const navbarExtender = document.querySelectorAll(
       ".extending_bar"
     ) as NodeListOf<HTMLElement>;
 
-    if(window.innerWidth < 1000) {
-        navbar.value?.addEventListener("mouseover", () => {
-                    navbar.value.style.marginLeft = "0rem"
-        })
-        navbar.value?.addEventListener("mouseout", () => {
-                    navbar.value.style.marginLeft = "-13rem"
-        })
+    if (window.innerWidth < 1000) {
+      navbar?.value?.addEventListener("mouseover", () => {
+        if (navbar.value) {
+          navbar.value.style.marginLeft = "0rem";
+        }
+      });
+      navbar.value?.addEventListener("mouseout", () => {
+        if (navbar.value) {
+          navbar.value.style.marginLeft = "-13rem";
+        }
+      });
     } else {
-        shopExt.value.style.marginRight = "auto"
+      if (shopExt.value) {
+        shopExt.value.style.marginRight = "auto";
+      }
     }
 
     navbarExtender.forEach((navItem, itemIndex) => {
@@ -91,16 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   watch(
     () => route.path,
-    (newPath, oldPath) => {
+    () => {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       setListener();
     }
   );
 });
-
-const scrollToContact = () => {
-    
-  }
 </script>
 <template>
   <div class="navbar_fixed" id="navbar" ref="navbar">
@@ -131,9 +136,8 @@ const scrollToContact = () => {
   </div>
 </template>
 <style scoped>
-
-
-.categories, .contact {
+.categories,
+.contact {
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
@@ -142,10 +146,6 @@ const scrollToContact = () => {
 }
 
 .contact {
-    padding-top: 1.1rem;
-}
-
-.categories:hover, .contact:gover {
-  background-color: #4002;
+  padding-top: 1.1rem;
 }
 </style>
