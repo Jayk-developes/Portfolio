@@ -262,7 +262,7 @@ onMounted(async () => {
           />
           <div class="scaler" ref="scaler" draggable="false">
             <img
-              src="src/media/shop/resizeIcon.png"
+              src="../../media/shop/resizeIcon.png"
               draggable="false"
               alt=""
               class="scaleIcon"
@@ -273,14 +273,14 @@ onMounted(async () => {
           class="tshirt"
           ref="svgTshirt"
           id="svgTshirt"
-          src="src/media/shop/tshirt/tshirt.svg"
+          src="/media/shop/tshirt/tshirt.svg"
           width="100%"
           height="auto"
         ></iframe>
       </div>
       <div id="rightSelect" class="selector">
         <div id="localFile">
-          <img src="src/media/shop/imgIcon.png" alt="" /><input
+          <img src="../../media/shop/imgIcon.png" alt="" /><input
             type="file"
             name="selectFile"
             id="selectFile"
@@ -289,13 +289,13 @@ onMounted(async () => {
           />
         </div>
         <div id="internetFile">
-          <img src="src/media/shop/linkIcon.png" alt="" />
+          <img src="../../media/shop/linkIcon.png" alt="" />
         </div>
         <div id="takeFotoFile">
-          <img src="src/media/shop/cameraIcon.png" alt="" />
+          <img src="../../media/shop/cameraIcon.png" alt="" />
         </div>
         <div id="save" style="background-color: #99f">
-          <img src="src/media/shop/ShoppingIcon.png" alt="" />
+          <img src="../../media/shop/ShoppingIcon.png" alt="" />
         </div>
       </div>
     </div>

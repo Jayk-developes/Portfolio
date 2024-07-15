@@ -11,13 +11,11 @@ const polaroidColors = [
     "#BBFFFF"
 ]
 
-let project_sensor = ref(false)
-let project_redesign = ref(false)
 let project_portfolio = ref(false)
 let project_mockup = ref(false)
 let project_algorithmus = ref(false)
 
-let projectActives = [project_sensor, project_redesign, project_portfolio, project_mockup, project_algorithmus]
+let projectActives = [project_portfolio, project_mockup, project_algorithmus]
 
 onMounted(() =>{
 
@@ -108,20 +106,6 @@ const projects = [
     </div>
   </div>
 
-  <div v-if="project_sensor" class="show_cert">
-    <div class="close_cert" @click="project_sensor = false">&#10005;</div>
-    <div class="cert_container">
-      <img src="../../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
-    </div>
-  </div>
-  <div v-if="project_redesign" class="show_cert">
-    <div class="close_cert" @click="project_redesign = false">&#10005;</div>
-    <div class="cert_container">
-      <img src="../../media/projects/RedesignedCss.png" alt="Redesign" class="projects">
-      <img src="../../media/projects/RedesignedCss_2.png" alt="Redesign_2" class="projects">
-      <img src="../../media/projects/RedesignCss_3.png" alt="Redesign_3" class="projects">
-    </div>
-  </div>
   <div v-if="project_portfolio" class="show_cert">
     <div class="close_cert" @click="project_portfolio = false">&#10005;</div>
     <div class="cert_container">
