@@ -1,7 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
-
-    console.log("UWU");
-    
+document.addEventListener("DOMContentLoaded", () => {  
     
     let nav_home = document.getElementById("nav_Home") as HTMLElement
     let nav_personal = document.getElementById("nav_Ich") as HTMLElement

@@ -24,22 +24,22 @@ const TattooPriceList = ref<HTMLDivElement | null>(null);
 const digitalArtHead = ref<HTMLElement | null>(null);
 const digitalArtTorso = ref<HTMLElement | null>(null);
 const digitalArtFull = ref<HTMLElement | null>(null);
-    const windowWidth = ref<string>("0px");
+const windowWidth = ref<string>("0px");
 const priceList = [
-  { Klein: "12€", Mittel: "18€", Gross: "25€"},
-  { Skizze: "+0€", Lineart: "+7€", Einfarbig: "+12€"},
-  { Skizze: "+0€", Lineart: "+7€", Schwarz: "+12€"},
+  { Klein: "12€", Mittel: "18€", Gross: "25€" },
+  { Skizze: "+0€", Lineart: "+7€", Einfarbig: "+12€" },
+  { Skizze: "+0€", Lineart: "+7€", Schwarz: "+12€" },
 ];
 
 const resizeObject = (obj: HTMLElement, obj2: HTMLElement) => {
-    windowWidth.value = window.innerWidth * 0.96 + "px";
+  windowWidth.value = window.innerWidth * 0.96 + "px";
   obj.style.width = window.innerWidth * 0.65 + "px";
 
   if (TattooPriceList.value) {
     let list = TattooPriceList.value.querySelectorAll("section");
     if (window.innerWidth > 650) {
       list.forEach((item) => {
-        item.style.fontSize = window.innerWidth * 0.01 + "px"
+        item.style.fontSize = window.innerWidth * 0.01 + "px";
       });
     }
   }
@@ -51,12 +51,16 @@ const resizeObject = (obj: HTMLElement, obj2: HTMLElement) => {
   }
   obj2.style.height = obj.getBoundingClientRect().height + "px";
 
-  if (digitalArtHead.value && digitalArtTorso.value && digitalArtFull.value && digitalArtPriceList.value
+  if (
+    digitalArtHead.value &&
+    digitalArtTorso.value &&
+    digitalArtFull.value &&
+    digitalArtPriceList.value
   ) {
     digitalArtHead.value.style.marginTop =
-      digitalArtPriceList.value.getBoundingClientRect().height * -.4 + "px";
+      digitalArtPriceList.value.getBoundingClientRect().height * -0.4 + "px";
     digitalArtTorso.value.style.marginTop =
-      digitalArtPriceList.value.getBoundingClientRect().height * .2 + "px";
+      digitalArtPriceList.value.getBoundingClientRect().height * 0.2 + "px";
     digitalArtFull.value.style.marginTop =
       digitalArtPriceList.value.getBoundingClientRect().height * 0.8 + "px";
   }
@@ -95,13 +99,13 @@ onMounted(async () => {
     <div id="digitalArtPriceList" ref="digitalArtPriceList">
       <div class="TattooPriceList" ref="TattooPriceList">
         <div class="priceList" ref="digitalArtHead">
-            <PriceListContainer :price-list="priceList[0]" title="Größe"/>
+          <PriceListContainer :price-list="priceList[0]" title="Größe" />
         </div>
         <div class="priceList" ref="digitalArtTorso">
-            <PriceListContainer :price-list="priceList[1]"  title="Details"/>
+          <PriceListContainer :price-list="priceList[1]" title="Details" />
         </div>
-        <div class="priceList" ref="digitalArtFull" >
-            <PriceListContainer :price-list="priceList[2]" title="Schattierung"/>
+        <div class="priceList" ref="digitalArtFull">
+          <PriceListContainer :price-list="priceList[2]" title="Schattierung" />
         </div>
       </div>
 

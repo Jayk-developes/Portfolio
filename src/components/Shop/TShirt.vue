@@ -273,7 +273,7 @@ onMounted(async () => {
           class="tshirt"
           ref="svgTshirt"
           id="svgTshirt"
-          src="/media/shop/tshirt/tshirt.svg"
+          src="src/media/shop/tshirt/tshirt.svg"
           width="100%"
           height="auto"
         ></iframe>

@@ -11,6 +11,7 @@
     "increase_limit": "cross-env LIMIT=2048 increase-memory-limit"
   },
   "dependencies": {
+    "pinia": "^2.1.7",
     "sass": "^1.72.0",
     "urijs": "^1.19.11",
     "volar": "^0.0.2",

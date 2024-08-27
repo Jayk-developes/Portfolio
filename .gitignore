@@ -1,0 +1,3 @@
+src/**/*.js
+src/**/*.cjs
+/node_modules

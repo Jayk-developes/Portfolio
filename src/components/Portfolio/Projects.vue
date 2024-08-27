@@ -19,11 +19,11 @@ let projectActives = [project_portfolio, project_mockup, project_algorithmus]
 
 onMounted(() =>{
 
-  let polaroids = document.querySelectorAll(".content_polaroid")
+  let polaroids = document.querySelectorAll(".content_polaroid") as NodeListOf<HTMLDivElement>
   let polaroids_inside = document.querySelectorAll(".no_real_class_1")
 
-  let prevColor: int;
-  let prevColor2: int;
+  let prevColor: number;
+  let prevColor2: number;
 
   polaroids.forEach((polaroid) => {
 
@@ -40,10 +40,10 @@ onMounted(() =>{
     i = i + 1
   })
 
-  let notes = document.querySelectorAll(".project_note")
+  let notes = document.querySelectorAll(".project_note") as NodeListOf<HTMLDivElement>
   let index = 0
-  let prevColor_: int;
-  let prevColor2_: int;
+  let prevColor_: number;
+  let prevColor2_: number;
   notes.forEach((note) => {
     note.style.rotate = ((Math.random() * 8) - 4) + "deg"
 
@@ -125,7 +125,7 @@ const projects = [
   <div v-if="project_algorithmus" class="show_cert">
     <div class="close_cert" @click="project_algorithmus = false">&#10005;</div>
     <div class="cert_container">
-      <img src="../../media/projects/axisAlerting.png" alt="axisAlerting" class="projects">
+      <img src="#" alt="" class="projects">
     </div>
   </div>
 </template>
